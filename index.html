@@ -7,7 +7,7 @@
 <title>🎉 ¡Cumpleaños de Axel! 🍄</title>
 
 <!-- Fuente estilo Arcade / 8-bits de Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://googleapis.com" rel="stylesheet">
 
 <style>
 /* =========================
@@ -29,7 +29,7 @@ body {
   color: #222;
   /* Fondo Celeste Oficial del juego clásico */
   background-color: #5c94fc; 
-  padding-bottom: 60px; /* Espacio para el suelo fijo */
+  padding-bottom: 70px; /* Espacio para el suelo fijo */
 }
 
 /* =========================
@@ -52,7 +52,7 @@ body {
 .cloud2 {
   top: 20%;
   animation-duration: 50s;
-  animation-delay: -15s; /* Empieza a mitad de camino */
+  animation-delay: -15s;
 }
 
 @keyframes moverNube {
@@ -71,8 +71,8 @@ body {
   pointer-events: none;
 }
 
-.coin1 { left: 4%; top: 15%; }
-.coin2 { right: 5%; top: 28%; animation-delay: 0.8s; }
+.coin1 { left: 4%; top: 30%; }
+.coin2 { right: 5%; top: 40%; animation-delay: 0.8s; }
 
 @keyframes moneda {
   0%, 100% { transform: translateY(0) rotateY(0deg); }
@@ -94,7 +94,7 @@ body {
   font-weight: bold;
   background: #fcbc34;
   color: #fff;
-  border: 4px solid #000; /* Borde negro para estilo píxel definido */
+  border: 4px solid #000;
   border-radius: 4px;
   box-shadow: inset -4px -4px 0 #b87800, inset 4px 4px 0 #fff060;
   animation: flotarBloque 2.5s ease-in-out infinite;
@@ -128,8 +128,8 @@ body {
   background: #ffffff;
   border-radius: 12px;
   padding: 30px 18px 25px;
-  border: 6px solid #000; /* Borde arcade grueso */
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 6px solid #000; 
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Adorno de ladrillos pixelados arriba de la tarjeta */
@@ -137,33 +137,57 @@ body {
   background: #e52521;
   color: #fff;
   text-align: center;
-  padding: 6px;
-  font-size: 9px;
+  padding: 8px;
+  font-size: 10px;
   border: 4px solid #000;
   border-radius: 6px;
   margin-bottom: 15px;
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 2px 2px 0 #000;
 }
 
 /* =========================
-   TEXTOS Y TIPOGRAFÍAS
+   PERSONAJES Y ELEMENTOS (CSS ART / RETRO)
 ========================= */
-.header-icons {
-  font-size: 40px;
-  animation: rebote 1.5s infinite ease-in-out;
-  text-align: center;
-  margin-bottom: 10px;
+.character-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px 0;
+  background: #f0f0f0;
+  border: 4px solid #000;
+  border-radius: 8px;
+  padding: 10px 5px;
 }
 
-@keyframes rebote {
+.char-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.8rem;
+  animation: saltito 2s infinite ease-in-out;
+}
+
+.char-item span:last-child {
+  font-size: 8px;
+  color: #000;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.char-item:nth-child(1) { animation-delay: 0s; }
+.char-item:nth-child(2) { animation-delay: 0.3s; }
+.char-item:nth-child(3) { animation-delay: 0.6s; }
+.char-item:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes saltito {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-12px); }
 }
 
 h1 {
   margin: 15px 0 5px;
-  font-size: 2rem;
-  color: #e52521; /* Rojo Mario */
+  font-size: 2.2rem;
+  color: #e52521; 
   text-align: center;
   text-shadow: 3px 3px 0 #000;
   letter-spacing: 1px;
@@ -172,7 +196,7 @@ h1 {
 .subtitle {
   font-size: 0.65rem;
   font-weight: bold;
-  color: #00a2e8; /* Azul claro */
+  color: #00a2e8; 
   text-align: center;
   margin-bottom: 20px;
   text-shadow: 1px 1px 0 #000;
@@ -200,17 +224,11 @@ h1 {
   color: white;
   font-size: 14px;
   box-shadow: inset -2px -2px 0 #b87800;
-  animation: saltoBloque 1.8s infinite ease-in-out;
 }
 
-.block-mini:nth-child(2) { animation-delay: .2s; background: #e52521; } /* Bloque Rojo */
-.block-mini:nth-child(3) { animation-delay: .4s; background: #00a2e8; } /* Bloque Azul */
-.block-mini:nth-child(4) { animation-delay: .6s; }
-
-@keyframes saltoBloque {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
+.block-mini:nth-child(2) { background: #e52521; } 
+.block-mini:nth-child(3) { background: #43b012; } 
+.block-mini:nth-child(4) { background: #00a2e8; }
 
 /* =========================
    MENSAJE PRINCIPAL
@@ -302,7 +320,7 @@ h1 {
   box-shadow: 0 5px 0 #b87800;
 }
 
-/* Botón WhatsApp - Verde Yoshi/Tubo */
+/* Botón WhatsApp - Verde Tubo / Universal */
 .whatsapp {
   background: #43b012;
   color: white;
@@ -317,13 +335,12 @@ h1 {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 45px;
+  height: 50px;
   z-index: 10;
-  /* Capa de arbustos verdes superiores y suelo de bloques marrón abajo */
   background: 
     linear-gradient(to bottom, #73c721 0%, #73c721 20%, #4da110 20%, #4da110 30%, #d87828 30%, #d87828 100%);
   border-top: 5px solid #000;
-  box-shadow: inset 0 25px 0 #984800; /* Simula la textura interna del bloque de tierra */
+  box-shadow: inset 0 25px 0 #984800;
 }
 </style>
 </head>
@@ -350,8 +367,12 @@ h1 {
       ★★ MUNDO 1 - NIVEL CUMPLE ★★
     </div>
 
-    <div class="header-icons">
-      🍄 🎮 🦖
+    <!-- SECCIÓN DE PERSONAJES ANIMADOS -->
+    <div class="character-row">
+      <div class="char-item">👨🏻‍🔧<span>MARIO</span></div>
+      <div class="char-item">🦖<span>YOSHI</span></div>
+      <div class="char-item">🍄<span>TOAD</span></div>
+      <div class="char-item">👑<span>PEACH</span></div>
     </div>
 
     <h1>AXEL</h1>
@@ -359,8 +380,8 @@ h1 {
 
     <div class="blocks">
       <div class="block-mini">?</div>
-      <div class="block-mini">M</div>
-      <div class="block-mini">L</div>
+      <div class="block-mini">A</div>
+      <div class="block-mini">X</div>
       <div class="block-mini">★</div>
     </div>
 
@@ -387,8 +408,11 @@ h1 {
 
     <!-- BOTONES -->
     <div class="buttons">
-      <a href="https://google.com" target="_blank" class="btn location">📍 VER UBICACIÓN</a>
-      <a href="https://wa.me¡Confirmado!%20Ahí%20estaré%20en%20el%20cumpleaños%20de%20Axel%20🍄" target="_blank" class="btn whatsapp">🟢 CONFIRMAR WHATSAPP</a>
+      <!-- Tu enlace verificado de Google Maps -->
+      <a href="https://goo.gl" target="_blank" class="btn location">📍 VER UBICACIÓN</a>
+      
+      <!-- Tu enlace verificado a WhatsApp Personal neutro -->
+      <a href="https://wa.me" target="_blank" class="btn whatsapp">🟢 CONFIRMAR ASISTENCIA</a>
     </div>
 
   </div>
