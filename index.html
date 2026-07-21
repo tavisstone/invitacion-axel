@@ -157,7 +157,7 @@ body {
 }
 
 /* =========================
-   TARJETAS DE INFORMACIÓN (TUS ORIGINALES)
+   TARJETAS DE INFORMACIÓN
 ========================= */
 .file-slot {
   background: #ffffff;
@@ -236,7 +236,7 @@ body {
 }
 
 /* =========================
-   SECCIÓN DE ACCIONES INFERIORES (IMAGEN PURA + TEXTO SEPARADO)
+   SECCIÓN DE ACCIONES INFERIORES
 ========================= */
 .buttons {
   margin-top: 25px;
@@ -247,7 +247,7 @@ body {
   align-items: center;
 }
 
-/* GRUPO PARA EL CAPARAZÓN Y SU TEXTO DEBAJO */
+/* GRUPO PARA EL CAPARAZÓN Y SU TEXTO */
 .action-group {
   display: flex;
   flex-direction: column;
@@ -265,13 +265,12 @@ body {
   100% { transform: translateX(8px); }
 }
 
-/* EL BOTÓN PURA IMAGEN (CAPARAZÓN) */
+/* EL BOTÓN IMAGEN (CAPARAZÓN) */
 .icon-btn {
   display: block;
   width: 85px;
   height: 85px;
-  /* CAMBIA 'caparazon.jpg' POR EL NOMBRE DE TU ARCHIVO LOCAL */
-  background-image: url('caparazon.jpeg');
+  background-image: url('1784627238408.jpg'); /* Asegúrate de que coincida con el nombre en tu repositorio */
   background-size: cover;
   background-position: center;
   border: 4px solid #000;
@@ -286,7 +285,21 @@ body {
   filter: brightness(0.9);
 }
 
-/* EL TEXTO SEPARADO QUE VA DEBAJO DE CADA ICONO */
+/* Animación de disparo del Caparazón Azul */
+@keyframes disparoCaparazon {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: translateY(-40px) translateX(-30px) rotate(360deg) scale(1.2); }
+  50% { transform: translateY(-80px) translateX(30px) rotate(720deg) scale(1.1); }
+  75% { transform: translateY(-120px) translateX(-20px) rotate(1080deg) scale(0.9); }
+  100% { transform: translateY(-300px) scale(0); opacity: 0; }
+}
+
+.icon-btn.disparando {
+  animation: disparoCaparazon 0.5s ease-in-out forwards !important;
+  pointer-events: none;
+}
+
+/* TEXTO DEBAJO DE CADA ICONO */
 .action-label {
   font-size: 0.85rem;
   color: #fff;
@@ -295,7 +308,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* ESTILOS TEMPORALES PARA LOS OTROS DOS BOTONES (HASTA QUE SUBAS SUS IMÁGENES) */
+/* ESTILOS PARA LOS OTROS DOS BOTONES */
 .icon-btn-location {
   background: #f29f05;
   box-shadow: 0 6px 0px #b57602, 0 8px 14px rgba(0,0,0,0.6);
@@ -304,6 +317,7 @@ body {
   justify-content: center;
   font-size: 38px;
   text-decoration: none;
+  border-radius: 50%;
 }
 
 .icon-btn-calendar {
@@ -314,6 +328,7 @@ body {
   justify-content: center;
   font-size: 38px;
   text-decoration: none;
+  border-radius: 50%;
 }
 
 .footer {
@@ -434,12 +449,12 @@ body {
 
     </div>
 
-    <!-- BOTONES INFERIORES: IMAGEN PURA CON SU TEXTO SEPARADO DEBAJO -->
+    <!-- BOTONES INFERIORES -->
     <div class="buttons">
       
-      <!-- ACCIÓN 1: WHATSAPP (Caparazón puro + Texto abajo) -->
+      <!-- ACCIÓN 1: WHATSAPP CON EFECTO DE DISPARO DEL CAPARAZÓN -->
       <div class="action-group">
-        <a class="icon-btn" href="https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank" title="Confirmar Asistencia"></a>
+        <a class="icon-btn" id="shell-btn" href="#" onclick="dispararYEnviar(event, 'https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82')" title="Confirmar Asistencia"></a>
         <span class="action-label">✅ CONFIRMAR ASISTENCIA</span>
       </div>
 
@@ -467,7 +482,7 @@ body {
 
   </div>
 
-  <!-- SCRIPT PARA ACTIVAR LA MÚSICA AUTOMÁTICAMENTE AL PRIMER TOQUE -->
+  <!-- SCRIPTS DE MÚSICA Y ANIMACIÓN DEL CAPARAZÓN -->
   <script>
     const music = document.getElementById('background-music');
     const musicToggle = document.getElementById('music-toggle');
@@ -500,6 +515,22 @@ body {
         }).catch(e => {});
       }
     }, { once: true });
+
+    // Función para disparar el caparazón antes de abrir WhatsApp
+    function dispararYEnviar(event, url) {
+      event.preventDefault();
+      const btn = document.getElementById('shell-btn');
+      
+      btn.classList.add('disparando');
+      
+      setTimeout(() => {
+        window.open(url, '_blank');
+        
+        setTimeout(() => {
+          btn.classList.remove('disparando');
+        }, 1000);
+      }, 450);
+    }
   </script>
 
 </body>
