@@ -1,183 +1,825 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎉 ¡Cumpleaños de Axel! 🎮</title>
-  <style>
-    /* =========================
-       CONFIGURACIÓN GENERAL
-       Inspirada en el cielo y los campos de Super Mario.
-    ========================= */
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      overflow-x: hidden;
-      /* Tipografía estilo 8-bits. Usa 'Press Start 2P' de Google Fonts si quieres mayor fidelidad */
-      font-family: 'Courier New', Courier, monospace;
-      color: #222;
-      background: linear-gradient(to bottom, #48c9f5 0%, #9beaff 60%, #79d64a 60%, #79d64a 100%);
-      padding-bottom: 120px; /* Espacio para el suelo */
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* =========================
-       ELEMENTOS DE FONDO
-    ========================= */
+<title>🎉 Cumpleaños de Axel 🎮</title>
 
-    /* NUBES (Pixel Art) */
-    .cloud {
-      position: absolute;
-      z-index: 0;
-      opacity: 1;
-      /* Reemplazamos el emoji por una imagen de nube pixelada */
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAARCAYAAABW0YfFAAAAAXNSR0IArs4c6QAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QYKFg0q63h7zQAAAHJJREFUOE+dk0sKwjAQRc2Fiz2BF1DEg/gKj9GjyHUF18EN3EFQ3EGLIoh0M1PqZCY0B68oTfiQ9mYI3wH8B9A/w3yP4sWwG5K+Q+hPof4b6H7Bq0rIL6f0L9L9j9g1aVkF9P6F+l+x+wKtK6H8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0rITSf0j9L/De4KtKyE8n9I/S/w3uCrSshPJ/SP0v8N7gq0vF2/rVzP8r8QAAAABJRU5ErkJggg==');
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: 150px;
-      height: 55px;
-      filter: drop-shadow(2px 2px 0 #fff);
-      animation: moverNube linear infinite;
-      pointer-events: none;
-    }
-    .cloud1 { top: 5%; left: -170px; animation-duration: 45s; }
-    .cloud2 { top: 22%; left: -270px; animation-duration: 60s; animation-delay: 12s; scale: 1.3; }
-    @keyframes moverNube { from { left: -300px; } to { left: 100vw; } }
+<style>
 
-    /* TUBERÍAS (CSS Mejorado) */
-    .pipe {
-      position: absolute;
-      z-index: 2; /* Detrás de la tarjeta */
-      bottom: 0;
-      width: 90px;
-      height: 120px;
-      background: linear-gradient(to right, #168d35, #40c951, #168d35);
-      border: 6px solid #096823;
-      border-radius: 10px 10px 0 0;
-      pointer-events: none;
-    }
-    .pipe::before {
-      content: "";
-      position: absolute;
-      top: -25px;
-      left: -10px;
-      width: 110px;
-      height: 35px;
-      background: linear-gradient(to right, #168d35, #40c951, #168d35);
-      border: 6px solid #096823;
-      border-radius: 10px;
-    }
-    .pipe1 { left: -15px; z-index: 1; } /* Tubería izquierda, detrás del suelo */
-    .pipe2 { right: -15px; z-index: 1; } /* Tubería derecha, detrás del suelo */
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
 
-    /* SUELO DECORATIVO (CSS Mejorado) */
-    .ground {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      z-index: 2; /* Delante de las tuberías */
-      background:
-        repeating-linear-gradient(
-          90deg,
-          #8b4b24 0px, #8b4b24 40px,
-          #6e381d 40px, #6e381d 45px
-        );
-      border-top: 16px solid #55b936;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    /* =========================
-       TARJETA PRINCIPAL (La Caja "Misterio")
-    ========================= */
-    .container {
-      position: relative;
-      z-index: 3; /* Delante de todo el fondo */
-      width: 95%;
-      max-width: 550px;
-      margin: 0 auto;
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    .card {
-      position: relative;
-      background: #fff;
-      border-radius: 25px;
-      padding: 30px 25px 40px;
-      border: 8px solid #e52521;
-      box-shadow:
-        0 0 0 6px #ffd21f,
-        0 12px 0 #a71917,
-        0 25px 50px rgba(0,0,0,.4);
-      overflow: visible; /* Para que los personajes sobresalgan */
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
 
-    /* Decoración interior (Estrellas CSS) */
-    .card::before {
-      content: "★ ✦ ★ ✦ ★ ✦ ★";
-      position: absolute;
-      top: 15px; left: 0; right: 0;
-      color: #f2b900;
-      font-size: 22px;
-      letter-spacing: 6px;
-      opacity: .8;
-    }
+  background:
+    linear-gradient(
+      to bottom,
+      #48c9f5 0%,
+      #9beaff 62%,
+      #79d64a 62%,
+      #79d64a 70%,
+      #9a522a 70%,
+      #9a522a 100%
+    );
+}
 
-    /* =========================
-       CABECERA DE LA TARJETA
-    ========================= */
-    .header-icons {
-      margin-top: 25px;
-      margin-bottom: 10px;
-      height: 70px; /* Espacio para el logo */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .logo-mario {
-      max-height: 100%;
-      filter: drop-shadow(4px 4px 0 #a71917);
-    }
+/* =========================
+   NUBES
+========================= */
 
-    .invitation-title {
-      margin-top: 15px;
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #333;
-      text-shadow: 2px 2px 0 #ccc;
-    }
+.cloud {
+  position: fixed;
+  z-index: 0;
+  font-size: 70px;
+  opacity: .85;
+  animation: moverNube linear infinite;
+  pointer-events: none;
+}
 
-    h1 {
-      margin: 8px 0;
-      font-size: clamp(3.5rem, 16vw, 6rem);
-      color: #e52521;
-      font-weight: 900; /* Estilo bloque */
-      text-shadow:
-        6px 6px 0 #ffd21f,
-        10px 10px 0 #9c1b19;
-      letter-spacing: 4px;
-      font-family: 'Impact', fantasy; /* Sugerencia para efecto bloque */
-    }
+.cloud1 {
+  top: 8%;
+  left: -150px;
+  animation-duration: 40s;
+}
 
-    .subtitle {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 25px;
-      text-shadow: 2px 2px 0 #ccc;
-    }
+.cloud2 {
+  top: 25%;
+  left: -250px;
+  animation-duration: 55s;
+  animation-delay: 8s;
+}
 
-    /* =========================
-       BLOQUES CENTRALES (Sprites en bloque)
-    ========================= */
-    .blocks {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: 35px 0;
-    }
-    .block {
-      width: 55px; height: 55px;
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAAAXNSR0IArs4c6QAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QYKERY26N2qBAAAAHZJREFUWEft08ENg0AQBME1C7qBSuiG/kOH0CHdIEVAdBckcWdgdgzGg810M2u1XQ962e+97+72B2/vP3j7HuB9gP0F9hcYWGBgYYGBBQYGGxhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYWGBhgYIGBBQYW
+@keyframes moverNube {
+
+  from {
+    transform: translateX(-250px);
+  }
+
+  to {
+    transform: translateX(calc(100vw + 400px));
+  }
+
+}
+
+/* =========================
+   MONEDAS
+========================= */
+
+.coin {
+  position: fixed;
+  z-index: 1;
+  font-size: 38px;
+  animation: moneda 2.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.coin1 {
+  left: 7%;
+  top: 20%;
+}
+
+.coin2 {
+  right: 8%;
+  top: 35%;
+  animation-delay: 1s;
+}
+
+.coin3 {
+  left: 12%;
+  bottom: 15%;
+  animation-delay: 1.5s;
+}
+
+@keyframes moneda {
+
+  0%,100% {
+    transform: translateY(0) rotateY(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotateY(180deg);
+  }
+
+}
+
+/* =========================
+   BLOQUES FLOTANTES
+========================= */
+
+.floating-block {
+  position: fixed;
+  z-index: 1;
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+  font-weight: bold;
+
+  background: #f5ad16;
+  color: white;
+
+  border: 5px solid #9a5c00;
+  border-radius: 6px;
+
+  box-shadow:
+    inset 0 0 0 3px #ffd45a,
+    0 6px 0 #713f00;
+
+  animation: flotarBloque 3s ease-in-out infinite;
+}
+
+.block1 {
+  top: 8%;
+  left: 8%;
+}
+
+.block2 {
+  top: 13%;
+  right: 9%;
+  animation-delay: 1s;
+}
+
+@keyframes flotarBloque {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+}
+
+/* =========================
+   TUBERÍAS DECORATIVAS
+========================= */
+
+.pipe {
+  position: fixed;
+  z-index: 1;
+  bottom: 28%;
+  width: 75px;
+  height: 100px;
+
+  background: linear-gradient(
+    to right,
+    #168d35,
+    #40c951,
+    #168d35
+  );
+
+  border: 5px solid #096823;
+  border-radius: 8px 8px 0 0;
+
+  box-shadow:
+    inset 8px 0 rgba(255,255,255,.2),
+    0 7px 0 #07531c;
+
+  pointer-events: none;
+}
+
+.pipe:before {
+  content: "";
+  position: absolute;
+
+  top: -22px;
+  left: -12px;
+
+  width: 95px;
+  height: 30px;
+
+  background: linear-gradient(
+    to right,
+    #168d35,
+    #40c951,
+    #168d35
+  );
+
+  border: 5px solid #096823;
+  border-radius: 8px;
+}
+
+.pipe1 {
+  left: 3%;
+  transform: scale(.7);
+}
+
+.pipe2 {
+  right: 3%;
+  transform: scale(.8);
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.container {
+  position: relative;
+  z-index: 5;
+
+  width: 94%;
+  max-width: 560px;
+
+  margin: 0 auto;
+  padding: 35px 0 80px;
+}
+
+/* =========================
+   TARJETA PRINCIPAL
+========================= */
+
+.card {
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f5f5f5
+    );
+
+  border-radius: 28px;
+
+  padding: 28px 20px 35px;
+
+  border: 7px solid #e52521;
+
+  box-shadow:
+
+    0 0 0 5px #ffd21f,
+    0 12px 0 #a71917,
+    0 25px 40px rgba(0,0,0,.35);
+
+  overflow: hidden;
+}
+
+/* Decoración interior */
+
+.card:before {
+
+  content: "★  ✦  ★  ✦  ★";
+
+  position: absolute;
+
+  top: 10px;
+  left: 0;
+  right: 0;
+
+  color: #f2b900;
+
+  font-size: 20px;
+  letter-spacing: 8px;
+
+  opacity: .7;
+}
+
+/* =========================
+   CABECERA
+========================= */
+
+.header-icons {
+
+  margin-top: 20px;
+
+  font-size: 58px;
+
+  animation: rebote 2s infinite ease-in-out;
+}
+
+@keyframes rebote {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+}
+
+.invitation-title {
+
+  margin-top: 12px;
+
+  font-size: 1.25rem;
+  font-weight: bold;
+
+  color: #333;
+}
+
+h1 {
+
+  margin: 8px 0;
+
+  font-size: clamp(3rem, 14vw, 5rem);
+
+  color: #e52521;
+
+  text-shadow:
+
+    4px 4px 0 #ffd21f,
+    7px 7px 0 #9c1b19;
+
+  letter-spacing: 2px;
+}
+
+.subtitle {
+
+  font-size: 1.25rem;
+  font-weight: bold;
+
+  color: #333;
+
+  margin-bottom: 20px;
+}
+
+/* =========================
+   BLOQUES CENTRALES
+========================= */
+
+.blocks {
+
+  display: flex;
+
+  justify-content: center;
+  gap: 9px;
+
+  margin: 20px 0;
+
+}
+
+.block {
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f3a900;
+
+  border: 4px solid #8b5700;
+
+  border-radius: 5px;
+
+  color: white;
+
+  font-size: 25px;
+  font-weight: bold;
+
+  box-shadow: 0 4px 0 #654000;
+
+  animation: saltoBloque 2s infinite ease-in-out;
+}
+
+.block:nth-child(2) {
+  animation-delay: .3s;
+}
+
+.block:nth-child(3) {
+  animation-delay: .6s;
+}
+
+.block:nth-child(4) {
+  animation-delay: .9s;
+}
+
+@keyframes saltoBloque {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+}
+
+/* =========================
+   MENSAJE
+========================= */
+
+.message {
+
+  padding: 20px;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #fff4b8,
+      #fffbe0
+    );
+
+  border: 4px dashed #e2ad00;
+
+  border-radius: 18px;
+
+  font-size: 1.08rem;
+
+  line-height: 1.6;
+
+  box-shadow:
+
+    0 5px 0 #d3a500;
+
+}
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.info-box {
+
+  margin-top: 18px;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background: #f1f1f1;
+
+  border: 3px solid #ddd;
+
+  font-size: 1.05rem;
+
+  box-shadow: 0 5px 0 #c7c7c7;
+
+}
+
+.info-icon {
+
+  display: block;
+
+  font-size: 2.2rem;
+
+  margin-bottom: 5px;
+
+}
+
+.info-title {
+
+  display: block;
+
+  font-size: 1.3rem;
+
+  font-weight: bold;
+
+  color: #333;
+
+  margin-bottom: 5px;
+
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.buttons {
+
+  margin-top: 25px;
+
+}
+
+.btn {
+
+  display: block;
+
+  width: 100%;
+
+  padding: 17px 12px;
+
+  margin-top: 14px;
+
+  border-radius: 15px;
+
+  text-decoration: none;
+
+  font-size: 1.05rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: .2s;
+
+  border: none;
+
+}
+
+.btn:hover {
+
+  transform: translateY(-4px);
+
+}
+
+.btn:active {
+
+  transform: translateY(2px);
+
+}
+
+/* WhatsApp */
+
+.whatsapp {
+
+  background: #25d366;
+
+  color: white;
+
+  box-shadow: 0 6px 0 #128c4a;
+
+}
+
+/* Ubicación */
+
+.location {
+
+  background: #ffd21f;
+
+  color: #222;
+
+  box-shadow: 0 6px 0 #bd9400;
+
+}
+
+/* Calendario */
+
+.calendar {
+
+  background: #e52521;
+
+  color: white;
+
+  box-shadow: 0 6px 0 #a71917;
+
+}
+
+/* =========================
+   PIE
+========================= */
+
+.footer {
+
+  margin-top: 25px;
+
+  color: #666;
+
+  font-size: .95rem;
+
+}
+
+/* =========================
+   SUELO DECORATIVO
+========================= */
+
+.ground {
+
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 45px;
+
+  z-index: 2;
+
+  background:
+
+    repeating-linear-gradient(
+      90deg,
+      #8b4b24 0px,
+      #8b4b24 38px,
+      #6e381d 38px,
+      #6e381d 42px
+    );
+
+  border-top: 12px solid #55b936;
+
+  pointer-events: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 450px) {
+
+  .container {
+
+    width: 91%;
+
+  }
+
+  .card {
+
+    padding: 25px 16px 30px;
+
+  }
+
+  h1 {
+
+    font-size: 3.5rem;
+
+  }
+
+  .floating-block {
+
+    transform: scale(.7);
+
+  }
+
+  .pipe {
+
+    transform: scale(.55);
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NUBES -->
+
+<div class="cloud cloud1">☁️ ☁️</div>
+<div class="cloud cloud2">☁️</div>
+
+<!-- MONEDAS -->
+
+<div class="coin coin1">🪙</div>
+<div class="coin coin2">🪙</div>
+<div class="coin coin3">🪙</div>
+
+<!-- BLOQUES -->
+
+<div class="floating-block block1">?</div>
+<div class="floating-block block2">★</div>
+
+<!-- TUBERÍAS -->
+
+<div class="pipe pipe1"></div>
+<div class="pipe pipe2"></div>
+
+<!-- INVITACIÓN -->
+
+<main class="container">
+
+<section class="card">
+
+<div class="header-icons">
+🎮 🍄 🎂
+</div>
+
+<div class="invitation-title">
+🎉 ¡ESTÁS INVITADO! 🎉
+</div>
+
+<h1>AXEL</h1>
+
+<div class="subtitle">
+🎮 ¡Celebremos su cumpleaños! 🎮
+</div>
+
+<div class="blocks">
+
+<div class="block">?</div>
+<div class="block">★</div>
+<div class="block">?</div>
+<div class="block">★</div>
+
+</div>
+
+<div class="message">
+
+🍄 Prepárate para una aventura llena de diversión,
+juegos, pastel y muchas sorpresas.
+
+<br><br>
+
+🎁 ¡No faltes a la celebración! 🎮
+
+</div>
+
+<!-- FECHA -->
+
+<div class="info-box">
+
+<span class="info-icon">📅</span>
+
+<span class="info-title">
+FECHA
+</span>
+
+Noviembre<br>
+
+<small>
+Fecha exacta por confirmar
+</small>
+
+</div>
+
+<!-- UBICACIÓN -->
+
+<div class="info-box">
+
+<span class="info-icon">📍</span>
+
+<span class="info-title">
+LUGAR
+</span>
+
+La ubicación de la fiesta está aquí 👇
+
+</div>
+
+<div class="buttons">
+
+<!-- WHATSAPP -->
+
+<a
+class="btn whatsapp"
+
+href="https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82"
+
+target="_blank">
+
+✅ CONFIRMAR ASISTENCIA
+
+</a>
+
+<!-- GOOGLE MAPS -->
+
+<a
+class="btn location"
+
+href="https://maps.app.goo.gl/NQrBgCjc7k5AW7UY6"
+
+target="_blank">
+
+🗺️ VER UBICACIÓN
+
+</a>
+
+<!-- CALENDARIO -->
+
+<a
+class="btn calendar"
+
+href="#"
+
+onclick="alert('📅 La fecha exacta se agregará cuando sea confirmada.'); return false;">
+
+📅 AGREGAR AL CALENDARIO
+
+</a>
+
+</div>
+
+<div class="footer">
+
+🎮 ¡Te esperamos para celebrar juntos! 🎮
+
+</div>
+
+</section>
+
+</main>
+
+<!-- SUELO -->
+
+<div class="ground"></div>
+
+</body>
+
+</html>
