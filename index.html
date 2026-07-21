@@ -27,7 +27,7 @@ body {
   
   /* LECTURA DEL FONDO LOCAL */
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), 
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
     url('fondo.jpg'); 
   
   background-size: cover;
@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================
-   ENCABEZADO ANIMADO EN SECUENCIA (UNO DETRÁS DEL OTRO)
+   ENCABEZADO ANIMADO EN SECUENCIA
 ========================= */
 .playful-header {
   margin-bottom: 15px;
@@ -67,17 +67,13 @@ body {
   font-weight: 900;
   margin-bottom: 2px;
   display: block;
-  
-  /* Animación de brinco de la línea 1 */
-  animation: brincoLetras 2.5s infinite ease-in-out;
+  animation: brincoLetras 1.8s infinite ease-in-out;
   animation-delay: 0s;
 }
 
 .playful-name-box {
   display: block;
   margin: 5px 0;
-  
-  /* Animación de brinco de la línea 2 (AXEL) */
   animation: brincoLetras 1.8s infinite ease-in-out;
   animation-delay: 0.6s;
 }
@@ -107,13 +103,10 @@ body {
   letter-spacing: 0.5px;
   margin-top: 4px;
   display: block;
-  
-  /* Animación de brinco de la línea 3 */
   animation: brincoLetras 1.8s infinite ease-in-out;
   animation-delay: 1.2s;
 }
 
-/* Regla del salto para el encabezado */
 @keyframes brincoLetras {
   0%, 100% { transform: translateY(0); }
   30% { transform: translateY(-12px); }
@@ -157,43 +150,35 @@ body {
 }
 
 /* =========================
-   TARJETAS DE INFORMACIÓN (SECUENCIA COMPLETA DESFASADA)
+   ESTILO SUPER MARIO WORLD (MENÚ DE NIVELES)
 ========================= */
+.slots-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
 .file-slot {
-  background: #ffffff;
-  border: 4px solid #7f7f7f;
-  border-radius: 14px;
-  padding: 16px 18px;
-  margin-bottom: 14px;
+  /* Estilo de panel de menú de Super Mario World (tono amarillo/crema pergamino con marco de tablero grueso) */
+  background: #fdf5c9;
+  border: 4px solid #000;
+  border-radius: 6px;
+  padding: 14px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: inset 0 -5px 0 #d9d9d9, 0 6px 12px rgba(0, 0, 0, 0.4);
+  /* Sombra sólida estilo pixel art / 16 bits */
+  box-shadow: 4px 4px 0px #000;
   position: relative;
-  
-  animation: movimientoSecuencial 3s infinite ease-in-out alternate;
+  transition: transform 0.2s ease;
 }
 
-/* Retraso exacto para que se muevan una detrás de la otra */
-.file-slot:nth-of-type(1) { animation-delay: 0s; }
-.file-slot:nth-of-type(2) { animation-delay: 0.5s; }
-.file-slot:nth-of-type(3) { animation-delay: 1s; }
-
-@keyframes movimientoSecuencial {
-  0% { transform: translateX(-10px); }
-  100% { transform: translateX(10px); }
-}
-
+/* Efecto de nivel activo con borde rojo clásico de selección de mapa */
 .file-slot.active {
-  border: 4px solid #f29f05;
-}
-.file-slot.active::before {
-  content: '';
-  position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
-  border: 3px solid #f2cb05;
-  border-radius: 12px;
-  pointer-events: none;
+  background: #fff;
+  border: 4px solid #e52521;
+  box-shadow: 4px 4px 0px #000, inset 0 0 0 2px #fcd85c;
 }
 
 .slot-left {
@@ -202,24 +187,40 @@ body {
   gap: 15px;
 }
 
+/* Iconos de nivel estilo marcador de puntos / fases de Mario */
 .file-number {
-  font-size: 2.4rem;
-  color: #f29f05;
-  text-shadow: 2px 2px 0px #fff, 3px 3px 0px #b57602;
+  font-size: 1.8rem;
+  color: #fff;
+  background: #002fbe;
+  border: 3px solid #000;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  text-shadow: 2px 2px 0px #000;
   font-weight: 900;
+  box-shadow: inset -2px -2px 0px #00155c;
+}
+
+.file-slot.active .file-number {
+  background: #e52521; /* Se pone rojo en el nivel activo */
+  box-shadow: inset -2px -2px 0px #9c1b19;
 }
 
 .file-title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: #000;
-  font-weight: 700;
+  font-weight: 800;
   text-align: left;
+  letter-spacing: 0.5px;
 }
 
 .file-subtitle {
   display: block;
-  font-size: 0.68rem;
-  color: #333;
+  font-size: 0.65rem;
+  color: #222;
   font-family: 'Press Start 2P', monospace;
   margin-top: 6px;
   line-height: 1.4;
@@ -230,17 +231,20 @@ body {
   align-items: center;
   gap: 6px;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.62rem;
-  color: #222;
+  font-size: 0.6rem;
+  color: #000;
   font-weight: bold;
-  white-space: nowrap;
+  background: #d9d9d9;
+  padding: 6px 8px;
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 /* =========================
-   ESTILOS DE TUS BOTONES ORIGINALES RESTAURADOS
+   BOTONES ESTILO ACCIÓN DE MAPA
 ========================= */
 .buttons {
-  margin-top: 25px;
+  margin-top: 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -250,10 +254,10 @@ body {
 .btn {
   display: block;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 6px;
   color: #fff;
-  padding: 16px 10px;
-  font-size: 0.85rem;
+  padding: 14px 10px;
+  font-size: 0.8rem;
   font-weight: bold;
   text-decoration: none;
   display: flex;
@@ -261,28 +265,27 @@ body {
   justify-content: center;
   transition: all 0.1s;
   border: 4px solid #000;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 0px #000;
+  /* Sombra sólida de estilo 16-bits (bloque sólido negro abajo) */
+  box-shadow: 0 5px 0px #000, 0 6px 10px rgba(0,0,0,0.4);
 }
 
 .btn:active {
   transform: translateY(4px);
-  box-shadow: none;
+  box-shadow: 0 1px 0px #000, 0 2px 5px rgba(0,0,0,0.4);
 }
 
-/* Colores exactos de tus clases originales */
+/* Colores estilo Super Mario World */
 .whatsapp {
   background: #43b012;
-  box-shadow: 0 6px 0px #2b730b, 0 6px 10px rgba(0,0,0,0.4);
 }
 
 .location {
   background: #f29f05;
-  box-shadow: 0 6px 0px #b57602, 0 6px 10px rgba(0,0,0,0.4);
 }
 
 .calendar {
-  background: #e52521; /* Rojo Mario para el Calendario */
-  box-shadow: 0 6px 0px #9c1b19, 0 6px 10px rgba(0,0,0,0.4);
+  background: #e52521;
 }
 
 .footer {
@@ -323,9 +326,9 @@ body {
 
 <body>
 
-  <!-- REPRODUCTOR DE AUDIO (Sube tu canción a GitHub y cámbiale el nombre si es necesario, ej: cancion.mp3) -->
+  <!-- REPRODUCTOR DE AUDIO -->
   <audio id="background-music" loop>
-    <source src="cancion.mpeg" type="audio/mpeg">
+    <source src="Cancion.mpeg" type="audio/mpeg">
   </audio>
 
   <!-- BOTÓN FLOTANTE DE MÚSICA -->
@@ -356,7 +359,7 @@ body {
       <div class="lucky-block">?</div>
     </div>
 
-    <!-- TARJETAS INFORMATIVAS -->
+    <!-- TARJETAS INFORMATIVAS (ESTILO MENÚ DE MAPA S.M.W.) -->
     <div class="slots-wrapper">
       
       <!-- SLOT 1: FECHA -->
@@ -403,7 +406,7 @@ body {
 
     </div>
 
-    <!-- TUS LÍNEAS DE BOTONES ORIGINALES INTEGRADAS PERFECTAMENTE -->
+    <!-- BOTONES ESTILO MAPA DE JUEGO -->
     <div class="buttons">
       <a class="btn whatsapp" href="https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank">
         ✅ CONFIRMAR ASISTENCIA
@@ -424,7 +427,7 @@ body {
 
   </div>
 
-  <!-- SCRIPT PARA ACTIVAR LA MÚSICA AUTOMÁTICAMENTE AL PRIMER TOQUE -->
+  <!-- SCRIPT PARA ACTIVAR LA MÚSICA -->
   <script>
     const music = document.getElementById('background-music');
     const musicToggle = document.getElementById('music-toggle');
@@ -447,14 +450,12 @@ body {
       }
     }
 
-    // Intenta reproducir en cuanto el usuario interactúe por primera vez con la página
     document.body.addEventListener('click', function autoPlay() {
       if (!isPlaying) {
         music.play().then(() => {
           musicIcon.textContent = '🎶';
           musicText.textContent = 'Música: ON';
           isPlaying = true;
-          // Remover el evento para que ya no salte más
           document.body.removeEventListener('click', autoPlay);
         }).catch(e => {});
       }
