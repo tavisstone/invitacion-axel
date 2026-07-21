@@ -292,10 +292,46 @@ body {
   text-shadow: 2px 2px 0px #000;
   font-family: 'Press Start 2P', monospace;
 }
+
+/* =========================
+   REPRODUCTOR DE MÚSICA FLOTANTE
+========================= */
+.music-player {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background: #f2a900;
+  border: 3px solid #000;
+  border-radius: 50px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 0px #000;
+}
+.music-player:active {
+  transform: scale(0.95);
+}
 </style>
 </head>
 
 <body>
+
+  <!-- REPRODUCTOR DE AUDIO (Sube tu canción a GitHub y cámbiale el nombre si es necesario, ej: cancion.mp3) -->
+  <audio id="background-music" loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- BOTÓN FLOTANTE DE MÚSICA -->
+  <div class="music-player" id="music-toggle" onclick="toggleMusic()">
+    <span id="music-icon">🎵</span> <span id="music-text">Música: OFF</span>
+  </div>
 
   <div class="container">
 
@@ -387,6 +423,43 @@ body {
     </div>
 
   </div>
+
+  <!-- SCRIPT PARA ACTIVAR LA MÚSICA AUTOMÁTICAMENTE AL PRIMER TOQUE -->
+  <script>
+    const music = document.getElementById('background-music');
+    const musicToggle = document.getElementById('music-toggle');
+    const musicIcon = document.getElementById('music-icon');
+    const musicText = document.getElementById('music-text');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+        musicIcon.textContent = '🎵';
+        musicText.textContent = 'Música: OFF';
+        isPlaying = false;
+      } else {
+        music.play().then(() => {
+          musicIcon.textContent = '🎶';
+          musicText.textContent = 'Música: ON';
+          isPlaying = true;
+        }).catch(e => console.log("Reproducción bloqueada por navegador"));
+      }
+    }
+
+    // Intenta reproducir en cuanto el usuario interactúe por primera vez con la página
+    document.body.addEventListener('click', function autoPlay() {
+      if (!isPlaying) {
+        music.play().then(() => {
+          musicIcon.textContent = '🎶';
+          musicText.textContent = 'Música: ON';
+          isPlaying = true;
+          // Remover el evento para que ya no salte más
+          document.body.removeEventListener('click', autoPlay);
+        }).catch(e => {});
+      }
+    }, { once: true });
+  </script>
 
 </body>
 </html>
