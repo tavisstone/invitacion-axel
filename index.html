@@ -500,6 +500,39 @@ h1 {
 
 <!-- SUELO -->
 <div class="ground"></div>
+   <!-- PERSONAJES ANIMADOS SALIENDO DE LAS TUBERÍAS -->
+<style>
+.mario-character {
+  position: fixed;
+  bottom: 30%;
+  z-index: 1;
+  width: 50px;
+  animation: salirTuberia 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.mario-left {
+  left: 9px;
+}
+
+.mario-right {
+  right: 9px;
+  animation-delay: 2s; /* Sale alternado con el otro personaje */
+}
+
+@keyframes salirTuberia {
+  0%, 100% {
+    transform: translateY(40px); /* Oculto dentro de la tubería */
+  }
+  30%, 70% {
+    transform: translateY(-20px); /* Asoma hacia arriba con movimiento */
+  }
+}
+</style>
+
+<!-- Cambia 'mario.png' y 'luigi.png' por los nombres exactos de tus imágenes -->
+<img src="mario.png" class="mario-character mario-left" alt="Mario">
+<img src="luigi.png" class="mario-character mario-right" alt="Luigi">
 
 </body>
 </html>
