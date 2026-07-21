@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cumpleaños de Axel 🎉</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#55c9f5 0%, #aeeeff 65%, #6ac34a 65%);
+  min-height: 100vh;
+  text-align: center;
+  color: #222;
+}
+
+.container {
+  padding: 30px 15px;
+}
+
+.card {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  border-radius: 25px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.3);
+  border: 5px solid #e52521;
+}
+
+h1 {
+  font-size: 3.2rem;
+  color: #e52521;
+  text-shadow: 3px 3px #ffd21f;
+  margin: 10px 0;
+}
+
+h2 {
+  color: #333;
+}
+
+.icon {
+  font-size: 65px;
+}
+
+.message {
+  background: #fff3bd;
+  border: 3px dashed #e2ad00;
+  border-radius: 15px;
+  padding: 18px;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+.info {
+  background: #f1f1f1;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 12px 0;
+  font-size: 1.1rem;
+}
+
+.info strong {
+  display: block;
+  font-size: 1.5rem;
+}
+
+button,
+a {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  margin-top: 14px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.whatsapp {
+  background: #25d366;
+  color: white;
+}
+
+.location {
+  background: #ffd21f;
+  color: #222;
+}
+
+.calendar {
+  background: #e52521;
+  color: white;
+}
+
+.coin {
+  position: fixed;
+  font-size: 35px;
+  animation: flotar 2s infinite ease-in-out;
+}
+
+.coin1 {
+  left: 10%;
+  top: 15%;
+}
+
+.coin2 {
+  right: 10%;
+  top: 30%;
+  animation-delay: 1s;
+}
+
+@keyframes flotar {
+  0%,100% {
+    transform: translateY(0) rotateY(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotateY(180deg);
+  }
+}
+
+.footer {
+  margin-top: 20px;
+  color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="coin coin1">🪙</div>
+<div class="coin coin2">🪙</div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="icon">🎮🍄🎂</div>
+
+<h2>🎉 ¡Estás invitado! 🎉</h2>
+
+<h1>AXEL</h1>
+
+<h2>¡Celebremos su cumpleaños!</h2>
+
+<div class="message">
+🍄 Prepárate para una aventura llena de diversión,
+juegos, pastel y muchas sorpresas.
+
+<br><br>
+
+¡No faltes a la celebración! 🎁🎮
+</div>
+
+<div class="info">
+<strong>📅 Fecha</strong>
+Noviembre<br>
+Fecha exacta por confirmar
+</div>
+
+<div class="info">
+<strong>📍 Lugar</strong>
+Por confirmar
+</div>
+
+<a
+class="whatsapp"
+href="https://wa.me/525521187759?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89"
+target="_blank">
+
+✅ CONFIRMAR ASISTENCIA
+
+</a>
+
+<a
+class="location"
+href="#"
+onclick="alert('📍 La ubicación se agregará cuando el lugar esté confirmado'); return false;">
+
+🗺️ VER UBICACIÓN
+
+</a>
+
+<a
+class="calendar"
+href="#"
+onclick="alert('📅 La fecha se agregará cuando sea confirmada'); return false;">
+
+📅 AGREGAR AL CALENDARIO
+
+</a>
+
+<div class="footer">
+🎮 ¡Te esperamos para celebrar juntos! 🎮
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
