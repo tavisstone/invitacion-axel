@@ -4,9 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🏎️ MARIO KART - CUMPLE AXEL 🍄</title>
+<title>🎮 CHOOSE A FILE - CUMPLE AXEL 🍄</title>
 
-<!-- Fuente Arcade Oficial de Google Fonts -->
+<!-- Fuentes: Arcade para interfaz y Fredoka para el estilo redondeado de Mario -->
 <link href="https://googleapis.com" rel="stylesheet">
 
 <style>
@@ -22,13 +22,13 @@
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: 'Press Start 2P', monospace;
-  color: #fff;
+  font-family: 'Fredoka', sans-serif; /* Tipografía más moderna tipo Mario */
+  color: #333;
   
-  /* LECTURA LOCAL: Cambia a fondo.jpg si tu formato descargado es JPG */
+  /* Tu imagen de fondo local con capa oscura para legibilidad */
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-    url('fondo.jpg'); 
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+    url('fondo.png'); 
   
   background-size: cover;
   background-position: center center;
@@ -38,141 +38,139 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 14px;
+  padding: 20px 12px;
 }
 
-/* =========================
-   CONTENEDOR DEL MENÚ DE SELECCIÓN
-========================= */
-.menu-container {
+.container {
   width: 100%;
-  max-width: 410px;
+  max-width: 430px;
   text-align: center;
 }
 
-/* TÍTULO ESTILO LOGO TRIANGULAR DE MARIO KART */
-.game-title {
-  margin-bottom: 25px;
-}
-
-.title-super {
-  font-size: 1.4rem;
+/* Encabezado superior de la pantalla "Choose a file" */
+.screen-header {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.6rem;
   color: #fff;
-  display: block;
-  letter-spacing: 2px;
-  text-shadow: 3px 3px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000;
-}
-
-.title-main {
-  font-size: 2.5rem;
-  color: #fcd85c; /* Amarillo brillante */
-  display: block;
-  letter-spacing: 2px;
-  margin-top: 5px;
-  text-shadow: 4px 4px 0px #e52521, -2px -2px 0px #000, 2px -2px 0px #000, 4px 4px 5px #000;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
 }
 
 /* =========================
-   CAJA DE MENÚ (ESTILO INTERFAZ DE NINTENDO SWITCH)
+   SLOTS DE ARCHIVO DE GUARDADO (ESTILO IMAGEN)
 ========================= */
-.menu-box {
-  background: rgba(0, 0, 0, 0.85); /* Fondo oscuro para resaltar sobre la imagen */
-  border: 4px solid #fff;
-  border-radius: 12px;
-  padding: 20px 15px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.7);
-  margin-bottom: 25px;
-}
-
-.menu-option {
+.file-slot {
+  background: #ffffff;
+  border: 3px solid #7f7f7f;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  box-shadow: inset 0 -4px 0 #d9d9d9, 0 6px 12px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+/* Archivo Activo/Seleccionado (Slot 1 - Axel) con esquinas naranjas */
+.file-slot.active {
+  border: 4px solid #f29f05;
+}
+.file-slot.active::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border: 3px solid #f2cb05;
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+/* Contenido izquierdo: Número y Título principal */
+.slot-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.file-number {
+  font-size: 2.2rem;
+  color: #f29f05; /* Amarillo oscuro de la imagen */
+  text-shadow: 2px 2px 0px #fff, 3px 3px 0px #b57602;
+  font-weight: 900;
+}
+
+.file-title {
+  font-size: 1.4rem;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   text-align: left;
-  padding: 12px 8px;
-  margin: 8px 0;
-  font-size: 0.58rem;
-  line-height: 1.6;
-  border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
 }
 
-.menu-option:last-child {
-  border-bottom: none;
-}
-
-/* Selector dinámico parpadeante (Carrito de carreras) */
-.menu-option::before {
-  content: "🏎️";
-  margin-right: 12px;
-  font-size: 0.8rem;
-  animation: acelerar 0.5s steps(2) infinite alternate;
-}
-
-@keyframes acelerar {
-  from { transform: translateX(0); }
-  to { transform: translateX(4px); }
-}
-
-.menu-label {
-  color: #ff3333; /* Rojo para los títulos internos */
+.file-subtitle {
   display: block;
-  font-size: 0.5rem;
-  margin-bottom: 4px;
-  letter-spacing: 1px;
+  font-size: 0.75rem;
+  color: #666;
+  font-family: 'Press Start 2P', monospace;
+  margin-top: 4px;
 }
 
-.menu-value {
-  color: #fff;
+/* Contenido derecho: Iconos decorativos y contadores */
+.slot-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.65rem;
+  color: #555;
+}
+
+.icon-star {
+  color: #f2cb05;
+  font-size: 1.1rem;
 }
 
 /* =========================
-   BOTONES ESTILO MENU DE SELECCIÓN DE PISTA
+   BOTONES DE ACCIÓN INFERIORES (ESTILO MENÚ DS)
 ========================= */
-.action-buttons {
-  width: 100%;
+.action-bar {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
 }
 
-.btn-arcade {
-  display: block;
-  width: 100%;
-  padding: 16px 10px;
-  margin-top: 15px;
+.btn-ds {
+  flex: 1;
+  background: linear-gradient(to bottom, #4c4c4c 0%, #262626 100%);
+  border: 3px solid #1a1a1a;
   border-radius: 8px;
-  text-decoration: none;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
-  font-weight: bold;
-  text-align: center;
-  border: 4px solid #fff;
   color: #fff;
-  background: rgba(0, 0, 0, 0.9);
-  box-shadow: 0px 5px 0px #fff;
-  transition: all 0.1s;
+  padding: 14px 8px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 4px 8px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.1s;
 }
 
-/* Efecto de presionar el botón físico */
-.btn-arcade:active {
-  transform: translateY(4px);
-  box-shadow: 0px 1px 0px #fff;
+.btn-ds:active {
+  transform: translateY(3px);
+  box-shadow: none;
 }
 
-/* Botón Mapa - Estilo Copa Relámpago */
-.btn-location {
-  border-color: #fcd85c;
-  color: #fcd85c;
-  box-shadow: 0px 5px 0px #fcd85c;
+/* Colores para destacar los botones estilo Nintendo */
+.btn-maps {
+  background: linear-gradient(to bottom, #f29f05 0%, #c78202 100%);
+  border-color: #9c6601;
 }
-.btn-location:active {
-  box-shadow: 0px 1px 0px #fcd85c;
-}
-
-/* Botón Confirmar - Estilo Copa Champiñón */
-.btn-whatsapp {
-  border-color: #43b012;
-  color: #43b012;
-  box-shadow: 0px 5px 0px #43b012;
-}
-.btn-whatsapp:active {
-  box-shadow: 0px 1px 0px #43b012;
+.btn-wa {
+  background: linear-gradient(to bottom, #43b012 0%, #2b730b 100%);
+  border-color: #1e5207;
 }
 
 </style>
@@ -180,51 +178,61 @@ body {
 
 <body>
 
-  <div class="menu-container">
+  <div class="container">
 
-    <!-- LOGOTIPO CENTRAL ESTILO RACING -->
-    <div class="game-title">
-      <span class="title-super">SUPER</span>
-      <span class="title-main">AXEL 8</span>
+    <!-- TÍTULO DE LA PANTALLA -->
+    <h1 class="screen-header">Choose a file.</h1>
+
+    <!-- SLOT 1: FECHA -->
+    <div class="file-slot active">
+      <div class="slot-left">
+        <span class="file-number">1</span>
+        <div class="file-title">
+          WHEN / FECHA
+          <span class="file-subtitle">SABADO 21 NOVIEMBRE</span>
+        </div>
+      </div>
+      <div class="slot-right">
+        <span class="icon-star">★</span> 👨%3A00 PM
+      </div>
     </div>
 
-    <!-- PANTALLA DE SELECCIÓN DE CARRERA -->
-    <div class="menu-box">
-      
-      <!-- Fila: Fecha -->
-      <div class="menu-option">
-        <div>
-          <span class="menu-label">START TIME / FECHA</span>
-          <span class="menu-value">SÁBADO 15 AGOSTO — 16:00 HS</span>
+    <!-- SLOT 2: UBICACIÓN -->
+    <div class="file-slot">
+      <div class="slot-left">
+        <span class="file-number">2</span>
+        <div class="file-title">
+          WORLD / LUGAR
+          <span class="file-subtitle">CASTILLO DE AXEL</span>
         </div>
       </div>
-
-      <!-- Fila: Circuito / Lugar -->
-      <div class="menu-option">
-        <div>
-          <span class="menu-label">GRAND PRIX / CIRCUITO</span>
-          <span class="menu-value">CASTILLO DE AXEL (MUNDO 1)</span>
-        </div>
+      <div class="slot-right">
+        🍄x05
       </div>
-
-      <!-- Fila: Reglas -->
-      <div class="menu-option">
-        <div>
-          <span class="menu-label">RACE RULES / NOTA</span>
-          <span class="menu-value">¡TRAER MUCHAS GANAS DE DIVERTIRSE!</span>
-        </div>
-      </div>
-
     </div>
 
-    <!-- BOTONES DE MENÚ DE SELECCIÓN -->
-    <div class="action-buttons">
+    <!-- SLOT 3: NOTA EXTRA -->
+    <div class="file-slot">
+      <div class="slot-left">
+        <span class="file-number">3</span>
+        <div class="file-title">
+          NEW GAME / NOTA
+          <span class="file-subtitle">¡TRAER MUCHAS GANAS!</span>
+        </div>
+      </div>
+      <div class="slot-right">
+        👑x01
+      </div>
+    </div>
+
+    <!-- BARRA INFERIOR DE BOTONES (ESTILO NINTENDO DS) -->
+    <footer class="action-bar">
       <!-- Enlace directo a tu Google Maps -->
-      <a href="https://goo.gl" target="_blank" class="btn-arcade btn-location">🏁 VER CIRCUITO (MAPA)</a>
+      <a href="https://goo.gl" target="_blank" class="btn-ds btn-maps">📍 VER MAPA</a>
       
       <!-- Enlace universal directo a tu WhatsApp Personal -->
-      <a href="https://wa.me" target="_blank" class="btn-arcade btn-whatsapp">🎮 OK - CONFIRMAR DRIVER</a>
-    </div>
+      <a href="https://wa.me" target="_blank" class="btn-ds btn-wa">🟢 CONFIRMAR</a>
+    </footer>
 
   </div>
 
