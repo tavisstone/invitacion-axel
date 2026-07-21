@@ -10,11 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
-
 /* =========================
    CONFIGURACIÓN GENERAL
 ========================= */
-
 * {
   box-sizing: border-box;
 }
@@ -29,56 +27,42 @@ body {
   overflow-x: hidden;
   font-family: 'Press Start 2P', monospace, Arial, sans-serif;
   color: #222;
-
-  /* Fondo clásico de Super Mario: Cielo celeste y franja de suelo */
-  background:
-    linear-gradient(
-      to bottom,
-      #5c94fc 0%,
-      #5c94fc 62%,
-      #79d64a 62%,
-      #79d64a 70%,
-      #c84c0c 70%,
-      #c84c0c 100%
-    );
-  background-attachment: fixed;
+  /* Fondo Celeste Oficial del juego clásico */
+  background-color: #5c94fc; 
+  padding-bottom: 60px; /* Espacio para el suelo fijo */
 }
 
 /* =========================
    NUBES ANIMADAS
 ========================= */
-
 .cloud {
   position: fixed;
   z-index: 0;
-  font-size: 45px;
-  opacity: .85;
+  font-size: 55px;
+  opacity: .9;
   animation: moverNube linear infinite;
   pointer-events: none;
 }
 
 .cloud1 {
   top: 5%;
-  left: -150px;
-  animation-duration: 40s;
+  animation-duration: 35s;
 }
 
 .cloud2 {
-  top: 18%;
-  left: -250px;
-  animation-duration: 55s;
-  animation-delay: 6s;
+  top: 20%;
+  animation-duration: 50s;
+  animation-delay: -15s; /* Empieza a mitad de camino */
 }
 
 @keyframes moverNube {
-  from { transform: translateX(-250px); }
-  to { transform: translateX(calc(100vw + 400px)); }
+  from { transform: translateX(-150px); }
+  to { transform: translateX(100vw); }
 }
 
 /* =========================
    MONEDAS FLOTANTES
 ========================= */
-
 .coin {
   position: fixed;
   z-index: 1;
@@ -92,13 +76,12 @@ body {
 
 @keyframes moneda {
   0%, 100% { transform: translateY(0) rotateY(0deg); }
-  50% { transform: translateY(-12px) rotateY(180deg); }
+  50% { transform: translateY(-15px) rotateY(180deg); }
 }
 
 /* =========================
    BLOQUES TIPO ? (MARIO BROS)
 ========================= */
-
 .floating-block {
   position: fixed;
   z-index: 1;
@@ -107,176 +90,160 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   background: #fcbc34;
   color: #fff;
-  border: 3px solid #884400;
+  border: 4px solid #000; /* Borde negro para estilo píxel definido */
   border-radius: 4px;
-  box-shadow: inset 0 0 0 2px #fcd85c, 0 4px 0 #5c2800;
+  box-shadow: inset -4px -4px 0 #b87800, inset 4px 4px 0 #fff060;
   animation: flotarBloque 2.5s ease-in-out infinite;
 }
 
-.block1 { top: 5%; left: 5%; }
-.block2 { top: 10%; right: 5%; animation-delay: 1s; }
+.block1 { top: 8%; left: 6%; }
+.block2 { top: 12%; right: 6%; animation-delay: 1.2s; }
 
 @keyframes flotarBloque {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-10px); }
 }
 
 /* =========================
    CONTENEDOR PRINCIPAL
 ========================= */
-
 .container {
   position: relative;
   z-index: 5;
-  width: 96%;
-  max-width: 500px;
+  width: 92%;
+  max-width: 440px;
   margin: 0 auto;
-  padding: 20px 0 60px;
+  padding: 30px 0;
 }
 
 /* =========================
-   TARJETA PRINCIPAL (FONDO TRANSLÚCIDO)
+   TARJETA PRINCIPAL
 ========================= */
-
 .card {
   position: relative;
-  /* Fondo blanco translúcido (90% de opacidad) para ver ligeramente el fondo */
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(4px);
-  border-radius: 20px;
-  padding: 20px 14px 25px;
-  border: 6px solid #e52521; 
-  box-shadow: 0 0 0 4px #fcd85c, 0 8px 0 #9c1b19, 0 15px 30px rgba(0,0,0,0.3);
-  overflow: hidden;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 18px 25px;
+  border: 6px solid #000; /* Borde arcade grueso */
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Decoración estilo marquesina arcade */
-.card:before {
-  content: "★  ✦  ★  ✦  ★  ✦  ★";
-  position: absolute;
-  top: 6px;
-  left: 0;
-  right: 0;
-  color: #fcd85c;
-  font-size: 11px;
-  letter-spacing: 4px;
+/* Adorno de ladrillos pixelados arriba de la tarjeta */
+.card-header-brick {
+  background: #e52521;
+  color: #fff;
   text-align: center;
+  padding: 6px;
+  font-size: 9px;
+  border: 4px solid #000;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 0 #000;
 }
 
 /* =========================
-   CABECERA
+   TEXTOS Y TIPOGRAFÍAS
 ========================= */
-
 .header-icons {
-  margin-top: 12px;
-  font-size: 36px;
+  font-size: 40px;
   animation: rebote 1.5s infinite ease-in-out;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 @keyframes rebote {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.invitation-title {
-  margin-top: 8px;
-  font-size: 0.65rem;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
+  50% { transform: translateY(-8px); }
 }
 
 h1 {
-  margin: 10px 0;
-  font-size: clamp(2rem, 11vw, 2.8rem);
-  color: #e52521;
+  margin: 15px 0 5px;
+  font-size: 2rem;
+  color: #e52521; /* Rojo Mario */
   text-align: center;
-  text-shadow: 2px 2px 0 #fcd85c, 4px 4px 0 #9c1b19;
-  letter-spacing: 2px;
+  text-shadow: 3px 3px 0 #000;
+  letter-spacing: 1px;
 }
 
 .subtitle {
   font-size: 0.65rem;
   font-weight: bold;
-  color: #002b80;
+  color: #00a2e8; /* Azul claro */
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 0 #000;
 }
 
 /* =========================
    BLOQUES MINI EN FILA
 ========================= */
-
 .blocks {
   display: flex;
   justify-content: center;
-  gap: 6px;
-  margin: 12px 0;
+  gap: 8px;
+  margin: 20px 0;
 }
 
 .block-mini {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #fcbc34;
-  border: 3px solid #884400;
-  border-radius: 4px;
+  border: 3px solid #000;
+  border-radius: 2px;
   color: white;
-  font-size: 15px;
-  box-shadow: 0 3px 0 #5c2800;
+  font-size: 14px;
+  box-shadow: inset -2px -2px 0 #b87800;
   animation: saltoBloque 1.8s infinite ease-in-out;
 }
 
-.block-mini:nth-child(2) { animation-delay: .2s; }
-.block-mini:nth-child(3) { animation-delay: .4s; }
+.block-mini:nth-child(2) { animation-delay: .2s; background: #e52521; } /* Bloque Rojo */
+.block-mini:nth-child(3) { animation-delay: .4s; background: #00a2e8; } /* Bloque Azul */
 .block-mini:nth-child(4) { animation-delay: .6s; }
 
 @keyframes saltoBloque {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-8px); }
 }
 
 /* =========================
    MENSAJE PRINCIPAL
 ========================= */
-
 .message {
-  padding: 12px;
-  background: rgba(255, 249, 219, 0.9);
-  border: 2px dashed #f2b900;
-  border-radius: 10px;
+  padding: 15px;
+  background: #fff9d7;
+  border: 4px solid #000;
+  border-radius: 4px;
   font-size: 0.58rem;
-  line-height: 1.7;
-  color: #444;
+  line-height: 1.8;
+  color: #000;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 /* =========================
-   CAJAS DE INFORMACIÓN (TRANSLÚCIDAS)
+   CAJAS DE INFORMACIÓN
 ========================= */
-
 .info-box {
-  margin-top: 12px;
+  margin-top: 15px;
   padding: 12px;
-  border-radius: 12px;
-  background: rgba(248, 249, 250, 0.9);
-  border: 2px solid #ccc;
+  border-radius: 4px;
+  background: #f0f0f0;
+  border: 4px solid #000;
   font-size: 0.65rem;
   text-align: center;
-  box-shadow: 0 3px 0 #bbb;
 }
 
 .info-icon {
   display: block;
-  font-size: 1.5rem;
-  margin-bottom: 2px;
+  font-size: 1.8rem;
+  margin-bottom: 6px;
 }
 
 .info-title {
@@ -284,186 +251,150 @@ h1 {
   font-size: 0.75rem;
   font-weight: bold;
   color: #e52521;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+}
+
+.info-box p {
+  margin: 4px 0;
+  color: #000;
 }
 
 .info-box small {
   font-size: 0.52rem;
   color: #555;
+  display: block;
+  margin-top: 4px;
 }
 
 /* =========================
-   BOTONES DE ACCIÓN
+   BOTONES DE ACCIÓN (ESTILO PIXEL)
 ========================= */
-
 .buttons {
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .btn {
   display: block;
   width: 100%;
-  padding: 13px 8px;
-  margin-top: 10px;
-  border-radius: 10px;
+  padding: 15px 10px;
+  margin-top: 12px;
+  border-radius: 4px;
   text-decoration: none;
   font-family: 'Press Start 2P', monospace;
   font-size: 0.55rem;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
-  transition: .1s;
-  border: none;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
+  border: 4px solid #000;
+  transition: transform 0.1s;
+  text-shadow: 1px 1px 0 #000;
 }
 
 .btn:active {
-  transform: translateY(2px);
+  transform: translateY(4px);
+  box-shadow: none;
 }
 
-/* Botón WhatsApp */
-.whatsapp {
-  background: #25d366;
-  color: white;
-  box-shadow: 0 4px 0 #128c4a;
-}
-
-/* Botón Ubicación */
+/* Botón Ubicación - Amarillo Bloque */
 .location {
-  background: #fcd85c;
-  color: #222;
-  box-shadow: 0 4px 0 #c79c00;
+  background: #fcbc34;
+  color: #fff;
+  box-shadow: 0 5px 0 #b87800;
 }
 
-/* Botón Calendario */
-.calendar {
-  background: #e52521;
+/* Botón WhatsApp - Verde Yoshi/Tubo */
+.whatsapp {
+  background: #43b012;
   color: white;
-  box-shadow: 0 4px 0 #9c1b19;
+  box-shadow: 0 5px 0 #28680b;
 }
 
 /* =========================
-   PIE DE PÁGINA
+   SUELO INFERIOR DE MARIO (FIJO)
 ========================= */
-
-.footer {
-  margin-top: 15px;
-  color: #333;
-  font-size: 0.52rem;
-  text-align: center;
-  text-shadow: 0 1px 0 #fff;
-}
-
-/* =========================
-   SUELO INFERIOR FIJO
-========================= */
-
 .ground {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 35px;
-  z-index: 2;
-  background: repeating-linear-gradient(
-    90deg,
-    #8b4b24 0px,
-    #8b4b24 30px,
-    #5c3014 30px,
-    #5c3014 34px
-  );
-  border-top: 8px solid #55b936;
-  pointer-events: none;
+  height: 45px;
+  z-index: 10;
+  /* Capa de arbustos verdes superiores y suelo de bloques marrón abajo */
+  background: 
+    linear-gradient(to bottom, #73c721 0%, #73c721 20%, #4da110 20%, #4da110 30%, #d87828 30%, #d87828 100%);
+  border-top: 5px solid #000;
+  box-shadow: inset 0 25px 0 #984800; /* Simula la textura interna del bloque de tierra */
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- NUBES -->
+<!-- NUBES ANIMADAS -->
 <div class="cloud cloud1">☁️</div>
 <div class="cloud cloud2">☁️</div>
 
-<!-- MONEDAS -->
+<!-- MONEDAS GIRATORIAS -->
 <div class="coin coin1">🪙</div>
 <div class="coin coin2">🪙</div>
 
-<!-- BLOQUES -->
+<!-- BLOQUES INTERACTIVOS LATERALES -->
 <div class="floating-block block1">?</div>
 <div class="floating-block block2">★</div>
 
 <!-- INVITACIÓN PRINCIPAL -->
 <main class="container">
-  <section class="card">
-
-    <div class="header-icons">
-      🎮 🍄 🎂
+  <div class="card">
+    
+    <div class="card-header-brick">
+      ★★ MUNDO 1 - NIVEL CUMPLE ★★
     </div>
 
-    <div class="invitation-title">
-      ¡ESTÁS INVITADO!
+    <div class="header-icons">
+      🍄 🎮 🦖
     </div>
 
     <h1>AXEL</h1>
-
-    <div class="subtitle">
-      ¡Nivel Cumpleaños!
-    </div>
+    <div class="subtitle">¡HA PASADO AL SIGUIENTE NIVEL!</div>
 
     <div class="blocks">
       <div class="block-mini">?</div>
-      <div class="block-mini">★</div>
-      <div class="block-mini">?</div>
+      <div class="block-mini">M</div>
+      <div class="block-mini">L</div>
       <div class="block-mini">★</div>
     </div>
 
     <div class="message">
-      🍄 ¡Prepárate para una aventura llena de diversión, música, pastel y sorpresas!<br><br>
-      🎁 ¡No faltes a la celebración! 🎮
+      ¡HERE WE GO! 🌟 PREPÁRATE PARA UNA AVENTURA LLENA DE DIVERSIÓN, JUEGOS, PASTEL Y MUCHAS SORPRESAS. ¡NO PUEDES FALTAR A MI PARTY!
     </div>
 
-    <!-- FECHA -->
+    <!-- FECHA Y HORA -->
     <div class="info-box">
       <span class="info-icon">📅</span>
-      <span class="info-title">FECHA</span>
-      Noviembre<br>
-      <small>Noviembre 20</small>
+      <span class="info-title">FECHA Y HORA</span>
+      <p>SÁBADO 15 DE AGOSTO</p>
+      <p>A LAS 4:00 PM</p>
+      <small>(¡Llega temprano para no perder vidas!)</small>
     </div>
 
-    <!-- UBICACIÓN -->
+    <!-- LUGAR -->
     <div class="info-box">
       <span class="info-icon">📍</span>
-      <span class="info-title">LUGAR</span>
-      La ubicación de la fiesta está aquí 👇
+      <span class="info-title">CASTILLO DE AXEL</span>
+      <p>Av. Principal #123, Col. Centro</p>
+      <small>Haz clic abajo para ver el mapa</small>
     </div>
 
     <!-- BOTONES -->
     <div class="buttons">
-      <a class="btn whatsapp" href="https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank">
-        ✅ CONFIRMAR ASISTENCIA
-      </a>
-
-      <a class="btn location" href="https://maps.app.goo.gl/NQrBgCjc7k5AW7UY6" target="_blank">
-        🗺️ VER UBICACIÓN
-      </a>
-
-      <a class="btn calendar" href="#" onclick="alert('📅 La fecha exacta se agregará cuando sea confirmada.'); return false;">
-        📅 AGREGAR AL CALENDARIO
-      </a>
+      <a href="https://google.com" target="_blank" class="btn location">📍 VER UBICACIÓN</a>
+      <a href="https://wa.me¡Confirmado!%20Ahí%20estaré%20en%20el%20cumpleaños%20de%20Axel%20🍄" target="_blank" class="btn whatsapp">🟢 CONFIRMAR WHATSAPP</a>
     </div>
 
-    <div class="footer">
-      🎮 ¡Te esperamos para celebrar juntos! 🎮
-    </div>
-
-  </section>
+  </div>
 </main>
 
-<!-- SUELO -->
+<!-- SUELO ESTILO SUPER MARIO BROS -->
 <div class="ground"></div>
 
 </body>
