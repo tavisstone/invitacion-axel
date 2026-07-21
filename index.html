@@ -236,7 +236,7 @@ body {
 }
 
 /* =========================
-   BOTONES REDUCIDOS (NUBE, LADRILLO, ESTRELLA) CON MOVIMIENTO
+   CONTENEDOR DE BOTONES Y MOVIMIENTO
 ========================= */
 .buttons {
   margin-top: 25px;
@@ -244,7 +244,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  align-items: center; /* Centra los botones reducidos */
+  align-items: center;
 }
 
 .btn {
@@ -255,9 +255,8 @@ body {
   font-weight: 900;
   text-align: center;
   position: relative;
-  /* Ancho reducido para que no ocupen todo el renglón y parezcan emblemas */
-  width: 82%;
-  max-width: 320px;
+  width: 86%;
+  max-width: 340px;
   animation: movimientoBotones 2.8s infinite ease-in-out alternate;
 }
 
@@ -275,49 +274,41 @@ body {
   filter: brightness(0.9);
 }
 
-/* 1. BOTÓN NUBE (Más compacto y ovalado) */
+/* 1. BOTÓN CAPARAZÓN AZUL (Con imagen integrada de fondo) */
 .whatsapp {
-  background: #43b012;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('1784627238408.jpg');
+  background-size: cover;
+  background-position: center;
   color: #fff;
-  padding: 14px 20px;
-  font-size: 0.78rem;
+  padding: 22px 15px;
+  font-size: 0.82rem;
   border: 4px solid #000;
-  border-radius: 50px;
-  text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
-  box-shadow: 0 5px 0px #2b730b, 0 6px 10px rgba(0,0,0,0.4);
+  border-radius: 16px;
+  text-shadow: 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000;
+  box-shadow: 0 6px 0px #0b1d3a, 0 8px 14px rgba(0,0,0,0.5);
 }
 
-/* 2. BOTÓN BLOQUE DE LADRILLOS (Más cuadrado/compacto) */
+/* 2. BOTONES TEMPORALES PARA LOS OTROS DOS (Se actualizarán cuando subas sus imágenes) */
 .location {
-  background: #b83d1e;
+  background: #f29f05;
   color: #fff;
   padding: 14px 20px;
   font-size: 0.78rem;
   border: 4px solid #000;
   border-radius: 8px;
-  background-image: 
-    linear-gradient(335deg, rgba(0,0,0,0.25) 23%, transparent 23%),
-    linear-gradient(155deg, rgba(0,0,0,0.25) 23%, transparent 23%),
-    linear-gradient(335deg, rgba(0,0,0,0.25) 23%, transparent 23%),
-    linear-gradient(155deg, rgba(0,0,0,0.25) 23%, transparent 23%);
-  background-size: 16px 16px;
-  background-position: 0 0, 0 0, 8px 8px, 8px 8px;
   text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
-  box-shadow: inset 0 3px 0 rgba(255,255,255,0.3), 0 5px 0px #611b09, 0 6px 10px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 0px #b57602, 0 6px 10px rgba(0,0,0,0.4);
 }
 
-/* 3. BOTÓN ESTRELLA BLANCA (Forma estelar proporcionada y con contorno negro) */
 .calendar {
-  background: #ffffff;
-  color: #222;
-  padding: 22px 15px;
-  font-size: 0.72rem;
-  font-weight: 900;
-  text-shadow: none;
-  /* Vector de estrella de 5 picos equilibrado y proporcional */
-  clip-path: polygon(50% 2%, 63% 32%, 97% 34%, 70% 56%, 79% 89%, 50% 72%, 21% 89%, 30% 56%, 3% 34%, 37% 32%);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-  filter: drop-shadow(0px 4px 0px #000); /* Simula borde negro vectorial para clip-path */
+  background: #e52521;
+  color: #fff;
+  padding: 14px 20px;
+  font-size: 0.78rem;
+  border: 4px solid #000;
+  border-radius: 8px;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
+  box-shadow: 0 5px 0px #9c1b19, 0 6px 10px rgba(0,0,0,0.4);
 }
 
 .footer {
@@ -335,7 +326,7 @@ body {
   position: fixed;
   bottom: 15px;
   right: 15px;
-  background: #ff2e89;
+  background: #f2a900;
   border: 3px solid #000;
   border-radius: 50px;
   padding: 8px 14px;
@@ -351,7 +342,7 @@ body {
   text-shadow: 1px 1px 0px #000;
 }
 .music-player:active {
-  transform: scale(0.99);
+  transform: scale(0.95);
 }
 </style>
 </head>
@@ -404,7 +395,7 @@ body {
           </div>
         </div>
         <div class="slot-right">
-          ⏰ 13:00
+          ⏰ 16:00
         </div>
       </div>
 
@@ -438,7 +429,7 @@ body {
 
     </div>
 
-    <!-- BOTONES REDUCIDOS Y CON MOVIMIENTO -->
+    <!-- BOTONES CON EL CAPARAZÓN AZUL INTEGRADO -->
     <div class="buttons">
       <a class="btn whatsapp" href="https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank">
         ✅ CONFIRMAR ASISTENCIA
