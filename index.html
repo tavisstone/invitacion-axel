@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🎉 ¡Cumpleaños de Axel! 🍄</title>
 
-<!-- Fuentes: Arcade para interfaz y Fredoka para el estilo redondeado de Mario -->
+<!-- Fuentes: Arcade para contadores y Fredoka para el estilo divertido/infantil de Mario -->
 <link href="https://googleapis.com" rel="stylesheet">
 
 <style>
@@ -25,9 +25,9 @@ body {
   font-family: 'Fredoka', sans-serif;
   color: #333;
   
-  /* LECTURA DEL FONDO LOCAL */
+  /* LECTURA DEL NUEVO FONDO JPG PROVISTO */
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+    linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), 
     url('fondo.jpg'); 
   
   background-size: cover;
@@ -38,7 +38,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 12px;
+  padding: 15px 12px;
 }
 
 .container {
@@ -50,104 +50,121 @@ body {
 }
 
 /* =========================
-   NUEVO ENCABEZADO ESTILO MARIO BROS
+   NUEVO ENCABEZADO SUPERIOR DIVERTIDO E INFANTIL
 ========================= */
-.mario-header {
-  margin-bottom: 20px;
-  text-transform: uppercase;
+.playful-header {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.mario-header .line1 {
-  font-size: 1.3rem;
+.playful-invitacion {
+  font-size: 1.4rem;
   color: #fff;
   text-shadow: 3px 3px 0px #000;
-  display: block;
   letter-spacing: 1px;
+  font-weight: 900;
+  transform: rotate(-2deg);
+  margin-bottom: 2px;
 }
 
-.mario-header .line2 {
-  font-size: 3.2rem;
-  color: #fcd85c; /* Amarillo brillante de Mario */
-  display: block;
-  letter-spacing: 4px;
-  margin: 2px 0;
-  text-shadow: 4px 4px 0px #e52521, -2px -2px 0px #000, 2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 4px 4px 6px #000;
+/* Efecto de letras de colores para el nombre AXEL */
+.playful-name {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 5px 0;
+  transform: scale(1.05);
 }
 
-.mario-header .line3 {
-  font-size: 1.1rem;
-  color: #43b012; /* Verde Tubo */
-  text-shadow: 2px 2px 0px #000;
-  display: block;
+.letter {
+  font-size: 3.4rem;
+  font-weight: 900;
+  text-shadow: 4px 4px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;
+  display: inline-block;
+}
+.letter:nth-child(1) { color: #e52521; transform: rotate(-6deg) translateY(-2px); } /* A - Rojo */
+.letter:nth-child(2) { color: #002fbe; transform: rotate(5deg) translateY(3px); }  /* X - Azul */
+.letter:nth-child(3) { color: #fcd85c; transform: rotate(-4deg) translateY(-4px); } /* E - Amarillo */
+.letter:nth-child(4) { color: #43b047; transform: rotate(7deg) translateY(1px); }  /* L - Verde */
+
+.playful-nivel {
+  font-size: 1.3rem;
+  color: #fcd85c;
+  text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000;
+  font-weight: 900;
   letter-spacing: 0.5px;
+  margin-top: 4px;
+  transform: rotate(1deg);
 }
 
 /* =========================
-   BLOQUES AMARILLOS "?" ANIMADOS
+   BLOQUES AMARILLOS "?" (MOVIMIENTO DE BRINQUITO TENUE)
 ========================= */
 .decorations-container {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .lucky-block {
-  width: 45px;
-  height: 45px;
+  width: 44px;
+  height: 44px;
   background: #f2a900;
   border: 4px solid #000;
   border-radius: 4px;
-  box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 6px 0px rgba(0,0,0,0.3);
+  box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 5px 0px rgba(0,0,0,0.3);
   font-family: 'Press Start 2P', monospace;
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-shadow: 2px 2px 0px #b57602;
-  animation: brincoBloque 1.2s infinite ease-in-out alternate;
+  animation: brincoBloque 1.4s infinite ease-in-out alternate;
 }
 
 .lucky-block:nth-child(2) { animation-delay: 0.3s; }
 .lucky-block:nth-child(3) { animation-delay: 0.6s; }
 
 @keyframes brincoBloque {
-  0% { transform: translateY(0); box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 6px 0px rgba(0,0,0,0.3); }
-  50% { transform: translateY(-10px); box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 16px 10px rgba(0,0,0,0.2); }
-  100% { transform: translateY(0); box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 6px 0px rgba(0,0,0,0.3); }
+  0% { transform: translateY(0); box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 5px 0px rgba(0,0,0,0.3); }
+  50% { transform: translateY(-8px); box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 13px 8px rgba(0,0,0,0.25); }
+  100% { transform: translateY(0); box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 5px 0px rgba(0,0,0,0.3); }
 }
 
 /* =========================
-   TARJETAS DE INFORMACIÓN (CON MOVIMIENTO LATERAL)
+   TARJETAS DE INFORMACIÓN (MOVIMIENTO EN SECUENCIA DESFASADA)
 ========================= */
 .file-slot {
   background: #ffffff;
   border: 4px solid #7f7f7f;
   border-radius: 14px;
   padding: 16px 18px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: inset 0 -5px 0 #d9d9d9, 0 6px 12px rgba(0, 0, 0, 0.4);
   position: relative;
   
-  /* Animación de vaivén de izquierda a derecha */
-  animation: movimientoLateral 3s infinite ease-in-out alternate;
+  /* Animación base de vaivén horizontal */
+  animation: movimientoSecuencial 3s infinite ease-in-out alternate;
 }
 
-/* Desfasamos los tiempos de animación para que se muevan con ritmo */
-.file-slot:nth-child(4) { animation-delay: 0s; }
-.file-slot:nth-child(5) { animation-delay: 0.4s; }
-.file-slot:nth-child(6) { animation-delay: 0.8s; }
+/* SEPARACIÓN DE TIEMPOS EXPRESA: Una tarjeta se mueve después de la otra */
+.file-slot:nth-of-type(1) { animation-delay: 0s; }
+.file-slot:nth-of-type(2) { animation-delay: 0.5s; }
+.file-slot:nth-of-type(3) { animation-delay: 1s; }
 
-@keyframes movimientoLateral {
-  0% { transform: translateX(-8px); }
-  100% { transform: translateX(8px); }
+@keyframes movimientoSecuencial {
+  0% { transform: translateX(-10px); }
+  100% { transform: translateX(10px); }
 }
 
-/* Slot Activo con contorno doble amarillo */
+/* Ranura activa destacada con perfil amarillo */
 .file-slot.active {
   border: 4px solid #f29f05;
 }
@@ -183,7 +200,7 @@ body {
 .file-subtitle {
   display: block;
   font-size: 0.68rem;
-  color: #444;
+  color: #333;
   font-family: 'Press Start 2P', monospace;
   margin-top: 6px;
   line-height: 1.4;
@@ -195,13 +212,13 @@ body {
   gap: 6px;
   font-family: 'Press Start 2P', monospace;
   font-size: 0.62rem;
-  color: #333;
+  color: #222;
   font-weight: bold;
   white-space: nowrap;
 }
 
 /* =========================
-   BOTONES DE ACCIÓN INFERIORES
+   BOTONES DE ACCIÓN (ESTILO SLOT)
 ========================= */
 .action-bar {
   display: flex;
@@ -247,68 +264,79 @@ body {
 
   <div class="container">
 
-    <!-- NUEVO ENCABEZADO MARIO BROS -->
-    <header class="mario-header">
-      <span class="line1">¡ESTAS INVITADO!</span>
-      <span class="line2">AXEL</span>
-      <span class="line3">¡NIVEL CUMPLEAÑOS!</span>
+    <!-- NUEVO ENCABEZADO DE LETRAS DE COLORES AL CENTRO -->
+    <header class="playful-header">
+      <span class="playful-invitacion">¡ESTAS INVITADO!</span>
+      <div class="playful-name">
+        <span class="letter">A</span>
+        <span class="letter">X</span>
+        <span class="letter">E</span>
+        <span class="letter">L</span>
+      </div>
+      <span class="playful-nivel">¡NIVEL CUMPLEAÑOS!</span>
     </header>
 
-    <!-- CUADROS "?" ANIMADOS CON BRINCO LENTO -->
+    <!-- CUADROS "?" CON BRINCO TENUE -->
     <div class="decorations-container">
       <div class="lucky-block">?</div>
       <div class="lucky-block">?</div>
       <div class="lucky-block">?</div>
     </div>
 
-    <!-- SLOT 1: FECHA MODIFICADA -->
-    <div class="file-slot active">
-      <div class="slot-left">
-        <span class="file-number">1</span>
-        <div class="file-title">
-          WHEN / FECHA
-          <span class="file-subtitle">SABADO 7 DE NOVIEMBRE</span>
-        </div>
-      </div>
-      <div class="slot-right">
-        ⏰ 16:00
-      </div>
-    </div>
-
-    <!-- SLOT 2: UBICACIÓN -->
-    <div class="file-slot">
-      <div class="slot-left">
-        <span class="file-number">2</span>
-        <div class="file-title">
-          WORLD / LUGAR
-          <span class="file-subtitle">CASTILLO DE AXEL</span>
-        </div>
-      </div>
-      <div class="slot-right">
-        🍄 x05
-      </div>
-    </div>
-
-    <!-- SLOT 3: NOTA EXTRA MODIFICADA -->
-    <div class="file-slot">
-      <div class="slot-left">
-        <span class="file-number">3</span>
-        <div class="file-title">
-          NEW GAME / NOTA
-          <span class="file-subtitle">¡TRAER MUCHAS GANAS DE DIVERTIRTE !</span>
-        </div>
-      </div>
-      <div class="slot-right">
-        👑 x01
-      </div>
-    </div>
-
-    <!-- BARRA INFERIOR DE BOTONES -->
-    <footer class="action-bar">
-      <a href="https://goo.gl" target="_blank" class="btn-ds btn-maps">📍 VER MAPA</a>
+    <!-- CONTENEDOR GRUPAL DE ENTRADAS INFORMATIVAS CON RESPUESTA SECUENCIAL -->
+    <div class="slots-wrapper">
       
-      <!-- ENLACE DE WHATSAPP CON CODIFICACIÓN ESTÁNDAR COMPATIBLE CON MÓVILES -->
-      <a href="https://wa.me" target="_blank" class="btn-ds btn-wa">🟢 CONFIRMAR</a>
+      <!-- SLOT 1: FECHA -->
+      <div class="file-slot active">
+        <div class="slot-left">
+          <span class="file-number">1</span>
+          <div class="file-title">
+            WHEN / FECHA
+            <span class="file-subtitle">SABADO 7 DE NOVIEMBRE</span>
+          </div>
+        </div>
+        <div class="slot-right">
+          ⏰ 16:00
+        </div>
+      </div>
+
+      <!-- SLOT 2: UBICACIÓN -->
+      <div class="file-slot">
+        <div class="slot-left">
+          <span class="file-number">2</span>
+          <div class="file-title">
+            WORLD / LUGAR
+            <span class="file-subtitle">CASTILLO DE AXEL</span>
+          </div>
+        </div>
+        <div class="slot-right">
+          🍄 x05
+        </div>
+      </div>
+
+      <!-- SLOT 3: NOTA EXTRA -->
+      <div class="file-slot">
+        <div class="slot-left">
+          <span class="file-number">3</span>
+          <div class="file-title">
+            NEW GAME / NOTA
+            <span class="file-subtitle">¡TRAER MUCHAS GANAS DE DIVERTIRTE !</span>
+          </div>
+        </div>
+        <div class="slot-right">
+          👑 x01
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR DE BOTONES DE CONTROL DE MENÚ -->
+    <footer class="action-bar">
+      <!-- URL EXTENDIDA DE ESCRITORIO DE GOOGLE MAPS PARA REMOVER COMPORTAMIENTO DE FIREBASE -->
+      <a href="https://google.com" target="_blank" class="btn-ds btn-maps">📍 VER MAPA</a>
+      
+      <!-- PASARELA API INTERNACIONAL COMPLETA FORZADA PARA CORREGIR REDIRECCIÓN EN WHATSAPP MESSENGER -->
+      <a href="https://whatsapp.com" target="_blank" class="btn-ds btn-wa">🟢 CONFIRMAR</a>
     </footer>
 
   </div>
