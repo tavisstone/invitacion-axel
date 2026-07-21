@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================
-   ENCABEZADO LETRA POR LETRA ANIMADO (SECUENCIAL ESPECTACULAR)
+   ENCABEZADO ANIMADO LETRA POR LETRA
 ========================= */
 .playful-header {
   margin-bottom: 15px;
@@ -79,7 +79,6 @@ body {
   margin-top: 4px;
 }
 
-/* El bloque contenedor del nombre AXEL */
 .playful-name {
   display: flex;
   justify-content: center;
@@ -87,20 +86,17 @@ body {
   margin: 5px 0;
 }
 
-/* Animación y propiedades base para cada letra individual */
 .playful-invitacion span, .playful-nivel span, .playful-name span {
   display: inline-block;
   animation: brincoLetraIndividual 1.6s infinite ease-in-out;
 }
 
-/* Regla del salto escalonado letra por letra */
 @keyframes brincoLetraIndividual {
   0%, 100% { transform: translateY(0); }
   25% { transform: translateY(-10px); }
   50% { transform: translateY(0); }
 }
 
-/* Letras de AXEL estilizadas individualmente */
 .letter {
   font-size: 3.4rem;
   font-weight: 900;
@@ -111,7 +107,6 @@ body {
 .letter:nth-child(3) { color: #fcd85c; transform: rotate(-4deg); animation-delay: 0.5s; }
 .letter:nth-child(4) { color: #43b047; transform: rotate(7deg); animation-delay: 0.6s; }
 
-/* Desfase manual de retraso para cada letra de "¡ESTAS INVITADO!" */
 .playful-invitacion span:nth-child(1)  { animation-delay: 0.00s; }
 .playful-invitacion span:nth-child(2)  { animation-delay: 0.05s; }
 .playful-invitacion span:nth-child(3)  { animation-delay: 0.10s; }
@@ -129,7 +124,6 @@ body {
 .playful-invitacion span:nth-child(15) { animation-delay: 0.70s; }
 .playful-invitacion span:nth-child(16) { animation-delay: 0.75s; }
 
-/* Desfase manual de retraso para cada letra de "¡NIVEL CUMPLEAÑOS!" */
 .playful-nivel span:nth-child(1)  { animation-delay: 0.50s; }
 .playful-nivel span:nth-child(2)  { animation-delay: 0.55s; }
 .playful-nivel span:nth-child(3)  { animation-delay: 0.60s; }
@@ -186,8 +180,12 @@ body {
 }
 
 /* =========================
-   TARJETAS DE INFORMACIÓN (SECUENCIA COMPLETA DESFASADA)
+   TARJETAS DE INFORMACIÓN (SECUENCIA)
 ========================= */
+.slots-wrapper {
+  width: 100%;
+}
+
 .file-slot {
   background: #ffffff;
   border: 4px solid #7f7f7f;
@@ -199,7 +197,6 @@ body {
   justify-content: space-between;
   box-shadow: inset 0 -5px 0 #d9d9d9, 0 6px 12px rgba(0, 0, 0, 0.4);
   position: relative;
-  
   animation: movimientoSecuencial 3s infinite ease-in-out alternate;
 }
 
@@ -326,7 +323,7 @@ body {
 
   <div class="container">
 
-    <!-- ENCABEZADO LETRA POR LETRA CON BRINCO DESFASE AUTOMÁTICO -->
+    <!-- ENCABEZADO LETRA POR LETRA -->
     <header class="playful-header">
       <span class="playful-invitacion">
         <span>¡</span><span>E</span><span>S</span><span>T</span><span>A</span><span>S</span><span>&nbsp;</span><span>I</span><span>N</span><span>V</span><span>I</span><span>T</span><span>A</span><span>D</span><span>O</span><span>!</span>
@@ -338,3 +335,19 @@ body {
         <span class="letter">L</span>
       </div>
       <span class="playful-nivel">
+        <span>¡</span><span>N</span><span>I</span><span>V</span><span>E</span><span>L</span><span>&nbsp;</span><span>C</span><span>U</span><span>M</span><span>P</span><span>L</span><span>E</span><span>A</span><span>Ñ</span><span>O</span><span>S</span><span>!</span>
+      </span>
+    </header>
+
+    <!-- CUADROS "?" -->
+    <div class="decorations-container">
+      <div class="lucky-block">?</div>
+      <div class="lucky-block">?</div>
+      <div class="lucky-block">?</div>
+    </div>
+
+    <!-- TARJETAS INFORMATIVAS -->
+    <div class="slots-wrapper">
+      
+      <!-- SLOT 1: FECHA -->
+      <div class="file-slot active">
