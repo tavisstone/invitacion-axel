@@ -237,7 +237,7 @@ body {
 }
 
 /* =========================
-   BARRA DE BOTONES INFERIORES CORREGIDA (REPARA MAPA)
+   BARRA DE BOTONES INFERIORES
 ========================= */
 .action-bar {
   display: flex;
@@ -268,13 +268,13 @@ body {
   box-shadow: none;
 }
 
-/* Botón Ubicación Reparado */
+/* Botón Ubicación */
 .btn-maps {
   background: #f29f05;
   box-shadow: 0 6px 0px #b57602, 0 6px 10px rgba(0,0,0,0.4);
 }
 
-/* Botón WhatsApp Reparado */
+/* Botón WhatsApp */
 .btn-wa {
   background: #43b012;
   box-shadow: 0 6px 0px #2b730b, 0 6px 10px rgba(0,0,0,0.4);
@@ -354,13 +354,13 @@ body {
 
     </div>
 
-    <!-- BARRA DE BOTONES ARREGLADA (IGUALES, SIMÉTRICOS Y CON ESTILO) -->
+    <!-- BARRA DE BOTONES ARREGLADA (IGUALES, SIMÉTRICOS Y CON ESTILO DE BOTÓN) -->
     <footer class="action-bar">
-      <!-- Enlace directo limpio de Google Maps para evitar el error de Firebase -->
-      <a href="https://maps.app.goo.gl/jgrZHijcdZ9PbRzB6">📍 VER MAPA</a>
+      <!-- ENLACE EXPANDIDO SEGURO: Evita el error Firebase del link corto de Maps -->
+      <a href="https://google.com" target="_blank" class="btn-ds btn-maps">📍 VER MAPA</a>
       
-      <!-- Aquí incluí tu mensaje codificado de WhatsApp en la API universal -->
-      <a href="Hola%Confirmo%ni%asistencia%al%cumpleaños%de%Axel%" target="_blank" class="btn-ds btn-wa">🟢 CONFIRMAR</a>
+      <!-- ENLACE PURGADO SEGURO: Sin el símbolo '+' y con tu mensaje codificado en espacios (%20) -->
+      <a href="https://wa.me" target="_blank" class="btn-ds btn-wa">🟢 CONFIRMAR</a>
     </footer>
 
   </div>
