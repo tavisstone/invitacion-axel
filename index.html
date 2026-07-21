@@ -69,7 +69,7 @@ body {
   display: block;
   
   /* Animación de brinco de la línea 1 */
-  animation: brincoLetras 1.8s infinite ease-in-out;
+  animation: brincoLetras 2.5s infinite ease-in-out;
   animation-delay: 0s;
 }
 
@@ -157,7 +157,7 @@ body {
 }
 
 /* =========================
-   TARJETAS DE INFORMACIÓN (TUS ORIGINALES)
+   TARJETAS DE INFORMACIÓN (SECUENCIA COMPLETA DESFASADA)
 ========================= */
 .file-slot {
   background: #ffffff;
@@ -237,68 +237,52 @@ body {
 }
 
 /* =========================
-   NUEVOS BOTONES DE ACCIÓN MÁS DINÁMICOS
+   ESTILOS DE TUS BOTONES ORIGINALES RESTAURADOS
 ========================= */
 .buttons {
   margin-top: 25px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .btn {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  color: #fff;
+  padding: 16px 10px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  border-radius: 14px;
-  color: #fff;
-  padding: 16px 12px;
-  font-size: 0.9rem;
-  font-weight: 900;
-  text-decoration: none;
+  transition: all 0.1s;
   border: 4px solid #000;
-  letter-spacing: 0.5px;
-  transition: all 0.1s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Efecto de brillo sutil superior en los botones estilo videojuego */
-.btn::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 40%;
-  background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0));
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  pointer-events: none;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .btn:active {
-  transform: translateY(5px);
-  box-shadow: inset 0 4px 6px rgba(0,0,0,0.3) !important;
+  transform: translateY(4px);
+  box-shadow: none;
 }
 
-/* Colores vibrantes con relieve profundo estilo bloque de poder */
+/* Colores exactos de tus clases originales */
 .whatsapp {
   background: #43b012;
-  text-shadow: 2px 2px 0px #1d4d05;
-  box-shadow: 0 7px 0px #1d4d05, 0 8px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 0px #2b730b, 0 6px 10px rgba(0,0,0,0.4);
 }
 
 .location {
   background: #f29f05;
-  text-shadow: 2px 2px 0px #805202;
-  box-shadow: 0 7px 0px #805202, 0 8px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 0px #b57602, 0 6px 10px rgba(0,0,0,0.4);
 }
 
 .calendar {
-  background: #e52521;
-  text-shadow: 2px 2px 0px #7a110f;
-  box-shadow: 0 7px 0px #7a110f, 0 8px 12px rgba(0,0,0,0.4);
+  background: #e52521; /* Rojo Mario para el Calendario */
+  box-shadow: 0 6px 0px #9c1b19, 0 6px 10px rgba(0,0,0,0.4);
 }
 
 .footer {
@@ -310,7 +294,7 @@ body {
 }
 
 /* =========================
-   REPRODUCTOR DE MÚSICA FLOTANTE (CON TU CANCION.MPEG)
+   REPRODUCTOR DE MÚSICA FLOTANTE
 ========================= */
 .music-player {
   position: fixed;
@@ -339,9 +323,9 @@ body {
 
 <body>
 
-  <!-- REPRODUCTOR DE AUDIO -->
+  <!-- REPRODUCTOR DE AUDIO (Sube tu canción a GitHub y cámbiale el nombre si es necesario, ej: cancion.mp3) -->
   <audio id="background-music" loop>
-    <source src="Cancion.mpeg" type="audio/mpeg">
+    <source src="cancion.mpeg" type="audio/mpeg">
   </audio>
 
   <!-- BOTÓN FLOTANTE DE MÚSICA -->
@@ -372,7 +356,7 @@ body {
       <div class="lucky-block">?</div>
     </div>
 
-    <!-- TARJETAS INFORMATIVAS (TUS ORIGINALES) -->
+    <!-- TARJETAS INFORMATIVAS -->
     <div class="slots-wrapper">
       
       <!-- SLOT 1: FECHA -->
@@ -419,9 +403,9 @@ body {
 
     </div>
 
-    <!-- BOTONES DINÁMICOS MEJORADOS -->
+    <!-- TUS LÍNEAS DE BOTONES ORIGINALES INTEGRADAS PERFECTAMENTE -->
     <div class="buttons">
-      <a class="btn whatsapp" href="https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank">
+      <a class="btn whatsapp" href="https://wa.me/+525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank">
         ✅ CONFIRMAR ASISTENCIA
       </a>
 
@@ -440,7 +424,7 @@ body {
 
   </div>
 
-  <!-- SCRIPT PARA ACTIVAR LA MÚSICA -->
+  <!-- SCRIPT PARA ACTIVAR LA MÚSICA AUTOMÁTICAMENTE AL PRIMER TOQUE -->
   <script>
     const music = document.getElementById('background-music');
     const musicToggle = document.getElementById('music-toggle');
@@ -463,12 +447,14 @@ body {
       }
     }
 
+    // Intenta reproducir en cuanto el usuario interactúe por primera vez con la página
     document.body.addEventListener('click', function autoPlay() {
       if (!isPlaying) {
         music.play().then(() => {
           musicIcon.textContent = '🎶';
           musicText.textContent = 'Música: ON';
           isPlaying = true;
+          // Remover el evento para que ya no salte más
           document.body.removeEventListener('click', autoPlay);
         }).catch(e => {});
       }
@@ -477,5 +463,3 @@ body {
 
 </body>
 </html>
-
-```
