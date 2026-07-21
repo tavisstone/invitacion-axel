@@ -27,7 +27,7 @@ body {
   
   /* LECTURA DEL FONDO LOCAL */
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+    linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), 
     url('fondo.jpg'); 
   
   background-size: cover;
@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================
-   ENCABEZADO ANIMADO EN SECUENCIA
+   ENCABEZADO ANIMADO EN SECUENCIA (UNO DETRÁS DEL OTRO)
 ========================= */
 .playful-header {
   margin-bottom: 15px;
@@ -67,6 +67,8 @@ body {
   font-weight: 900;
   margin-bottom: 2px;
   display: block;
+  
+  /* Animación de brinco de la línea 1 */
   animation: brincoLetras 1.8s infinite ease-in-out;
   animation-delay: 0s;
 }
@@ -74,6 +76,8 @@ body {
 .playful-name-box {
   display: block;
   margin: 5px 0;
+  
+  /* Animación de brinco de la línea 2 (AXEL) */
   animation: brincoLetras 1.8s infinite ease-in-out;
   animation-delay: 0.6s;
 }
@@ -103,10 +107,13 @@ body {
   letter-spacing: 0.5px;
   margin-top: 4px;
   display: block;
+  
+  /* Animación de brinco de la línea 3 */
   animation: brincoLetras 1.8s infinite ease-in-out;
   animation-delay: 1.2s;
 }
 
+/* Regla del salto para el encabezado */
 @keyframes brincoLetras {
   0%, 100% { transform: translateY(0); }
   30% { transform: translateY(-12px); }
@@ -150,35 +157,43 @@ body {
 }
 
 /* =========================
-   ESTILO SUPER MARIO WORLD (MENÚ DE NIVELES)
+   TARJETAS DE INFORMACIÓN (TUS ORIGINALES)
 ========================= */
-.slots-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
 .file-slot {
-  /* Estilo de panel de menú de Super Mario World (tono amarillo/crema pergamino con marco de tablero grueso) */
-  background: #fdf5c9;
-  border: 4px solid #000;
-  border-radius: 6px;
-  padding: 14px 16px;
+  background: #ffffff;
+  border: 4px solid #7f7f7f;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Sombra sólida estilo pixel art / 16 bits */
-  box-shadow: 4px 4px 0px #000;
+  box-shadow: inset 0 -5px 0 #d9d9d9, 0 6px 12px rgba(0, 0, 0, 0.4);
   position: relative;
-  transition: transform 0.2s ease;
+  
+  animation: movimientoSecuencial 3s infinite ease-in-out alternate;
 }
 
-/* Efecto de nivel activo con borde rojo clásico de selección de mapa */
+/* Retraso exacto para que se muevan una detrás de la otra */
+.file-slot:nth-of-type(1) { animation-delay: 0s; }
+.file-slot:nth-of-type(2) { animation-delay: 0.5s; }
+.file-slot:nth-of-type(3) { animation-delay: 1s; }
+
+@keyframes movimientoSecuencial {
+  0% { transform: translateX(-10px); }
+  100% { transform: translateX(10px); }
+}
+
 .file-slot.active {
-  background: #fff;
-  border: 4px solid #e52521;
-  box-shadow: 4px 4px 0px #000, inset 0 0 0 2px #fcd85c;
+  border: 4px solid #f29f05;
+}
+.file-slot.active::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border: 3px solid #f2cb05;
+  border-radius: 12px;
+  pointer-events: none;
 }
 
 .slot-left {
@@ -187,40 +202,24 @@ body {
   gap: 15px;
 }
 
-/* Iconos de nivel estilo marcador de puntos / fases de Mario */
 .file-number {
-  font-size: 1.8rem;
-  color: #fff;
-  background: #002fbe;
-  border: 3px solid #000;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  text-shadow: 2px 2px 0px #000;
+  font-size: 2.4rem;
+  color: #f29f05;
+  text-shadow: 2px 2px 0px #fff, 3px 3px 0px #b57602;
   font-weight: 900;
-  box-shadow: inset -2px -2px 0px #00155c;
-}
-
-.file-slot.active .file-number {
-  background: #e52521; /* Se pone rojo en el nivel activo */
-  box-shadow: inset -2px -2px 0px #9c1b19;
 }
 
 .file-title {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: #000;
-  font-weight: 800;
+  font-weight: 700;
   text-align: left;
-  letter-spacing: 0.5px;
 }
 
 .file-subtitle {
   display: block;
-  font-size: 0.65rem;
-  color: #222;
+  font-size: 0.68rem;
+  color: #333;
   font-family: 'Press Start 2P', monospace;
   margin-top: 6px;
   line-height: 1.4;
@@ -231,61 +230,75 @@ body {
   align-items: center;
   gap: 6px;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.6rem;
-  color: #000;
+  font-size: 0.62rem;
+  color: #222;
   font-weight: bold;
-  background: #d9d9d9;
-  padding: 6px 8px;
-  border: 2px solid #000;
-  border-radius: 4px;
+  white-space: nowrap;
 }
 
 /* =========================
-   BOTONES ESTILO ACCIÓN DE MAPA
+   NUEVOS BOTONES DE ACCIÓN MÁS DINÁMICOS
 ========================= */
 .buttons {
-  margin-top: 20px;
+  margin-top: 25px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .btn {
-  display: block;
-  width: 100%;
-  border-radius: 6px;
-  color: #fff;
-  padding: 14px 10px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.1s;
+  width: 100%;
+  border-radius: 14px;
+  color: #fff;
+  padding: 16px 12px;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-decoration: none;
   border: 4px solid #000;
-  text-shadow: 1px 1px 0px #000;
-  /* Sombra sólida de estilo 16-bits (bloque sólido negro abajo) */
-  box-shadow: 0 5px 0px #000, 0 6px 10px rgba(0,0,0,0.4);
+  letter-spacing: 0.5px;
+  transition: all 0.1s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de brillo sutil superior en los botones estilo videojuego */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0));
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  pointer-events: none;
 }
 
 .btn:active {
-  transform: translateY(4px);
-  box-shadow: 0 1px 0px #000, 0 2px 5px rgba(0,0,0,0.4);
+  transform: translateY(5px);
+  box-shadow: inset 0 4px 6px rgba(0,0,0,0.3) !important;
 }
 
-/* Colores estilo Super Mario World */
+/* Colores vibrantes con relieve profundo estilo bloque de poder */
 .whatsapp {
   background: #43b012;
+  text-shadow: 2px 2px 0px #1d4d05;
+  box-shadow: 0 7px 0px #1d4d05, 0 8px 12px rgba(0,0,0,0.4);
 }
 
 .location {
   background: #f29f05;
+  text-shadow: 2px 2px 0px #805202;
+  box-shadow: 0 7px 0px #805202, 0 8px 12px rgba(0,0,0,0.4);
 }
 
 .calendar {
   background: #e52521;
+  text-shadow: 2px 2px 0px #7a110f;
+  box-shadow: 0 7px 0px #7a110f, 0 8px 12px rgba(0,0,0,0.4);
 }
 
 .footer {
@@ -297,7 +310,7 @@ body {
 }
 
 /* =========================
-   REPRODUCTOR DE MÚSICA FLOTANTE
+   REPRODUCTOR DE MÚSICA FLOTANTE (CON TU CANCION.MPEG)
 ========================= */
 .music-player {
   position: fixed;
@@ -359,7 +372,7 @@ body {
       <div class="lucky-block">?</div>
     </div>
 
-    <!-- TARJETAS INFORMATIVAS (ESTILO MENÚ DE MAPA S.M.W.) -->
+    <!-- TARJETAS INFORMATIVAS (TUS ORIGINALES) -->
     <div class="slots-wrapper">
       
       <!-- SLOT 1: FECHA -->
@@ -406,7 +419,7 @@ body {
 
     </div>
 
-    <!-- BOTONES ESTILO MAPA DE JUEGO -->
+    <!-- BOTONES DINÁMICOS MEJORADOS -->
     <div class="buttons">
       <a class="btn whatsapp" href="https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank">
         ✅ CONFIRMAR ASISTENCIA
@@ -464,3 +477,5 @@ body {
 
 </body>
 </html>
+
+```
