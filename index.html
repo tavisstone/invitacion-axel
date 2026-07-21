@@ -27,7 +27,6 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  /* Fuente estilo Mario Bros */
   font-family: 'Press Start 2P', monospace, Arial, sans-serif;
   color: #222;
 
@@ -42,6 +41,7 @@ body {
       #c84c0c 70%,
       #c84c0c 100%
     );
+  background-attachment: fixed;
 }
 
 /* =========================
@@ -51,23 +51,23 @@ body {
 .cloud {
   position: fixed;
   z-index: 0;
-  font-size: 50px;
-  opacity: .9;
+  font-size: 45px;
+  opacity: .85;
   animation: moverNube linear infinite;
   pointer-events: none;
 }
 
 .cloud1 {
-  top: 6%;
+  top: 5%;
   left: -150px;
-  animation-duration: 35s;
+  animation-duration: 40s;
 }
 
 .cloud2 {
-  top: 20%;
+  top: 18%;
   left: -250px;
-  animation-duration: 50s;
-  animation-delay: 5s;
+  animation-duration: 55s;
+  animation-delay: 6s;
 }
 
 @keyframes moverNube {
@@ -82,18 +82,17 @@ body {
 .coin {
   position: fixed;
   z-index: 1;
-  font-size: 32px;
+  font-size: 28px;
   animation: moneda 2s infinite ease-in-out;
   pointer-events: none;
 }
 
-.coin1 { left: 6%; top: 18%; }
-.coin2 { right: 7%; top: 30%; animation-delay: 0.8s; }
-.coin3 { left: 8%; bottom: 18%; animation-delay: 1.4s; }
+.coin1 { left: 4%; top: 15%; }
+.coin2 { right: 5%; top: 28%; animation-delay: 0.8s; }
 
 @keyframes moneda {
   0%, 100% { transform: translateY(0) rotateY(0deg); }
-  50% { transform: translateY(-15px) rotateY(180deg); }
+  50% { transform: translateY(-12px) rotateY(180deg); }
 }
 
 /* =========================
@@ -103,60 +102,28 @@ body {
 .floating-block {
   position: fixed;
   z-index: 1;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   background: #fcbc34;
   color: #fff;
-  border: 4px solid #884400;
+  border: 3px solid #884400;
   border-radius: 4px;
-  box-shadow: inset 0 0 0 3px #fcd85c, 0 5px 0 #5c2800;
+  box-shadow: inset 0 0 0 2px #fcd85c, 0 4px 0 #5c2800;
   animation: flotarBloque 2.5s ease-in-out infinite;
 }
 
-.block1 { top: 6%; left: 15%; }
-.block2 { top: 12%; right: 15%; animation-delay: 1s; }
+.block1 { top: 5%; left: 5%; }
+.block2 { top: 10%; right: 5%; animation-delay: 1s; }
 
 @keyframes flotarBloque {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
-
-/* =========================
-   TUBERÍAS CLÁSICAS
-========================= */
-
-.pipe {
-  position: fixed;
-  z-index: 1;
-  bottom: 30%;
-  width: 65px;
-  height: 90px;
-  background: linear-gradient(to right, #00a800 0%, #58d858 50%, #008800 100%);
-  border: 4px solid #004400;
-  border-radius: 6px 6px 0 0;
-  box-shadow: inset 6px 0 rgba(255,255,255,0.3), 0 6px 0 #002200;
-  pointer-events: none;
-}
-
-.pipe:before {
-  content: "";
-  position: absolute;
-  top: -18px;
-  left: -10px;
-  width: 77px;
-  height: 24px;
-  background: linear-gradient(to right, #00a800 0%, #58d858 50%, #008800 100%);
-  border: 4px solid #004400;
-  border-radius: 6px;
-}
-
-.pipe1 { left: 2%; }
-.pipe2 { right: 2%; }
 
 /* =========================
    CONTENEDOR PRINCIPAL
@@ -165,23 +132,25 @@ body {
 .container {
   position: relative;
   z-index: 5;
-  width: 94%;
-  max-width: 540px;
+  width: 96%;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 30px 0 70px;
+  padding: 20px 0 60px;
 }
 
 /* =========================
-   TARJETA PRINCIPAL
+   TARJETA PRINCIPAL (FONDO TRANSLÚCIDO)
 ========================= */
 
 .card {
   position: relative;
-  background: #ffffff;
+  /* Fondo blanco translúcido (90% de opacidad) para ver ligeramente el fondo */
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
   border-radius: 20px;
-  padding: 25px 18px 30px;
-  border: 6px solid #e52521; /* Rojo Mario */
-  box-shadow: 0 0 0 5px #fcd85c, 0 10px 0 #9c1b19, 0 20px 35px rgba(0,0,0,0.4);
+  padding: 20px 14px 25px;
+  border: 6px solid #e52521; 
+  box-shadow: 0 0 0 4px #fcd85c, 0 8px 0 #9c1b19, 0 15px 30px rgba(0,0,0,0.3);
   overflow: hidden;
 }
 
@@ -189,12 +158,12 @@ body {
 .card:before {
   content: "★  ✦  ★  ✦  ★  ✦  ★";
   position: absolute;
-  top: 8px;
+  top: 6px;
   left: 0;
   right: 0;
   color: #fcd85c;
-  font-size: 14px;
-  letter-spacing: 6px;
+  font-size: 11px;
+  letter-spacing: 4px;
   text-align: center;
 }
 
@@ -203,40 +172,40 @@ body {
 ========================= */
 
 .header-icons {
-  margin-top: 15px;
-  font-size: 42px;
+  margin-top: 12px;
+  font-size: 36px;
   animation: rebote 1.5s infinite ease-in-out;
   text-align: center;
 }
 
 @keyframes rebote {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }
 
 .invitation-title {
-  margin-top: 10px;
-  font-size: 0.75rem;
+  margin-top: 8px;
+  font-size: 0.65rem;
   font-weight: bold;
   color: #333;
   text-align: center;
 }
 
 h1 {
-  margin: 12px 0;
-  font-size: clamp(2rem, 9vw, 3.2rem);
+  margin: 10px 0;
+  font-size: clamp(2rem, 11vw, 2.8rem);
   color: #e52521;
   text-align: center;
-  text-shadow: 3px 3px 0 #fcd85c, 5px 5px 0 #9c1b19;
+  text-shadow: 2px 2px 0 #fcd85c, 4px 4px 0 #9c1b19;
   letter-spacing: 2px;
 }
 
 .subtitle {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: bold;
   color: #002b80;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 /* =========================
@@ -246,13 +215,13 @@ h1 {
 .blocks {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin: 15px 0;
+  gap: 6px;
+  margin: 12px 0;
 }
 
 .block-mini {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,7 +229,7 @@ h1 {
   border: 3px solid #884400;
   border-radius: 4px;
   color: white;
-  font-size: 18px;
+  font-size: 15px;
   box-shadow: 0 3px 0 #5c2800;
   animation: saltoBloque 1.8s infinite ease-in-out;
 }
@@ -271,7 +240,7 @@ h1 {
 
 @keyframes saltoBloque {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-5px); }
 }
 
 /* =========================
@@ -279,48 +248,48 @@ h1 {
 ========================= */
 
 .message {
-  padding: 16px;
-  background: linear-gradient(135deg, #fff9db, #fff3bf);
-  border: 3px dashed #f2b900;
-  border-radius: 12px;
-  font-size: 0.68rem;
-  line-height: 1.8;
+  padding: 12px;
+  background: rgba(255, 249, 219, 0.9);
+  border: 2px dashed #f2b900;
+  border-radius: 10px;
+  font-size: 0.58rem;
+  line-height: 1.7;
   color: #444;
   text-align: center;
 }
 
 /* =========================
-   CAJAS DE INFORMACIÓN
+   CAJAS DE INFORMACIÓN (TRANSLÚCIDAS)
 ========================= */
 
 .info-box {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 14px;
-  background: #f8f9fa;
-  border: 3px solid #ccc;
-  font-size: 0.75rem;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(248, 249, 250, 0.9);
+  border: 2px solid #ccc;
+  font-size: 0.65rem;
   text-align: center;
-  box-shadow: 0 4px 0 #bbb;
+  box-shadow: 0 3px 0 #bbb;
 }
 
 .info-icon {
   display: block;
-  font-size: 1.8rem;
-  margin-bottom: 4px;
+  font-size: 1.5rem;
+  margin-bottom: 2px;
 }
 
 .info-title {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: bold;
   color: #e52521;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .info-box small {
-  font-size: 0.6rem;
-  color: #666;
+  font-size: 0.52rem;
+  color: #555;
 }
 
 /* =========================
@@ -328,18 +297,18 @@ h1 {
 ========================= */
 
 .buttons {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .btn {
   display: block;
   width: 100%;
-  padding: 15px 10px;
-  margin-top: 12px;
-  border-radius: 12px;
+  padding: 13px 8px;
+  margin-top: 10px;
+  border-radius: 10px;
   text-decoration: none;
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.65rem;
+  font-size: 0.55rem;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
@@ -348,7 +317,7 @@ h1 {
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .btn:active {
@@ -359,21 +328,21 @@ h1 {
 .whatsapp {
   background: #25d366;
   color: white;
-  box-shadow: 0 5px 0 #128c4a;
+  box-shadow: 0 4px 0 #128c4a;
 }
 
 /* Botón Ubicación */
 .location {
   background: #fcd85c;
   color: #222;
-  box-shadow: 0 5px 0 #c79c00;
+  box-shadow: 0 4px 0 #c79c00;
 }
 
 /* Botón Calendario */
 .calendar {
   background: #e52521;
   color: white;
-  box-shadow: 0 5px 0 #9c1b19;
+  box-shadow: 0 4px 0 #9c1b19;
 }
 
 /* =========================
@@ -381,14 +350,15 @@ h1 {
 ========================= */
 
 .footer {
-  margin-top: 20px;
-  color: #555;
-  font-size: 0.6rem;
+  margin-top: 15px;
+  color: #333;
+  font-size: 0.52rem;
   text-align: center;
+  text-shadow: 0 1px 0 #fff;
 }
 
 /* =========================
-   SUELO INFERIOR
+   SUELO INFERIOR FIJO
 ========================= */
 
 .ground {
@@ -396,16 +366,16 @@ h1 {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 40px;
+  height: 35px;
   z-index: 2;
   background: repeating-linear-gradient(
     90deg,
     #8b4b24 0px,
-    #8b4b24 32px,
-    #5c3014 32px,
-    #5c3014 36px
+    #8b4b24 30px,
+    #5c3014 30px,
+    #5c3014 34px
   );
-  border-top: 10px solid #55b936;
+  border-top: 8px solid #55b936;
   pointer-events: none;
 }
 
@@ -421,15 +391,10 @@ h1 {
 <!-- MONEDAS -->
 <div class="coin coin1">🪙</div>
 <div class="coin coin2">🪙</div>
-<div class="coin coin3">🪙</div>
 
 <!-- BLOQUES -->
 <div class="floating-block block1">?</div>
 <div class="floating-block block2">★</div>
-
-<!-- TUBERÍAS -->
-<div class="pipe pipe1"></div>
-<div class="pipe pipe2"></div>
 
 <!-- INVITACIÓN PRINCIPAL -->
 <main class="container">
@@ -457,7 +422,7 @@ h1 {
     </div>
 
     <div class="message">
-      🍄 ¡Prepárate para una aventura llena de diversión, musica, pastel y sorpresas!<br><br>
+      🍄 ¡Prepárate para una aventura llena de diversión, música, pastel y sorpresas!<br><br>
       🎁 ¡No faltes a la celebración! 🎮
     </div>
 
@@ -466,7 +431,7 @@ h1 {
       <span class="info-icon">📅</span>
       <span class="info-title">FECHA</span>
       Noviembre<br>
-      <small>Novienmbre 20 </small>
+      <small>Noviembre 20</small>
     </div>
 
     <!-- UBICACIÓN -->
@@ -500,39 +465,6 @@ h1 {
 
 <!-- SUELO -->
 <div class="ground"></div>
-   <!-- PERSONAJES ANIMADOS SALIENDO DE LAS TUBERÍAS -->
-<style>
-.mario-character {
-  position: fixed;
-  bottom: 30%;
-  z-index: 1;
-  width: 50px;
-  animation: salirTuberia 4s infinite ease-in-out;
-  pointer-events: none;
-}
-
-.mario-left {
-  left: 9px;
-}
-
-.mario-right {
-  right: 9px;
-  animation-delay: 2s; /* Sale alternado con el otro personaje */
-}
-
-@keyframes salirTuberia {
-  0%, 100% {
-    transform: translateY(40px); /* Oculto dentro de la tubería */
-  }
-  30%, 70% {
-    transform: translateY(-20px); /* Asoma hacia arriba con movimiento */
-  }
-}
-</style>
-
-<!-- Cambia 'mario.png' y 'luigi.png' por los nombres exactos de tus imágenes -->
-<img src="mario.png" class="mario-character mario-left" alt="Mario">
-<img src="luigi.png" class="mario-character mario-right" alt="Luigi">
 
 </body>
 </html>
