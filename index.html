@@ -157,7 +157,7 @@ body {
 }
 
 /* =========================
-   TARJETAS DE INFORMACIÓN (SECUENCIA COMPLETA DESFASADA)
+   TARJETAS DE INFORMACIÓN (TUS ORIGINALES)
 ========================= */
 .file-slot {
   background: #ffffff;
@@ -174,7 +174,6 @@ body {
   animation: movimientoSecuencial 3s infinite ease-in-out alternate;
 }
 
-/* Retraso exacto para que se muevan una detrás de la otra */
 .file-slot:nth-of-type(1) { animation-delay: 0s; }
 .file-slot:nth-of-type(2) { animation-delay: 0.5s; }
 .file-slot:nth-of-type(3) { animation-delay: 1s; }
@@ -237,52 +236,54 @@ body {
 }
 
 /* =========================
-   ESTILOS DE TUS BOTONES ORIGINALES RESTAURADOS
+   NUEVOS BOTONES ESTILO MARIO (BORDES RECORTADOS Y RELIEVE ARCADE)
 ========================= */
 .buttons {
   margin-top: 25px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .btn {
-  display: block;
-  width: 100%;
-  border-radius: 10px;
-  color: #fff;
-  padding: 16px 10px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.1s;
+  width: 100%;
+  /* Esquinas recortadas estilo letrero clásico de videojuego */
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+  color: #fff;
+  padding: 16px 10px;
+  font-size: 0.88rem;
+  font-weight: 900;
+  text-decoration: none;
   border: 4px solid #000;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  letter-spacing: 0.5px;
+  transition: transform 0.08s ease, filter 0.08s ease;
+  position: relative;
+  /* Brillo interno superior simulando bisel de bloque */
+  box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.35), 0 6px 0px rgba(0, 0, 0, 0.7), 0 8px 12px rgba(0,0,0,0.4);
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
 }
 
 .btn:active {
   transform: translateY(4px);
-  box-shadow: none;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 0px rgba(0, 0, 0, 0.7), 0 4px 6px rgba(0,0,0,0.4);
+  filter: brightness(0.9);
 }
 
-/* Colores exactos de tus clases originales */
+/* Colores personalizados manteniendo la paleta original pero con profundidad extra */
 .whatsapp {
   background: #43b012;
-  box-shadow: 0 6px 0px #2b730b, 0 6px 10px rgba(0,0,0,0.4);
 }
 
 .location {
   background: #f29f05;
-  box-shadow: 0 6px 0px #b57602, 0 6px 10px rgba(0,0,0,0.4);
 }
 
 .calendar {
-  background: #e52521; /* Rojo Mario para el Calendario */
-  box-shadow: 0 6px 0px #9c1b19, 0 6px 10px rgba(0,0,0,0.4);
+  background: #e52521;
 }
 
 .footer {
@@ -323,7 +324,7 @@ body {
 
 <body>
 
-  <!-- REPRODUCTOR DE AUDIO (Sube tu canción a GitHub y cámbiale el nombre si es necesario, ej: cancion.mp3) -->
+  <!-- REPRODUCTOR DE AUDIO -->
   <audio id="background-music" loop>
     <source src="cancion.mpeg" type="audio/mpeg">
   </audio>
@@ -403,9 +404,9 @@ body {
 
     </div>
 
-    <!-- TUS LÍNEAS DE BOTONES ORIGINALES INTEGRADAS PERFECTAMENTE -->
+    <!-- BOTONES CON DISEÑO ARCADE/MARIO -->
     <div class="buttons">
-      <a class="btn whatsapp" href="https://wa.me/+525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank">
+      <a class="btn whatsapp" href="https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank">
         ✅ CONFIRMAR ASISTENCIA
       </a>
 
@@ -447,14 +448,12 @@ body {
       }
     }
 
-    // Intenta reproducir en cuanto el usuario interactúe por primera vez con la página
     document.body.addEventListener('click', function autoPlay() {
       if (!isPlaying) {
         music.play().then(() => {
           musicIcon.textContent = '🎶';
           musicText.textContent = 'Música: ON';
           isPlaying = true;
-          // Remover el evento para que ya no salte más
           document.body.removeEventListener('click', autoPlay);
         }).catch(e => {});
       }
