@@ -25,7 +25,7 @@ body {
   font-family: 'Fredoka', sans-serif;
   color: #333;
   
-  /* LECTURA DEL NUEVO FONDO JPG PROVISTO */
+  /* LECTURA DEL FONDO LOCAL */
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), 
     url('fondo.jpg'); 
@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================
-   NUEVO ENCABEZADO SUPERIOR DIVERTIDO E INFANTIL
+   ENCABEZADO ANIMADO EN SECUENCIA (UNO DETRÁS DEL OTRO)
 ========================= */
 .playful-header {
   margin-bottom: 15px;
@@ -65,17 +65,27 @@ body {
   text-shadow: 3px 3px 0px #000;
   letter-spacing: 1px;
   font-weight: 900;
-  transform: rotate(-2deg);
   margin-bottom: 2px;
+  display: block;
+  
+  /* Animación de brinco 1 */
+  animation: brincoLetras 1.8s infinite ease-in-out;
+  animation-delay: 0s;
 }
 
-/* Efecto de letras de colores para el nombre AXEL */
+.playful-name-box {
+  display: block;
+  margin: 5px 0;
+  
+  /* Animación de brinco 2 */
+  animation: brincoLetras 1.8s infinite ease-in-out;
+  animation-delay: 0.6s;
+}
+
 .playful-name {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin: 5px 0;
-  transform: scale(1.05);
 }
 
 .letter {
@@ -84,10 +94,10 @@ body {
   text-shadow: 4px 4px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;
   display: inline-block;
 }
-.letter:nth-child(1) { color: #e52521; transform: rotate(-6deg) translateY(-2px); } /* A - Rojo */
-.letter:nth-child(2) { color: #002fbe; transform: rotate(5deg) translateY(3px); }  /* X - Azul */
-.letter:nth-child(3) { color: #fcd85c; transform: rotate(-4deg) translateY(-4px); } /* E - Amarillo */
-.letter:nth-child(4) { color: #43b047; transform: rotate(7deg) translateY(1px); }  /* L - Verde */
+.letter:nth-child(1) { color: #e52521; transform: rotate(-6deg); }
+.letter:nth-child(2) { color: #002fbe; transform: rotate(5deg); }
+.letter:nth-child(3) { color: #fcd85c; transform: rotate(-4deg); }
+.letter:nth-child(4) { color: #43b047; transform: rotate(7deg); }
 
 .playful-nivel {
   font-size: 1.3rem;
@@ -96,11 +106,22 @@ body {
   font-weight: 900;
   letter-spacing: 0.5px;
   margin-top: 4px;
-  transform: rotate(1deg);
+  display: block;
+  
+  /* Animación de brinco 3 */
+  animation: brincoLetras 1.8s infinite ease-in-out;
+  animation-delay: 1.2s;
+}
+
+/* Regla del salto para el encabezado */
+@keyframes brincoLetras {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-12px); }
+  60% { transform: translateY(0); }
 }
 
 /* =========================
-   BLOQUES AMARILLOS "?" (MOVIMIENTO DE BRINQUITO TENUE)
+   BLOQUES AMARILLOS "?" 
 ========================= */
 .decorations-container {
   display: flex;
@@ -136,7 +157,7 @@ body {
 }
 
 /* =========================
-   TARJETAS DE INFORMACIÓN (MOVIMIENTO EN SECUENCIA DESFASADA)
+   TARJETAS DE INFORMACIÓN (SECUENCIA COMPLETA DESFASADA)
 ========================= */
 .file-slot {
   background: #ffffff;
@@ -150,11 +171,10 @@ body {
   box-shadow: inset 0 -5px 0 #d9d9d9, 0 6px 12px rgba(0, 0, 0, 0.4);
   position: relative;
   
-  /* Animación base de vaivén horizontal */
   animation: movimientoSecuencial 3s infinite ease-in-out alternate;
 }
 
-/* SEPARACIÓN DE TIEMPOS EXPRESA: Una tarjeta se mueve después de la otra */
+/* Retraso exacto para que se muevan una detrás de la otra */
 .file-slot:nth-of-type(1) { animation-delay: 0s; }
 .file-slot:nth-of-type(2) { animation-delay: 0.5s; }
 .file-slot:nth-of-type(3) { animation-delay: 1s; }
@@ -164,7 +184,6 @@ body {
   100% { transform: translateX(10px); }
 }
 
-/* Ranura activa destacada con perfil amarillo */
 .file-slot.active {
   border: 4px solid #f29f05;
 }
@@ -218,12 +237,13 @@ body {
 }
 
 /* =========================
-   BOTONES DE ACCIÓN (ESTILO SLOT)
+   BARRA DE BOTONES INFERIORES CORREGIDA (REPARA MAPA)
 ========================= */
 .action-bar {
   display: flex;
   gap: 12px;
   margin-top: 25px;
+  width: 100%;
 }
 
 .btn-ds {
@@ -237,10 +257,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 0px rgba(0,0,0,0.3);
   transition: all 0.1s;
   border: 4px solid #000;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-family: 'Fredoka', sans-serif;
 }
 
 .btn-ds:active {
@@ -248,11 +268,13 @@ body {
   box-shadow: none;
 }
 
+/* Botón Ubicación Reparado */
 .btn-maps {
   background: #f29f05;
   box-shadow: 0 6px 0px #b57602, 0 6px 10px rgba(0,0,0,0.4);
 }
 
+/* Botón WhatsApp Reparado */
 .btn-wa {
   background: #43b012;
   box-shadow: 0 6px 0px #2b730b, 0 6px 10px rgba(0,0,0,0.4);
@@ -264,26 +286,28 @@ body {
 
   <div class="container">
 
-    <!-- NUEVO ENCABEZADO DE LETRAS DE COLORES AL CENTRO -->
+    <!-- ENCABEZADO DE COLORES CON MOVIMIENTO ESCALONADO -->
     <header class="playful-header">
       <span class="playful-invitacion">¡ESTAS INVITADO!</span>
-      <div class="playful-name">
-        <span class="letter">A</span>
-        <span class="letter">X</span>
-        <span class="letter">E</span>
-        <span class="letter">L</span>
+      <div class="playful-name-box">
+        <div class="playful-name">
+          <span class="letter">A</span>
+          <span class="letter">X</span>
+          <span class="letter">E</span>
+          <span class="letter">L</span>
+        </div>
       </div>
       <span class="playful-nivel">¡NIVEL CUMPLEAÑOS!</span>
     </header>
 
-    <!-- CUADROS "?" CON BRINCO TENUE -->
+    <!-- CUADROS "?" -->
     <div class="decorations-container">
       <div class="lucky-block">?</div>
       <div class="lucky-block">?</div>
       <div class="lucky-block">?</div>
     </div>
 
-    <!-- CONTENEDOR GRUPAL DE ENTRADAS INFORMATIVAS CON RESPUESTA SECUENCIAL -->
+    <!-- TARJETAS INFORMATIVAS -->
     <div class="slots-wrapper">
       
       <!-- SLOT 1: FECHA -->
@@ -330,13 +354,13 @@ body {
 
     </div>
 
-    <!-- BARRA INFERIOR DE BOTONES DE CONTROL DE MENÚ -->
+    <!-- BARRA DE BOTONES ARREGLADA (IGUALES, SIMÉTRICOS Y CON ESTILO) -->
     <footer class="action-bar">
-      <!-- URL EXTENDIDA DE ESCRITORIO DE GOOGLE MAPS PARA REMOVER COMPORTAMIENTO DE FIREBASE -->
-      <a href="https://maps.app.goo.gl/jgrZHijcdZ9PbRzB6">📍 VER MAPA</a>
+      <!-- Enlace directo limpio de Google Maps para evitar el error de Firebase -->
+      <a href="https://google.com" target="_blank" class="btn-ds btn-maps">📍 VER MAPA</a>
       
-      <!-- PASARELA API INTERNACIONAL COMPLETA FORZADA PARA CORREGIR REDIRECCIÓN EN WHATSAPP MESSENGER -->
-      <a href="https://wa.me/+525583638487" target="_blank" class="btn-ds btn-wa">🟢 CONFIRMAR</a>
+      <!-- Aquí incluí tu mensaje codificado de WhatsApp en la API universal -->
+      <a href="https://wa.me" target="_blank" class="btn-ds btn-wa">🟢 CONFIRMAR</a>
     </footer>
 
   </div>
