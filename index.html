@@ -4,9 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎉 ¡Cumpleaños de Axel! 🍄</title>
+<title>🏎️ MARIO KART - CUMPLE AXEL 🍄</title>
 
-<!-- Fuente estilo Arcade de Google Fonts -->
+<!-- Fuente Arcade Oficial de Google Fonts -->
 <link href="https://googleapis.com" rel="stylesheet">
 
 <style>
@@ -15,282 +15,221 @@
 ========================= */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: 'Press Start 2P', monospace, Arial, sans-serif;
-  color: #222;
-  /* Fondo Celeste Oficial de Super Mario */
-  background-color: #5c94fc; 
-  padding-bottom: 80px;
-}
-
-/* =========================
-   CONTENEDOR PRINCIPAL (ESTILO AFICHE DE LA IMAGEN)
-========================= */
-.container {
-  position: relative;
-  z-index: 5;
-  width: 100%;
-  max-width: 440px;
-  margin: 0 auto;
-  padding: 20px 10px;
-}
-
-/* =========================
-   LOGO PRINCIPAL "SUPER AXEL" (3D EFECTO)
-========================= */
-.logo-container {
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 10px;
-}
-
-.logo-super {
-  font-size: 2.2rem;
-  color: #fcd85c; /* Amarillo */
-  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
-  letter-spacing: 2px;
-  display: block;
-}
-
-.logo-name {
-  font-size: 2.8rem;
-  color: #e52521; /* Rojo */
-  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
-  letter-spacing: 3px;
-  display: block;
-  margin-top: -5px;
-}
-
-.subtitle-cumple {
-  font-size: 0.9rem;
+  font-family: 'Press Start 2P', monospace;
   color: #fff;
-  text-shadow: 3px 3px 0 #000;
+  
+  /* Imagen de fondo de Mario Kart vinculada de forma segura */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+    url('https://unsplash.com'); /* Respaldo optimizado en alta resolución */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+    url('https://nintendo.com'); /* Enlace alternativo oficial de Mario Kart */
+  
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 14px;
+}
+
+/* =========================
+   CONTENEDOR DEL MENÚ DE SELECCIÓN
+========================= */
+.menu-container {
+  width: 100%;
+  max-width: 410px;
   text-align: center;
+}
+
+/* TÍTULO ESTILO LOGO TRIANGULAR DE MARIO KART */
+.game-title {
   margin-bottom: 25px;
 }
 
-/* =========================
-   TIRA DE BLOQUES DE LADRILLO CENTRALES
-========================= */
-.brick-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-  width: 100%;
-}
-
-.brick, .block-q {
-  width: 50px;
-  height: 50px;
-  border: 4px solid #000;
-}
-
-/* Bloque Ladrillo Marrón */
-.brick {
-  background: #b84a00;
-  box-shadow: inset -4px -4px 0 #682000, inset 4px 4px 0 #f87830;
-  position: relative;
-}
-.brick::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background: #000;
-  top: 50%;
-  margin-top: -2px;
-  left: 0;
-}
-
-/* Bloque Sorpresa Amarillo ? */
-.block-q {
-  background: #fcbc34;
+.title-super {
+  font-size: 1.4rem;
   color: #fff;
-  font-size: 24px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset -4px -4px 0 #b87800, inset 4px 4px 0 #fff060;
-  text-shadow: 3px 3px 0 #000;
-  animation: flotar 1.5s ease-in-out infinite alternate;
-}
-.block-q:nth-child(even) {
-  animation-delay: 0.5s;
+  display: block;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000;
 }
 
-@keyframes flotar {
-  from { transform: translateY(0); }
-  to { transform: translateY(-6px); }
+.title-main {
+  font-size: 2.5rem;
+  color: #fcd85c; /* Amarillo brillante */
+  display: block;
+  letter-spacing: 2px;
+  margin-top: 5px;
+  text-shadow: 4px 4px 0px #e52521, -2px -2px 0px #000, 2px -2px 0px #000, 4px 4px 5px #000;
 }
 
 /* =========================
-   RENDER DE PERSONAJES REALES (SIN EMOTICONES)
+   CAJA DE MENÚ (ESTILO INTERFAZ DE NINTENDO SWITCH)
 ========================= */
-.mario-render-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: -10px 0 20px;
-  position: relative;
-  height: 200px;
-}
-
-.mario-img {
-  width: 250px; /* Tamaño del render de Mario y Luigi saltando */
-  height: auto;
-  filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.3));
-}
-
-/* =========================
-   CAJA DE DATOS DE LA INVITACIÓN
-========================= */
-.info-card {
-  background: #fff9d7;
-  border: 5px solid #000;
+.menu-box {
+  background: rgba(0, 0, 0, 0.85); /* Fondo oscuro para el contraste */
+  border: 4px solid #fff;
   border-radius: 12px;
   padding: 20px 15px;
-  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6);
+  margin-bottom: 25px;
 }
 
-.info-item {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.info-title {
-  color: #e52521;
-  font-size: 0.75rem;
-  margin-bottom: 8px;
-  text-shadow: 1px 1px 0 #fff;
-}
-
-.info-text {
-  font-size: 0.65rem;
+.menu-option {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 12px 8px;
+  margin: 8px 0;
+  font-size: 0.58rem;
   line-height: 1.6;
-  color: #000;
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+.menu-option:last-child {
+  border-bottom: none;
+}
+
+/* Selector dinámico parpadeante (Mano o cursor) */
+.menu-option::before {
+  content: "🏎️";
+  margin-right: 12px;
+  font-size: 0.8rem;
+  animation: acelerar 0.5s steps(2) infinite alternate;
+}
+
+@keyframes acelerar {
+  from { transform: translateX(0); }
+  to { transform: translateX(4px); }
+}
+
+.menu-label {
+  color: #ff3333; /* Rojo para los títulos internos */
+  display: block;
+  font-size: 0.5rem;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.menu-value {
+  color: #fff;
 }
 
 /* =========================
-   BOTONES DE ACCIÓN 
+   BOTONES ESTILO MENU DE SELECCIÓN DE PISTA
 ========================= */
-.buttons {
-  margin-top: 20px;
+.action-buttons {
+  width: 100%;
 }
 
-.btn {
+.btn-arcade {
   display: block;
   width: 100%;
-  padding: 15px 10px;
-  margin-top: 12px;
-  border-radius: 6px;
+  padding: 16px 10px;
+  margin-top: 15px;
+  border-radius: 8px;
   text-decoration: none;
   font-family: 'Press Start 2P', monospace;
   font-size: 0.55rem;
   font-weight: bold;
-  cursor: pointer;
   text-align: center;
-  border: 4px solid #000;
-  transition: transform 0.1s;
-  text-shadow: 2px 2px 0 #000;
-}
-
-.btn:active {
-  transform: translateY(4px);
-  box-shadow: none;
-}
-
-.location {
-  background: #fcbc34;
+  border: 4px solid #fff;
   color: #fff;
-  box-shadow: 0 5px 0 #b87800;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 5px 0px #fff;
+  transition: all 0.1s;
 }
 
-.whatsapp {
-  background: #43b012;
-  color: white;
-  box-shadow: 0 5px 0 #28680b;
+/* Efecto de presionar el botón físico */
+.btn-arcade:active {
+  transform: translateY(4px);
+  box-shadow: 0px 1px 0px #fff;
 }
 
-/* =========================
-   SUELO DE MARIO INFERIOR FIJO
-========================= */
-.ground {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 55px;
-  z-index: 10;
-  background: 
-    linear-gradient(to bottom, #73c721 0%, #73c721 20%, #4da110 20%, #4da110 30%, #d87828 30%, #d87828 100%);
-  border-top: 5px solid #000;
-  box-shadow: inset 0 25px 0 #984800;
+/* Botón Mapa - Estilo Copa Relámpago */
+.btn-location {
+  border-color: #fcd85c;
+  color: #fcd85c;
+  box-shadow: 0px 5px 0px #fcd85c;
 }
+.btn-location:active {
+  box-shadow: 0px 1px 0px #fcd85c;
+}
+
+/* Botón Confirmar - Estilo Copa Champiñón */
+.btn-whatsapp {
+  border-color: #43b012;
+  color: #43b012;
+  box-shadow: 0px 5px 0px #43b012;
+}
+.btn-whatsapp:active {
+  box-shadow: 0px 1px 0px #43b012;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- INVITACIÓN PRINCIPAL -->
-<main class="container">
+  <div class="menu-container">
 
-  <!-- Encabezado estilo Logotipo 3D -->
-  <div class="logo-container">
-    <span class="logo-super">SUPER</span>
-    <span class="logo-name">AXEL</span>
-  </div>
-  
-  <div class="subtitle-cumple">CUMPLE 5</div>
-
-  <!-- Tira Central de Bloques Ladrillo / Sorpresa -->
-  <div class="brick-row">
-    <div class="brick"></div>
-    <div class="block-q">?</div>
-    <div class="brick"></div>
-    <div class="block-q">?</div>
-    <div class="brick"></div>
-  </div>
-
-  <!-- IMAGEN RENDER OFICIAL (Mario y Luigi saltando juntos) -->
-  <div class="mario-render-box">
-    <img src="https://uncyc.org" alt="Mario y Luigi" class="mario-img">
-  </div>
-
-  <!-- Contenedor con la información del Evento -->
-  <div class="info-card">
-    
-    <div class="info-item">
-      <div class="info-title">📅 FECHA Y HORA</div>
-      <div class="info-text">SÁBADO 15 DE AGOSTO<br>DE 16 A 19 HS</div>
+    <!-- LOGOTIPO CENTRAL ESTILO RACING -->
+    <div class="game-title">
+      <span class="title-super">SUPER</span>
+      <span class="title-main">AXEL 8</span>
     </div>
 
-    <div class="info-item">
-      <div class="info-title">📍 DIRECCIÓN</div>
-      <div class="info-text">Av. Principal #123, Col. Centro<br>(Castillo de Axel)</div>
-    </div>
-
-    <!-- BOTONES -->
-    <div class="buttons">
-      <!-- Enlace verificado de tu Google Maps -->
-      <a href="https://goo.gl" target="_blank" class="btn location">📍 VER UBICACIÓN</a>
+    <!-- PANTALLA DE SELECCIÓN DE CARRERA -->
+    <div class="menu-box">
       
-      <!-- Enlace verificado de tu WhatsApp Personal sin redirección a Business -->
-      <a href="https://wa.me" target="_blank" class="btn whatsapp">🟢 CONFIRMAR ASISTENCIA</a>
+      <!-- Fila: Fecha -->
+      <div class="menu-option">
+        <div>
+          <span class="menu-label">START TIME / FECHA</span>
+          <span class="menu-value">SÁBADO 15 AGOSTO — 16:00 HS</span>
+        </div>
+      </div>
+
+      <!-- Fila: Circuito / Lugar -->
+      <div class="menu-option">
+        <div>
+          <span class="menu-label">GRAND PRIX / CIRCUITO</span>
+          <span class="menu-value">CASTILLO DE AXEL (MUNDO 1)</span>
+        </div>
+      </div>
+
+      <!-- Fila: Reglas -->
+      <div class="menu-option">
+        <div>
+          <span class="menu-label">RACE RULES / NOTA</span>
+          <span class="menu-value">¡TRAER MUCHAS GANAS DE DIVERTIRSE!</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTONES DE MENÚ DE SELECCIÓN -->
+    <div class="action-buttons">
+      <!-- Enlace directo a tu Google Maps -->
+      <a href="https://goo.gl" target="_blank" class="btn-arcade btn-location">🏁 VER CIRCUITO (MAPA)</a>
+      
+      <!-- Enlace universal directo a tu WhatsApp Personal -->
+      <a href="https://wa.me" target="_blank" class="btn-arcade btn-whatsapp">🎮 OK - CONFIRMAR DRIVER</a>
     </div>
 
   </div>
-
-</main>
-
-<!-- SUELO CLÁSICO DE SUPER MARIO BROS -->
-<div class="ground"></div>
 
 </body>
 </html>
