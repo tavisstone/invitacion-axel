@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================
-   ENCABEZADO ANIMADO LETRA POR LETRA
+   ENCABEZADO ANIMADO EN SECUENCIA (UNO DETRÁS DEL OTRO)
 ========================= */
 .playful-header {
   margin-bottom: 15px;
@@ -59,89 +59,66 @@ body {
   align-items: center;
 }
 
-.playful-invitacion, .playful-nivel {
-  display: block;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-
 .playful-invitacion {
   font-size: 1.4rem;
   color: #fff;
   text-shadow: 3px 3px 0px #000;
+  letter-spacing: 1px;
+  font-weight: 900;
   margin-bottom: 2px;
+  display: block;
+  
+  /* Animación de brinco de la línea 1 */
+  animation: brincoLetras 1.8s infinite ease-in-out;
+  animation-delay: 0s;
 }
 
-.playful-nivel {
-  font-size: 1.3rem;
-  color: #fcd85c;
-  text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000;
-  margin-top: 4px;
+.playful-name-box {
+  display: block;
+  margin: 5px 0;
+  
+  /* Animación de brinco de la línea 2 (AXEL) */
+  animation: brincoLetras 1.8s infinite ease-in-out;
+  animation-delay: 0.6s;
 }
 
 .playful-name {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin: 5px 0;
-}
-
-.playful-invitacion span, .playful-nivel span, .playful-name span {
-  display: inline-block;
-  animation: brincoLetraIndividual 1.6s infinite ease-in-out;
-}
-
-@keyframes brincoLetraIndividual {
-  0%, 100% { transform: translateY(0); }
-  25% { transform: translateY(-10px); }
-  50% { transform: translateY(0); }
 }
 
 .letter {
   font-size: 3.4rem;
   font-weight: 900;
   text-shadow: 4px 4px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;
+  display: inline-block;
 }
-.letter:nth-child(1) { color: #e52521; transform: rotate(-6deg); animation-delay: 0.3s; }
-.letter:nth-child(2) { color: #002fbe; transform: rotate(5deg); animation-delay: 0.4s; }
-.letter:nth-child(3) { color: #fcd85c; transform: rotate(-4deg); animation-delay: 0.5s; }
-.letter:nth-child(4) { color: #43b047; transform: rotate(7deg); animation-delay: 0.6s; }
+.letter:nth-child(1) { color: #e52521; transform: rotate(-6deg); }
+.letter:nth-child(2) { color: #002fbe; transform: rotate(5deg); }
+.letter:nth-child(3) { color: #fcd85c; transform: rotate(-4deg); }
+.letter:nth-child(4) { color: #43b047; transform: rotate(7deg); }
 
-.playful-invitacion span:nth-child(1)  { animation-delay: 0.00s; }
-.playful-invitacion span:nth-child(2)  { animation-delay: 0.05s; }
-.playful-invitacion span:nth-child(3)  { animation-delay: 0.10s; }
-.playful-invitacion span:nth-child(4)  { animation-delay: 0.15s; }
-.playful-invitacion span:nth-child(5)  { animation-delay: 0.20s; }
-.playful-invitacion span:nth-child(6)  { animation-delay: 0.25s; }
-.playful-invitacion span:nth-child(7)  { animation-delay: 0.30s; }
-.playful-invitacion span:nth-child(8)  { animation-delay: 0.35s; }
-.playful-invitacion span:nth-child(9)  { animation-delay: 0.40s; }
-.playful-invitacion span:nth-child(10) { animation-delay: 0.45s; }
-.playful-invitacion span:nth-child(11) { animation-delay: 0.50s; }
-.playful-invitacion span:nth-child(12) { animation-delay: 0.55s; }
-.playful-invitacion span:nth-child(13) { animation-delay: 0.60s; }
-.playful-invitacion span:nth-child(14) { animation-delay: 0.65s; }
-.playful-invitacion span:nth-child(15) { animation-delay: 0.70s; }
-.playful-invitacion span:nth-child(16) { animation-delay: 0.75s; }
+.playful-nivel {
+  font-size: 1.3rem;
+  color: #fcd85c;
+  text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+  display: block;
+  
+  /* Animación de brinco de la línea 3 */
+  animation: brincoLetras 1.8s infinite ease-in-out;
+  animation-delay: 1.2s;
+}
 
-.playful-nivel span:nth-child(1)  { animation-delay: 0.50s; }
-.playful-nivel span:nth-child(2)  { animation-delay: 0.55s; }
-.playful-nivel span:nth-child(3)  { animation-delay: 0.60s; }
-.playful-nivel span:nth-child(4)  { animation-delay: 0.65s; }
-.playful-nivel span:nth-child(5)  { animation-delay: 0.70s; }
-.playful-nivel span:nth-child(6)  { animation-delay: 0.75s; }
-.playful-nivel span:nth-child(7)  { animation-delay: 0.80s; }
-.playful-nivel span:nth-child(8)  { animation-delay: 0.85s; }
-.playful-nivel span:nth-child(9)  { animation-delay: 0.90s; }
-.playful-nivel span:nth-child(10) { animation-delay: 0.95s; }
-.playful-nivel span:nth-child(11) { animation-delay: 1.00s; }
-.playful-nivel span:nth-child(12) { animation-delay: 1.05s; }
-.playful-nivel span:nth-child(13) { animation-delay: 1.10s; }
-.playful-nivel span:nth-child(14) { animation-delay: 1.15s; }
-.playful-nivel span:nth-child(15) { animation-delay: 1.20s; }
-.playful-nivel span:nth-child(16) { animation-delay: 1.25s; }
-.playful-nivel span:nth-child(17) { animation-delay: 1.30s; }
-.playful-nivel span:nth-child(18) { animation-delay: 1.35s; }
+/* Regla del salto para el encabezado */
+@keyframes brincoLetras {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-12px); }
+  60% { transform: translateY(0); }
+}
 
 /* =========================
    BLOQUES AMARILLOS "?" 
@@ -180,12 +157,8 @@ body {
 }
 
 /* =========================
-   TARJETAS DE INFORMACIÓN (SECUENCIA)
+   TARJETAS DE INFORMACIÓN (SECUENCIA COMPLETA DESFASADA)
 ========================= */
-.slots-wrapper {
-  width: 100%;
-}
-
 .file-slot {
   background: #ffffff;
   border: 4px solid #7f7f7f;
@@ -197,9 +170,11 @@ body {
   justify-content: space-between;
   box-shadow: inset 0 -5px 0 #d9d9d9, 0 6px 12px rgba(0, 0, 0, 0.4);
   position: relative;
+  
   animation: movimientoSecuencial 3s infinite ease-in-out alternate;
 }
 
+/* Retraso exacto para que se muevan una detrás de la otra */
 .file-slot:nth-of-type(1) { animation-delay: 0s; }
 .file-slot:nth-of-type(2) { animation-delay: 0.5s; }
 .file-slot:nth-of-type(3) { animation-delay: 1s; }
@@ -262,7 +237,7 @@ body {
 }
 
 /* =========================
-   ESTILOS DE TUS BOTONES ORIGINALES
+   ESTILOS DE TUS BOTONES ORIGINALES RESTAURADOS
 ========================= */
 .buttons {
   margin-top: 25px;
@@ -294,6 +269,7 @@ body {
   box-shadow: none;
 }
 
+/* Colores exactos de tus clases originales */
 .whatsapp {
   background: #43b012;
   box-shadow: 0 6px 0px #2b730b, 0 6px 10px rgba(0,0,0,0.4);
@@ -305,7 +281,7 @@ body {
 }
 
 .calendar {
-  background: #e52521;
+  background: #e52521; /* Rojo Mario para el Calendario */
   box-shadow: 0 6px 0px #9c1b19, 0 6px 10px rgba(0,0,0,0.4);
 }
 
@@ -323,20 +299,18 @@ body {
 
   <div class="container">
 
-    <!-- ENCABEZADO LETRA POR LETRA -->
+    <!-- ENCABEZADO DE COLORES CON MOVIMIENTO ESCALONADO -->
     <header class="playful-header">
-      <span class="playful-invitacion">
-        <span>¡</span><span>E</span><span>S</span><span>T</span><span>A</span><span>S</span><span>&nbsp;</span><span>I</span><span>N</span><span>V</span><span>I</span><span>T</span><span>A</span><span>D</span><span>O</span><span>!</span>
-      </span>
-      <div class="playful-name">
-        <span class="letter">A</span>
-        <span class="letter">X</span>
-        <span class="letter">E</span>
-        <span class="letter">L</span>
+      <span class="playful-invitacion">¡ESTAS INVITADO!</span>
+      <div class="playful-name-box">
+        <div class="playful-name">
+          <span class="letter">A</span>
+          <span class="letter">X</span>
+          <span class="letter">E</span>
+          <span class="letter">L</span>
+        </div>
       </div>
-      <span class="playful-nivel">
-        <span>¡</span><span>N</span><span>I</span><span>V</span><span>E</span><span>L</span><span>&nbsp;</span><span>C</span><span>U</span><span>M</span><span>P</span><span>L</span><span>E</span><span>A</span><span>Ñ</span><span>O</span><span>S</span><span>!</span>
-      </span>
+      <span class="playful-nivel">¡NIVEL CUMPLEAÑOS!</span>
     </header>
 
     <!-- CUADROS "?" -->
@@ -351,3 +325,68 @@ body {
       
       <!-- SLOT 1: FECHA -->
       <div class="file-slot active">
+        <div class="slot-left">
+          <span class="file-number">1</span>
+          <div class="file-title">
+            WHEN / FECHA
+            <span class="file-subtitle">SABADO 7 DE NOVIEMBRE</span>
+          </div>
+        </div>
+        <div class="slot-right">
+          ⏰ 16:00
+        </div>
+      </div>
+
+      <!-- SLOT 2: UBICACIÓN -->
+      <div class="file-slot">
+        <div class="slot-left">
+          <span class="file-number">2</span>
+          <div class="file-title">
+            WORLD / LUGAR
+            <span class="file-subtitle">CASTILLO DE AXEL</span>
+          </div>
+        </div>
+        <div class="slot-right">
+          🍄 x05
+        </div>
+      </div>
+
+      <!-- SLOT 3: NOTA EXTRA -->
+      <div class="file-slot">
+        <div class="slot-left">
+          <span class="file-number">3</span>
+          <div class="file-title">
+            NEW GAME / NOTA
+            <span class="file-subtitle">¡TRAER MUCHAS GANAS DE DIVERTIRTE !</span>
+          </div>
+        </div>
+        <div class="slot-right">
+          👑 x01
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TUS LÍNEAS DE BOTONES ORIGINALES INTEGRADAS PERFECTAMENTE -->
+    <div class="buttons">
+      <a class="btn whatsapp" href="https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank">
+        ✅ CONFIRMAR ASISTENCIA
+      </a>
+
+      <a class="btn location" href="https://maps.app.goo.gl/NQrBgCjc7k5AW7UY6" target="_blank">
+        🗺️ VER UBICACIÓN
+      </a>
+
+      <a class="btn calendar" href="#" onclick="alert('📅 La fecha exacta se agregará cuando sea confirmada.'); return false;">
+        📅 AGREGAR AL CALENDARIO
+      </a>
+    </div>
+
+    <div class="footer">
+      🎮 ¡Te esperamos para celebrar juntos! 🎮
+    </div>
+
+  </div>
+
+</body>
+</html>
