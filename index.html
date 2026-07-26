@@ -7,7 +7,7 @@
 <title>🎉 ¡Cumpleaños de Axel Itzae! 🍄</title>
 
 <!-- Fuentes: Google Fonts para Fredoka y Press Start 2P -->
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
 /* =========================
@@ -75,7 +75,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 10px 0;
-  gap: 2px;
+  gap: 0px;
   transform-style: preserve-3d;
   animation: girarLogoBloque 4s infinite linear;
 }
@@ -83,39 +83,40 @@ body {
 .playful-name-line {
   display: flex;
   justify-content: center;
-  gap: 2px;
+  gap: 1px;
   flex-wrap: nowrap;
 }
 
-/* Letras súper gruesas con inclinaciones y desniveles independientes estilo clásico */
+/* Letras gigantes, súper pesadas y con desalineación marcada estilo Mario Bros */
 .letter {
-  font-size: 3.5rem;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 4rem;
   font-weight: 900;
-  /* Sombra perimetral múltiple gigante muy gruesa en negro */
+  /* Sombra perimetral masiva y contorno negro grueso estilo caricatura retro */
   text-shadow: 
-    4px 4px 0px #000, 
-    -4px -4px 0px #000, 
-    4px -4px 0px #000, 
-    -4px 4px 0px #000,
+    5px 5px 0px #000, 
+    -5px -5px 0px #000, 
+    5px -5px 0px #000, 
+    -5px 5px 0px #000,
     0px 6px 0px #000,
-    2px 8px 0px #000,
-    0px 12px 15px rgba(0,0,0,0.8);
+    3px 9px 0px #000,
+    0px 14px 18px rgba(0,0,0,0.85);
   display: inline-block;
   padding: 0 1px;
-  line-height: 0.9;
+  line-height: 0.85;
 }
 
-/* Estilos, colores y rotaciones individuales para simular el relieve y desalineación clásica */
-.l1 { color: #00e5ff; transform: rotate(-8deg) translateY(4px); }
-.l2 { color: #ffeb3b; transform: rotate(4deg) translateY(-2px); }
-.l3 { color: #e52521; transform: rotate(-6deg) translateY(2px); }
-.l4 { color: #76ff03; transform: rotate(6deg) translateY(-4px); }
+/* Inclinaciones, saltos de altura y colores idénticos al concepto clásico */
+.l1 { color: #00e5ff; transform: rotate(-10deg) translateY(6px); }
+.l2 { color: #ffeb3b; transform: rotate(5deg) translateY(-4px); }
+.l3 { color: #e52521; transform: rotate(-8deg) translateY(4px); }
+.l4 { color: #76ff03; transform: rotate(8deg) translateY(-6px); }
 
-.l5 { color: #e52521; transform: rotate(-5deg) translateY(-2px); }
-.l6 { color: #76ff03; transform: rotate(7deg) translateY(4px); }
-.l7 { color: #ffeb3b; transform: rotate(-7deg) translateY(-3px); }
-.l8 { color: #00e5ff; transform: rotate(5deg) translateY(2px); }
-.l9 { color: #ff9100; transform: rotate(-4deg) translateY(-1px); }
+.l5 { color: #e52521; transform: rotate(-6deg) translateY(-4px); }
+.l6 { color: #76ff03; transform: rotate(9deg) translateY(6px); }
+.l7 { color: #ffeb3b; transform: rotate(-9deg) translateY(-5px); }
+.l8 { color: #00e5ff; transform: rotate(6deg) translateY(3px); }
+.l9 { color: #ff9100; transform: rotate(-5deg) translateY(-2px); }
 
 @keyframes girarLogoBloque {
   0% { transform: rotateY(0deg); }
@@ -128,7 +129,7 @@ body {
   text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000;
   font-weight: 900;
   letter-spacing: 0.5px;
-  margin-top: 10px;
+  margin-top: 14px;
   display: block;
 }
 
