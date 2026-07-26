@@ -25,20 +25,24 @@ body {
   font-family: 'Fredoka', sans-serif;
   color: #333;
   
-  /* LECTURA DEL FONDO LOCAL */
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), 
-    url('fondo.jpg'); 
-  
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  
+  /* Centrado de contenido con el video de fondo activo */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px 12px;
+}
+
+/* =========================
+   VIDEO DE FONDO
+========================= */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .container {
@@ -131,7 +135,7 @@ body {
 }
 
 /* =========================
-   DECORACIONES SUPERIORES (IMÁGENES ADJUNTAS SIN FONDO BLANCO)
+   DECORACIONES SUPERIORES
 ========================= */
 .decorations-container {
   display: flex;
@@ -144,13 +148,11 @@ body {
   width: 48px;
   height: 48px;
   object-fit: contain;
-  /* Cambio aquí para eliminar el fondo blanco limpio y unificarlo */
   filter: drop-shadow(0 4px 3px rgba(0,0,0,0.5));
   animation: brincoBloque 1.4s infinite ease-in-out alternate;
   background: transparent;
 }
 
-/* Ocultar el fondo blanco de forma nativa si las imágenes son JPG con fondo blanco */
 .decorations-container img {
   mix-blend-mode: darken;
 }
@@ -443,6 +445,11 @@ body {
 </head>
 
 <body>
+
+  <!-- VIDEO DE FONDO -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="video.mp4" type="video/mp4">
+  </video>
 
   <!-- REPRODUCTOR DE AUDIO -->
   <audio id="background-music" loop>
