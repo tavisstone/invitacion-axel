@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================
-   ENCABEZADO CON LOGO GIRATORIO UNIFICADO
+   ENCABEZADO CON LOGO ESTILO CLÁSICO
 ========================= */
 .playful-header {
   margin-bottom: 15px;
@@ -75,7 +75,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 10px 0;
-  gap: 4px;
+  gap: 2px;
   transform-style: preserve-3d;
   animation: girarLogoBloque 4s infinite linear;
 }
@@ -83,31 +83,39 @@ body {
 .playful-name-line {
   display: flex;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
   flex-wrap: nowrap;
 }
 
-/* Letras gigantes con estilo fijo para formar el logo */
+/* Letras súper gruesas con inclinaciones y desniveles independientes estilo clásico */
 .letter {
   font-size: 3.5rem;
   font-weight: 900;
-  text-shadow: 5px 5px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 0px 8px 15px rgba(0,0,0,0.7);
+  /* Sombra perimetral múltiple gigante muy gruesa en negro */
+  text-shadow: 
+    4px 4px 0px #000, 
+    -4px -4px 0px #000, 
+    4px -4px 0px #000, 
+    -4px 4px 0px #000,
+    0px 6px 0px #000,
+    2px 8px 0px #000,
+    0px 12px 15px rgba(0,0,0,0.8);
   display: inline-block;
   padding: 0 1px;
-  line-height: 1;
+  line-height: 0.9;
 }
 
-/* Colores fijos para cada letra del logo */
-.l1 { color: #ff2222; }
-.l2 { color: #ffeb3b; }
-.l3 { color: #00e5ff; }
-.l4 { color: #76ff03; }
+/* Estilos, colores y rotaciones individuales para simular el relieve y desalineación clásica */
+.l1 { color: #00e5ff; transform: rotate(-8deg) translateY(4px); }
+.l2 { color: #ffeb3b; transform: rotate(4deg) translateY(-2px); }
+.l3 { color: #e52521; transform: rotate(-6deg) translateY(2px); }
+.l4 { color: #76ff03; transform: rotate(6deg) translateY(-4px); }
 
-.l5 { color: #ff4081; }
-.l6 { color: #ff9100; }
-.l7 { color: #00e5ff; }
-.l8 { color: #76ff03; }
-.l9 { color: #ffeb3b; }
+.l5 { color: #e52521; transform: rotate(-5deg) translateY(-2px); }
+.l6 { color: #76ff03; transform: rotate(7deg) translateY(4px); }
+.l7 { color: #ffeb3b; transform: rotate(-7deg) translateY(-3px); }
+.l8 { color: #00e5ff; transform: rotate(5deg) translateY(2px); }
+.l9 { color: #ff9100; transform: rotate(-4deg) translateY(-1px); }
 
 @keyframes girarLogoBloque {
   0% { transform: rotateY(0deg); }
@@ -452,11 +460,11 @@ body {
 
   <div class="container">
 
-    <!-- ENCABEZADO CON LOGO COMPLETO GIRATORIO -->
+    <!-- ENCABEZADO CON LOGO COMPLETO ESTILO CLÁSICO -->
     <header class="playful-header">
       <span class="playful-invitacion">¡ESTÁS INVITADO!</span>
       
-      <!-- LOGO UNIFICADO (AXEL ARRIBA, ITZAE ABAJO) QUE GIRA JUNTO -->
+      <!-- LOGO UNIFICADO CON INCLINACIONES Y GROSOR CLÁSICO QUE GIRA JUNTO -->
       <div class="playful-logo-container">
         <!-- LÍNEA 1: AXEL -->
         <div class="playful-name-line">
