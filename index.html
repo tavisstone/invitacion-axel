@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================
-   ENCABEZADO CON NOMBRE GIRATORIO
+   ENCABEZADO CON LOGO GIRATORIO UNIFICADO
 ========================= */
 .playful-header {
   margin-bottom: 15px;
@@ -65,16 +65,19 @@ body {
   text-shadow: 3px 3px 0px #000;
   letter-spacing: 1px;
   font-weight: 900;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   display: block;
 }
 
-.playful-name-box {
+/* Contenedor principal que gira TODO EL BLOQUE (Logo) al unísono */
+.playful-logo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px 0;
   gap: 4px;
+  transform-style: preserve-3d;
+  animation: girarLogoBloque 4s infinite linear;
 }
 
 .playful-name-line {
@@ -84,7 +87,7 @@ body {
   flex-wrap: nowrap;
 }
 
-/* Letras gigantes con animación de giro sobre su propio eje */
+/* Letras gigantes con estilo fijo para formar el logo */
 .letter {
   font-size: 3.5rem;
   font-weight: 900;
@@ -92,23 +95,21 @@ body {
   display: inline-block;
   padding: 0 1px;
   line-height: 1;
-  transform-style: preserve-3d;
-  animation: girarEje 3s infinite linear;
 }
 
-/* Secuencia de colores y retrasos en el giro para cada letra */
-.l1 { color: #ff2222; animation-delay: 0s; }
-.l2 { color: #ffeb3b; animation-delay: 0.3s; }
-.l3 { color: #00e5ff; animation-delay: 0.6s; }
-.l4 { color: #76ff03; animation-delay: 0.9s; }
+/* Colores fijos para cada letra del logo */
+.l1 { color: #ff2222; }
+.l2 { color: #ffeb3b; }
+.l3 { color: #00e5ff; }
+.l4 { color: #76ff03; }
 
-.l5 { color: #ff4081; animation-delay: 1.2s; }
-.l6 { color: #ff9100; animation-delay: 1.5s; }
-.l7 { color: #00e5ff; animation-delay: 1.8s; }
-.l8 { color: #76ff03; animation-delay: 2.1s; }
-.l9 { color: #ffeb3b; animation-delay: 2.4s; }
+.l5 { color: #ff4081; }
+.l6 { color: #ff9100; }
+.l7 { color: #00e5ff; }
+.l8 { color: #76ff03; }
+.l9 { color: #ffeb3b; }
 
-@keyframes girarEje {
+@keyframes girarLogoBloque {
   0% { transform: rotateY(0deg); }
   100% { transform: rotateY(360deg); }
 }
@@ -451,10 +452,12 @@ body {
 
   <div class="container">
 
-    <!-- ENCABEZADO CON NOMBRE GIRATORIO EN PROPIO EJE -->
+    <!-- ENCABEZADO CON LOGO COMPLETO GIRATORIO -->
     <header class="playful-header">
       <span class="playful-invitacion">¡ESTÁS INVITADO!</span>
-      <div class="playful-name-box">
+      
+      <!-- LOGO UNIFICADO (AXEL ARRIBA, ITZAE ABAJO) QUE GIRA JUNTO -->
+      <div class="playful-logo-container">
         <!-- LÍNEA 1: AXEL -->
         <div class="playful-name-line">
           <span class="letter l1">A</span>
@@ -471,6 +474,7 @@ body {
           <span class="letter l9">E</span>
         </div>
       </div>
+
       <span class="playful-nivel">¡FINAL LEVEL: CUMPLEAÑOS 3!</span>
     </header>
 
