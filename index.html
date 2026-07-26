@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -91,7 +92,6 @@ body {
   font-family: 'Fredoka', sans-serif;
   font-size: 4rem;
   font-weight: 900;
-  /* Sombra perimetral masiva y contorno negro grueso estilo caricatura retro */
   text-shadow: 
     5px 5px 0px #000, 
     -5px -5px 0px #000, 
@@ -105,7 +105,6 @@ body {
   line-height: 0.85;
 }
 
-/* Inclinaciones, saltos de altura y colores idénticos al concepto clásico */
 .l1 { color: #00e5ff; transform: rotate(-10deg) translateY(6px); }
 .l2 { color: #ffeb3b; transform: rotate(5deg) translateY(-4px); }
 .l3 { color: #e52521; transform: rotate(-8deg) translateY(4px); }
@@ -117,7 +116,6 @@ body {
 .l8 { color: #00e5ff; transform: rotate(6deg) translateY(3px); }
 .l9 { color: #ff9100; transform: rotate(-5deg) translateY(-2px); }
 
-/* Animación de rebote constante para el logo completo */
 @keyframes reboteLogoBloque {
   0% { transform: translateY(0px); }
   100% { transform: translateY(-10px); }
@@ -134,7 +132,7 @@ body {
 }
 
 /* =========================
-   BLOQUES AMARILLOS "?" 
+   DECORACIONES SUPERIORES (IMÁGENES ADJUNTAS SIN FONDO)
 ========================= */
 .decorations-container {
   display: flex;
@@ -143,30 +141,23 @@ body {
   margin-bottom: 20px;
 }
 
-.lucky-block {
-  width: 44px;
-  height: 44px;
-  background: #f2a900;
-  border: 4px solid #000;
-  border-radius: 4px;
-  box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 5px 0px rgba(0,0,0,0.3);
-  font-family: 'Press Start 2P', monospace;
-  color: #fff;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-shadow: 2px 2px 0px #b57602;
+.mario-icon-decor {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  /* Esta propiedad elimina visualmente el fondo blanco si la imagen es JPG plano */
+  mix-blend-mode: multiply; 
+  filter: drop-shadow(0 4px 3px rgba(0,0,0,0.4));
   animation: brincoBloque 1.4s infinite ease-in-out alternate;
 }
 
-.lucky-block:nth-child(2) { animation-delay: 0.3s; }
-.lucky-block:nth-child(3) { animation-delay: 0.6s; }
+.decorations-container .mario-icon-decor:nth-child(2) { animation-delay: 0.3s; }
+.decorations-container .mario-icon-decor:nth-child(3) { animation-delay: 0.6s; }
 
 @keyframes brincoBloque {
-  0% { transform: translateY(0); box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 5px 0px rgba(0,0,0,0.3); }
-  50% { transform: translateY(-8px); box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 13px 8px rgba(0,0,0,0.25); }
-  100% { transform: translateY(0); box-shadow: inset -4px -4px 0px #b57602, inset 4px 4px 0px #ffdf7a, 0 5px 0px rgba(0,0,0,0.3); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
 }
 
 /* =========================
@@ -192,14 +183,13 @@ body {
   cursor: pointer;
   animation: movimientoSecuencial 3s infinite ease-in-out alternate;
   transition: filter 0.1s ease, border 0.2s ease, opacity 0.3s ease;
-  opacity: 0.65; /* Transparencia por defecto para los no seleccionados */
+  opacity: 0.65; /* Transparencia por defecto en los no seleccionados */
 }
 
 .file-slot:hover {
   filter: brightness(0.95);
 }
 
-/* Cuando un cuadro está seleccionado: se quita la transparencia y se ilumina el borde */
 .file-slot.active {
   border: 4px solid #f29f05;
   opacity: 1; 
@@ -496,11 +486,11 @@ body {
       <span class="playful-nivel">¡FINAL LEVEL: CUMPLEAÑOS 3!</span>
     </header>
 
-    <!-- CUADROS "?" -->
+    <!-- IMÁGENES ADJUNTAS (Hongo, Caparazón y Estrella) CON ANIMACIÓN -->
     <div class="decorations-container">
-      <div class="lucky-block">?</div>
-      <div class="lucky-block">?</div>
-      <div class="lucky-block">?</div>
+      <img src="1135.jpg" alt="Hongo" class="mario-icon-decor">
+      <img src="1137.jpg" alt="Caparazón" class="mario-icon-decor">
+      <img src="1139.jpg" alt="Estrella" class="mario-icon-decor">
     </div>
 
     <!-- TARJETAS INFORMATIVAS INTERACTIVAS -->
@@ -621,15 +611,12 @@ body {
 
     /* CONTROL DE SELECCIÓN DE SLOTS Y MODALES */
     function seleccionarSlot(slotNum) {
-      // 1. Quitar la clase 'active' a todos los slots (y aplicarles transparencia inactiva)
       const allSlots = document.querySelectorAll('.file-slot');
       allSlots.forEach(slot => slot.classList.remove('active'));
 
-      // 2. Agregar la clase 'active' solo al slot presionado (eliminando su transparencia)
       const currentSlot = document.getElementById('slot-' + slotNum);
       currentSlot.classList.add('active');
 
-      // 3. Mostrar el mensaje modal correspondiente
       const modal = document.getElementById('gameModal');
       const msgBox = document.getElementById('modalMessage');
       
@@ -674,3 +661,5 @@ body {
 
 </body>
 </html>
+
+```
