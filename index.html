@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================
-   ENCABEZADO ANIMADO CON NOMBRE MÁS GRANDE
+   ENCABEZADO ANIMADO CON NOMBRE GIGANTE A DOS LÍNEAS
 ========================= */
 .playful-header {
   margin-bottom: 15px;
@@ -60,64 +60,64 @@ body {
 }
 
 .playful-invitacion {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: #fff;
   text-shadow: 3px 3px 0px #000;
   letter-spacing: 1px;
   font-weight: 900;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   display: block;
   
   animation: brincoLetras 2.5s infinite ease-in-out;
 }
 
 .playful-name-box {
-  display: block;
-  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px 0;
+  gap: 4px;
   
   animation: brincoLetras 1.8s infinite ease-in-out;
   animation-delay: 0.6s;
 }
 
-.playful-name {
+.playful-name-line {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 3px;
+  gap: 4px;
   flex-wrap: nowrap;
 }
 
-/* Letras de AXEL ITZAE con tamaño más grande y llamativo */
+/* Letras gigantes y súper llamativas estilo título arcade */
 .letter {
-  font-size: 2.8rem;
+  font-size: 3.5rem;
   font-weight: 900;
-  text-shadow: 4px 4px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 0px 6px 12px rgba(0,0,0,0.6);
+  text-shadow: 5px 5px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 0px 8px 15px rgba(0,0,0,0.7);
   display: inline-block;
   padding: 0 1px;
+  line-height: 1;
 }
 
-/* Secuencia de colores brillantes estilo arcade */
-.letter:nth-child(1) { color: #ff2222; transform: rotate(-8deg) scale(1.1); }
-.letter:nth-child(2) { color: #ffeb3b; transform: rotate(6deg) scale(1.05); }
-.letter:nth-child(3) { color: #00e5ff; transform: rotate(-5deg) scale(1.1); }
-.letter:nth-child(4) { color: #76ff03; transform: rotate(7deg) scale(1.05); }
-/* Espacio vacío (separador de nombre y apellido) */
-.letter-space {
-  width: 14px;
-}
-.letter:nth-child(6) { color: #ff4081; transform: rotate(-6deg) scale(1.1); }
-.letter:nth-child(7) { color: #ff9100; transform: rotate(5deg) scale(1.05); }
-.letter:nth-child(8) { color: #00e5ff; transform: rotate(-7deg) scale(1.1); }
-.letter:nth-child(9) { color: #76ff03; transform: rotate(6deg) scale(1.05); }
-.letter:nth-child(10) { color: #ffeb3b; transform: rotate(-4deg) scale(1.1); }
+/* Secuencia de colores brillantes por letra */
+.l1 { color: #ff2222; transform: rotate(-6deg) scale(1.05); }
+.l2 { color: #ffeb3b; transform: rotate(4deg) scale(1.02); }
+.l3 { color: #00e5ff; transform: rotate(-5deg) scale(1.05); }
+.l4 { color: #76ff03; transform: rotate(5deg) scale(1.02); }
+
+.l5 { color: #ff4081; transform: rotate(-5deg) scale(1.05); }
+.l6 { color: #ff9100; transform: rotate(4deg) scale(1.02); }
+.l7 { color: #00e5ff; transform: rotate(-6deg) scale(1.05); }
+.l8 { color: #76ff03; transform: rotate(5deg) scale(1.02); }
+.l9 { color: #ffeb3b; transform: rotate(-4deg) scale(1.05); }
 
 .playful-nivel {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   color: #fcd85c;
   text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000;
   font-weight: 900;
   letter-spacing: 0.5px;
-  margin-top: 6px;
+  margin-top: 8px;
   display: block;
   
   animation: brincoLetras 1.8s infinite ease-in-out;
@@ -126,7 +126,7 @@ body {
 
 @keyframes brincoLetras {
   0%, 100% { transform: translateY(0); }
-  30% { transform: translateY(-12px); }
+  30% { transform: translateY(-10px); }
   60% { transform: translateY(0); }
 }
 
@@ -459,21 +459,24 @@ body {
 
   <div class="container">
 
-    <!-- ENCABEZADO DE COLORES CON MOVIMIENTO ESCALONADO -->
+    <!-- ENCABEZADO DE COLORES CON NOMBRE GIGANTE EN DOS LÍNEAS -->
     <header class="playful-header">
-      <span class="playful-invitacion">¡ESTAS INVITADO!</span>
+      <span class="playful-invitacion">¡ESTÁS INVITADO!</span>
       <div class="playful-name-box">
-        <div class="playful-name">
-          <span class="letter">A</span>
-          <span class="letter">X</span>
-          <span class="letter">E</span>
-          <span class="letter">L</span>
-          <span class="letter-space"></span>
-          <span class="letter">I</span>
-          <span class="letter">T</span>
-          <span class="letter">Z</span>
-          <span class="letter">A</span>
-          <span class="letter">E</span>
+        <!-- LÍNEA 1: AXEL -->
+        <div class="playful-name-line">
+          <span class="letter l1">A</span>
+          <span class="letter l2">X</span>
+          <span class="letter l3">E</span>
+          <span class="letter l4">L</span>
+        </div>
+        <!-- LÍNEA 2: ITZAE -->
+        <div class="playful-name-line">
+          <span class="letter l5">I</span>
+          <span class="letter l6">T</span>
+          <span class="letter l7">Z</span>
+          <span class="letter l8">A</span>
+          <span class="letter l9">E</span>
         </div>
       </div>
       <span class="playful-nivel">¡FINAL LEVEL: CUMPLEAÑOS 3!</span>
