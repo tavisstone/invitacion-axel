@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================
-   ENCABEZADO ANIMADO CON NOMBRE GIGANTE A DOS LÍNEAS
+   ENCABEZADO CON NOMBRE GIRATORIO
 ========================= */
 .playful-header {
   margin-bottom: 15px;
@@ -67,19 +67,14 @@ body {
   font-weight: 900;
   margin-bottom: 4px;
   display: block;
-  
-  animation: brincoLetras 2.5s infinite ease-in-out;
 }
 
 .playful-name-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 8px 0;
+  margin: 10px 0;
   gap: 4px;
-  
-  animation: brincoLetras 1.8s infinite ease-in-out;
-  animation-delay: 0.6s;
 }
 
 .playful-name-line {
@@ -89,7 +84,7 @@ body {
   flex-wrap: nowrap;
 }
 
-/* Letras gigantes y súper llamativas estilo título arcade */
+/* Letras gigantes con animación de giro sobre su propio eje */
 .letter {
   font-size: 3.5rem;
   font-weight: 900;
@@ -97,19 +92,26 @@ body {
   display: inline-block;
   padding: 0 1px;
   line-height: 1;
+  transform-style: preserve-3d;
+  animation: girarEje 3s infinite linear;
 }
 
-/* Secuencia de colores brillantes por letra */
-.l1 { color: #ff2222; transform: rotate(-6deg) scale(1.05); }
-.l2 { color: #ffeb3b; transform: rotate(4deg) scale(1.02); }
-.l3 { color: #00e5ff; transform: rotate(-5deg) scale(1.05); }
-.l4 { color: #76ff03; transform: rotate(5deg) scale(1.02); }
+/* Secuencia de colores y retrasos en el giro para cada letra */
+.l1 { color: #ff2222; animation-delay: 0s; }
+.l2 { color: #ffeb3b; animation-delay: 0.3s; }
+.l3 { color: #00e5ff; animation-delay: 0.6s; }
+.l4 { color: #76ff03; animation-delay: 0.9s; }
 
-.l5 { color: #ff4081; transform: rotate(-5deg) scale(1.05); }
-.l6 { color: #ff9100; transform: rotate(4deg) scale(1.02); }
-.l7 { color: #00e5ff; transform: rotate(-6deg) scale(1.05); }
-.l8 { color: #76ff03; transform: rotate(5deg) scale(1.02); }
-.l9 { color: #ffeb3b; transform: rotate(-4deg) scale(1.05); }
+.l5 { color: #ff4081; animation-delay: 1.2s; }
+.l6 { color: #ff9100; animation-delay: 1.5s; }
+.l7 { color: #00e5ff; animation-delay: 1.8s; }
+.l8 { color: #76ff03; animation-delay: 2.1s; }
+.l9 { color: #ffeb3b; animation-delay: 2.4s; }
+
+@keyframes girarEje {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
 
 .playful-nivel {
   font-size: 1.25rem;
@@ -117,17 +119,8 @@ body {
   text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000;
   font-weight: 900;
   letter-spacing: 0.5px;
-  margin-top: 8px;
+  margin-top: 10px;
   display: block;
-  
-  animation: brincoLetras 1.8s infinite ease-in-out;
-  animation-delay: 1.2s;
-}
-
-@keyframes brincoLetras {
-  0%, 100% { transform: translateY(0); }
-  30% { transform: translateY(-10px); }
-  60% { transform: translateY(0); }
 }
 
 /* =========================
@@ -359,7 +352,6 @@ body {
   filter: brightness(0.9);
 }
 
-/* Animación de lanzamiento / rebote del caparazón por la pantalla */
 @keyframes shellThrow {
   0% { transform: translate(0, 0) rotate(0deg) scale(1); }
   20% { transform: translate(-100px, -180px) rotate(360deg) scale(1.2); }
@@ -459,7 +451,7 @@ body {
 
   <div class="container">
 
-    <!-- ENCABEZADO DE COLORES CON NOMBRE GIGANTE EN DOS LÍNEAS -->
+    <!-- ENCABEZADO CON NOMBRE GIRATORIO EN PROPIO EJE -->
     <header class="playful-header">
       <span class="playful-invitacion">¡ESTÁS INVITADO!</span>
       <div class="playful-name-box">
