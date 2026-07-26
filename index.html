@@ -549,9 +549,9 @@ body {
         <span class="action-label">VER UBICACIÓN</span>
       </div>
 
-      <!-- ACCIÓN 3: CALENDARIO -->
+      <!-- ACCIÓN 3: CALENDARIO (ENLACE DIRECTO A GOOGLE CALENDAR) -->
       <div class="action-group">
-        <a class="icon-btn icon-btn-calendar" href="#" onclick="alert('📅 La fecha exacta se agregará cuando sea confirmada.'); return false;">
+        <a class="icon-btn icon-btn-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%8E%89+Cumplea%C3%B1os+de+Axel+Itzae+%F0%9F%8E%82&dates=20261107T223000Z/20261108T013000Z&details=%C2%A1Est%C3%A1s+invitado+al+cumplea%C3%B1os+de+Axel+Itzae!+La+misi%C3%B3n+comienza+a+las+16:30+hrs.&location=Castillo+de+Axel" target="_blank">
           📅
         </a>
         <span class="action-label">AGREGAR AL CALENDARIO</span>
@@ -633,12 +633,10 @@ body {
       event.preventDefault();
       const shell = document.getElementById('shellBtn');
       
-      // Evita múltiples clics mientras gira
       if (shell.classList.contains('shell-throwing')) return;
       
       shell.classList.add('shell-throwing');
       
-      // Al terminar la animación (1.2 segundos), abre WhatsApp
       setTimeout(() => {
         shell.classList.remove('shell-throwing');
         const urlWhatsApp = "https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20Itzae%20%F0%9F%8E%89%F0%9F%8E%82";
