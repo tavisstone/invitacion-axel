@@ -25,26 +25,17 @@ body {
   font-family: 'Fredoka', sans-serif;
   color: #333;
   
-  /* Color de respaldo tipo cielo de Mario por si el video carga lento */
-  background-color: #5c94fc; 
+  /* FONDO FIJO ESTABLECIDO */
+  background-image: url('fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px 12px;
-}
-
-/* =========================
-   VIDEO DE FONDO
-========================= */
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
 }
 
 .container {
@@ -137,7 +128,7 @@ body {
 }
 
 /* =========================
-   DECORACIONES SUPERIORES
+   DECORACIONES SUPERIORES (Nuevas imágenes con limpieza de fondo)
 ========================= */
 .decorations-container {
   display: flex;
@@ -147,16 +138,14 @@ body {
 }
 
 .mario-icon-decor {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   filter: drop-shadow(0 4px 3px rgba(0,0,0,0.5));
   animation: brincoBloque 1.4s infinite ease-in-out alternate;
   background: transparent;
-}
-
-.decorations-container img {
-  mix-blend-mode: darken;
+  /* Esto ayuda a ocultar fondos blancos o de cuadros falsos si la imagen no es transparente real */
+  mix-blend-mode: multiply; 
 }
 
 .decorations-container .mario-icon-decor:nth-child(2) { animation-delay: 0.3s; }
@@ -448,12 +437,6 @@ body {
 
 <body>
 
-  <!-- VIDEO DE FONDO CON PRECARGA Y ATRIBUTOS MÓVILES -->
-  <video autoplay muted loop playsinline preload="auto" id="bg-video">
-    <source src="video.mp4" type="video/mp4">
-    Tu navegador no soporta videos de fondo.
-  </video>
-
   <!-- REPRODUCTOR DE AUDIO -->
   <audio id="background-music" loop>
     <source src="cancion.mpeg" type="audio/mpeg">
@@ -500,11 +483,11 @@ body {
       <span class="playful-nivel">¡MI CUMPLEAÑOS NO. 3!</span>
     </header>
 
-    <!-- IMÁGENES ADJUNTAS (Hongo, Caparazón y Estrella) CONECTADAS A TU REPOSITORIO -->
+    <!-- TUS NUEVAS IMÁGENES PNG SUPERIORES -->
     <div class="decorations-container">
-      <img src="1135.jpg" alt="Hongo" class="mario-icon-decor">
-      <img src="1137.jpg" alt="Caparazón" class="mario-icon-decor">
-      <img src="1139.jpg" alt="Estrella" class="mario-icon-decor">
+      <img src="1135.png" alt="Hongos" class="mario-icon-decor">
+      <img src="1137.png" alt="Moneda" class="mario-icon-decor">
+      <img src="1139.png" alt="Bloque" class="mario-icon-decor">
     </div>
 
     <!-- TARJETAS INFORMATIVAS INTERACTIVAS -->
