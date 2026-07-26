@@ -25,7 +25,7 @@ body {
   font-family: 'Fredoka', sans-serif;
   color: #333;
   
-  /* Color de respaldo tipo cielo de Mario por si el video falla o carga lento */
+  /* Color de respaldo tipo cielo de Mario por si el video carga lento */
   background-color: #5c94fc; 
   
   display: flex;
@@ -448,8 +448,8 @@ body {
 
 <body>
 
-  <!-- VIDEO DE FONDO -->
-  <video autoplay muted loop playsinline id="bg-video">
+  <!-- VIDEO DE FONDO CON PRECARGA Y ATRIBUTOS MÓVILES -->
+  <video autoplay muted loop playsinline preload="auto" id="bg-video">
     <source src="video.mp4" type="video/mp4">
     Tu navegador no soporta videos de fondo.
   </video>
