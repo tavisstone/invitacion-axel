@@ -50,7 +50,7 @@ body {
 }
 
 /* =========================
-   ENCABEZADO ANIMADO EN SECUENCIA (UNO DETRÁS DEL OTRO)
+   ENCABEZADO ANIMADO MEJORADO
 ========================= */
 .playful-header {
   margin-bottom: 15px;
@@ -68,16 +68,13 @@ body {
   margin-bottom: 2px;
   display: block;
   
-  /* Animación de brinco de la línea 1 */
   animation: brincoLetras 2.5s infinite ease-in-out;
-  animation-delay: 0s;
 }
 
 .playful-name-box {
   display: block;
-  margin: 5px 0;
+  margin: 8px 0;
   
-  /* Animación de brinco de la línea 2 (AXEL ITZAE) */
   animation: brincoLetras 1.8s infinite ease-in-out;
   animation-delay: 0.6s;
 }
@@ -85,26 +82,33 @@ body {
 .playful-name {
   display: flex;
   justify-content: center;
-  gap: 6px;
-  flex-wrap: wrap;
+  gap: 4px;
+  flex-wrap: nowrap;
 }
 
+/* Letras más coloridas, con mejor separación y alto impacto visual */
 .letter {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 900;
-  text-shadow: 3px 3px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;
+  text-shadow: 3px 3px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 0px 5px 10px rgba(0,0,0,0.5);
   display: inline-block;
+  padding: 0 2px;
 }
-/* Colores dinámicos para AXEL ITZAE */
-.letter:nth-child(1) { color: #e52521; transform: rotate(-6deg); }
-.letter:nth-child(2) { color: #002fbe; transform: rotate(5deg); }
-.letter:nth-child(3) { color: #fcd85c; transform: rotate(-4deg); }
-.letter:nth-child(4) { color: #43b047; transform: rotate(7deg); }
-.letter:nth-child(5) { color: #e52521; transform: rotate(-5deg); }
-.letter:nth-child(6) { color: #f29f05; transform: rotate(4deg); }
-.letter:nth-child(7) { color: #002fbe; transform: rotate(-6deg); }
-.letter:nth-child(8) { color: #43b047; transform: rotate(5deg); }
-.letter:nth-child(9) { color: #fcd85c; transform: rotate(-4deg); }
+
+/* Secuencia de colores brillantes estilo arcade */
+.letter:nth-child(1) { color: #ff2222; transform: rotate(-8deg) scale(1.1); }
+.letter:nth-child(2) { color: #ffeb3b; transform: rotate(6deg) scale(1.05); }
+.letter:nth-child(3) { color: #00e5ff; transform: rotate(-5deg) scale(1.1); }
+.letter:nth-child(4) { color: #76ff03; transform: rotate(7deg) scale(1.05); }
+/* Espacio vacío (separador de nombre y apellido) */
+.letter-space {
+  width: 12px;
+}
+.letter:nth-child(6) { color: #ff4081; transform: rotate(-6deg) scale(1.1); }
+.letter:nth-child(7) { color: #ff9100; transform: rotate(5deg) scale(1.05); }
+.letter:nth-child(8) { color: #00e5ff; transform: rotate(-7deg) scale(1.1); }
+.letter:nth-child(9) { color: #76ff03; transform: rotate(6deg) scale(1.05); }
+.letter:nth-child(10) { color: #ffeb3b; transform: rotate(-4deg) scale(1.1); }
 
 .playful-nivel {
   font-size: 1.3rem;
@@ -115,12 +119,10 @@ body {
   margin-top: 4px;
   display: block;
   
-  /* Animación de brinco de la línea 3 */
   animation: brincoLetras 1.8s infinite ease-in-out;
   animation-delay: 1.2s;
 }
 
-/* Regla del salto para el encabezado */
 @keyframes brincoLetras {
   0%, 100% { transform: translateY(0); }
   30% { transform: translateY(-12px); }
@@ -164,7 +166,7 @@ body {
 }
 
 /* =========================
-   TARJETAS DE INFORMACIÓN (INTERACTIVAS)
+   TARJETAS DE INFORMACIÓN
 ========================= */
 .file-slot {
   background: #ffffff;
@@ -221,7 +223,7 @@ body {
 }
 
 .file-title {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: #000;
   font-weight: 700;
   text-align: left;
@@ -229,7 +231,7 @@ body {
 
 .file-subtitle {
   display: block;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: #333;
   font-family: 'Press Start 2P', monospace;
   margin-top: 6px;
@@ -334,6 +336,7 @@ body {
   100% { transform: translateX(8px); }
 }
 
+/* ESTILO DEL CAPARAZÓN CON ANIMACIÓN DE LANZAMIENTO */
 .icon-btn {
   display: block;
   width: 85px;
@@ -345,12 +348,28 @@ body {
   border-radius: 50%;
   box-shadow: 0 6px 0px #0b1d3a, 0 8px 14px rgba(0,0,0,0.6);
   cursor: pointer;
+  position: relative;
+  z-index: 50;
   transition: transform 0.1s ease, filter 0.1s ease;
 }
 
 .icon-btn:active {
   transform: scale(0.92);
   filter: brightness(0.9);
+}
+
+/* Animación de lanzamiento / rebote del caparazón por la pantalla */
+@keyframes shellThrow {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  20% { transform: translate(-100px, -180px) rotate(360deg) scale(1.2); }
+  40% { transform: translate(120px, -300px) rotate(720deg) scale(1.2); }
+  60% { transform: translate(-90px, -120px) rotate(1080deg) scale(1.2); }
+  80% { transform: translate(80px, -50px) rotate(1440deg) scale(1.1); }
+  100% { transform: translate(0, 0) rotate(1800deg) scale(1); }
+}
+
+.shell-throwing {
+  animation: shellThrow 1.2s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards !important;
 }
 
 .action-label {
@@ -448,7 +467,8 @@ body {
           <span class="letter">X</span>
           <span class="letter">E</span>
           <span class="letter">L</span>
-          <span class="letter" style="margin-left: 9px;">I</span>
+          <span class="letter-space"></span>
+          <span class="letter">I</span>
           <span class="letter">T</span>
           <span class="letter">Z</span>
           <span class="letter">A</span>
@@ -460,9 +480,9 @@ body {
 
     <!-- CUADROS "?" -->
     <div class="decorations-container">
-      <div class="lucky-block">🍄</div>
-      <div class="lucky-block">🍄</div>
-      <div class="lucky-block">3</div>
+      <div class="lucky-block">?</div>
+      <div class="lucky-block">?</div>
+      <div class="lucky-block">?</div>
     </div>
 
     <!-- TARJETAS INFORMATIVAS INTERACTIVAS -->
@@ -515,9 +535,9 @@ body {
     <!-- BOTONES INFERIORES -->
     <div class="buttons">
       
-      <!-- ACCIÓN 1: WHATSAPP -->
+      <!-- ACCIÓN 1: WHATSAPP CON EFECTO DE CAPARAZÓN GIRATORIO -->
       <div class="action-group">
-        <a class="icon-btn" href="https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20Itzae%20%F0%9F%8E%89%F0%9F%8E%82" target="_blank" title="Confirmar Asistencia"></a>
+        <a class="icon-btn" id="shellBtn" href="javascript:void(0);" onclick="lanzarCaparazon(event)" title="Confirmar Asistencia"></a>
         <span class="action-label">✅ CONFIRMAR ASISTENCIA</span>
       </div>
 
@@ -545,7 +565,7 @@ body {
 
   </div>
 
-  <!-- SCRIPTS DE MÚSICA E INTERACTIVIDAD DE LOS SLOTS -->
+  <!-- SCRIPTS DE MÚSICA, MENSAJES Y ANIMACIÓN DEL CAPARAZÓN -->
   <script>
     /* CONTROL DE MÚSICA */
     const music = document.getElementById('background-music');
@@ -589,7 +609,7 @@ body {
       if (slotNum === 1) {
         msgBox.textContent = "La mision es el dia Sabado 7 de Noviembre y la recepción comienza a las 16:30 hrs";
       } else if (slotNum === 2) {
-        msgBox.textContent = "El portal al castillo de Axel esta Infestado por Goombas y custodiado por Bowser, asi que deberás ir directo al mapa para tomar el camino secreto";
+        msgBox.textContent = "El portal al castillo de Axel esta custodiado por Bowser, asi que deberas ir directo al mapa para tomar el camino secreto";
       } else if (slotNum === 3) {
         msgBox.textContent = "Este nivel estara disponible cuando hayas completado la misión";
       }
@@ -606,6 +626,24 @@ body {
       if (event.target === modal) {
         modal.style.display = 'none';
       }
+    }
+
+    /* ANIMACIÓN DEL CAPARAZÓN Y APERTURA DE WHATSAPP */
+    function lanzarCaparazon(event) {
+      event.preventDefault();
+      const shell = document.getElementById('shellBtn');
+      
+      // Evita múltiples clics mientras gira
+      if (shell.classList.contains('shell-throwing')) return;
+      
+      shell.classList.add('shell-throwing');
+      
+      // Al terminar la animación (1.2 segundos), abre WhatsApp
+      setTimeout(() => {
+        shell.classList.remove('shell-throwing');
+        const urlWhatsApp = "https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20Itzae%20%F0%9F%8E%89%F0%9F%8E%82";
+        window.open(urlWhatsApp, '_blank');
+      }, 1200);
     }
   </script>
 
