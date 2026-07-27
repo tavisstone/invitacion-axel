@@ -9,6 +9,9 @@
 <!-- Fuentes: Google Fonts para Fredoka y Press Start 2P -->
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
 
+<!-- Librería de Confeti para la lluvia de estrellas/confeti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
 <style>
 /* =========================
    CONFIGURACIÓN GENERAL
@@ -128,7 +131,7 @@ body {
 }
 
 /* =========================
-   DECORACIONES SUPERIORES (Actualizadas a bloque2.png)
+   DECORACIONES SUPERIORES (bloque2.png interactivas)
 ========================= */
 .decorations-container {
   display: flex;
@@ -144,6 +147,12 @@ body {
   filter: drop-shadow(0 4px 3px rgba(0,0,0,0.5));
   animation: brincoBloque 1.4s infinite ease-in-out alternate;
   background: transparent;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.mario-icon-decor:active {
+  transform: scale(0.85) translateY(4px);
 }
 
 .decorations-container .mario-icon-decor:nth-child(2) { animation-delay: 0.3s; }
@@ -435,9 +444,13 @@ body {
 
 <body>
 
-  <!-- REPRODUCTOR DE AUDIO -->
+  <!-- REPRODUCTORES DE AUDIO -->
   <audio id="background-music" loop>
     <source src="cancion.mpeg" type="audio/mpeg">
+  </audio>
+  
+  <audio id="coin-sound">
+    <source src="coin.mpeg" type="audio/mpeg">
   </audio>
 
   <!-- BOTÓN FLOTANTE DE MÚSICA -->
@@ -481,11 +494,11 @@ body {
       <span class="playful-nivel">¡MI CUMPLEAÑOS NO. 3!</span>
     </header>
 
-    <!-- TUS 3 IMÁGENES SUPERIORES APUNTANDO A bloque2.png -->
+    <!-- TUS 3 BLOQUES SUPERIORES CON EVENTO DE CLIC (COIN SOUND + RACHA) -->
     <div class="decorations-container">
-      <img src="bloque2.png" alt="Decoración 1" class="mario-icon-decor">
-      <img src="bloque2.png" alt="Decoración 2" class="mario-icon-decor">
-      <img src="bloque2.png" alt="Decoración 3" class="mario-icon-decor">
+      <img src="bloque2.png" alt="Bloque 1" class="mario-icon-decor" onclick="tocarBloqueDecorativo()">
+      <img src="bloque2.png" alt="Bloque 2" class="mario-icon-decor" onclick="tocarBloqueDecorativo()">
+      <img src="bloque2.png" alt="Bloque 3" class="mario-icon-decor" onclick="tocarBloqueDecorativo()">
     </div>
 
     <!-- TARJETAS INFORMATIVAS INTERACTIVAS -->
@@ -568,9 +581,9 @@ body {
 
   </div>
 
-  <!-- SCRIPTS DE MÚSICA, MENSAJES Y ANIMACIÓN DEL CAPARAZÓN -->
+  <!-- SCRIPTS -->
   <script>
-    /* CONTROL DE MÚSICA */
+    /* CONTROL DE MÚSICA DE FONDO */
     const music = document.getElementById('background-music');
     const musicToggle = document.getElementById('music-toggle');
     const musicIcon = document.getElementById('music-icon');
@@ -602,6 +615,43 @@ body {
         }).catch(e => {});
       }
     }, { once: true });
+
+
+    /* CONTADOR DE CLICS PARA LOS 3 BLOQUES Y EFECTO DE SONIDO */
+    let clicksBloques = 0;
+
+    function tocarBloqueDecorativo() {
+      // Reproducir sonido de moneda
+      const coinAudio = document.getElementById('coin-sound');
+      coinAudio.currentTime = 0; // Reinicia el audio por si se presiona rápido
+      coinAudio.play().catch(e => console.log("Audio de moneda bloqueado o faltante"));
+
+      // Incrementar contador de toques
+      clicksBloques++;
+
+      // Al llegar a 5 toques (intercalados o seguidos), lanzar confeti y alerta
+      if (clicksBloques === 5) {
+        lanzarLluviaDeEstrellas();
+        
+        const modal = document.getElementById('gameModal');
+        const msgBox = document.getElementById('modalMessage');
+        msgBox.textContent = "⭐ ¡LOGRO DESBLOQUEADO! ⭐\n\n¡Has golpeado los bloques 5 veces! Has descubierto una bonificación secreta para el cumple de Axel Itzae.";
+        modal.style.display = 'flex';
+        
+        // Reiniciar contador para poder volver a desbloquearlo si se desea
+        clicksBloques = 0;
+      }
+    }
+
+    /* LLUVIA DE CONFETI Y ESTRELLAS */
+    function lanzarLluviaDeEstrellas() {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#f2a900', '#e52521', '#00e5ff', '#76ff03', '#ffeb3b']
+      });
+    }
 
 
     /* CONTROL DE SELECCIÓN DE SLOTS Y MODALES */
