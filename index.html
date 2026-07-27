@@ -69,7 +69,6 @@ body {
   display: block;
 }
 
-/* Contenedor principal con animación de Brinco/Rebote estilo plataforma */
 .playful-logo-container {
   display: flex;
   flex-direction: column;
@@ -86,7 +85,6 @@ body {
   flex-wrap: nowrap;
 }
 
-/* Letras gigantes, súper pesadas y con desalineación marcada estilo Mario Bros */
 .letter {
   font-family: 'Fredoka', sans-serif;
   font-size: 4rem;
@@ -131,7 +129,7 @@ body {
 }
 
 /* =========================
-   DECORACIONES SUPERIORES (bloque2.png interactivas)
+   DECORACIONES SUPERIORES
 ========================= */
 .decorations-container {
   display: flex;
@@ -257,7 +255,7 @@ body {
 }
 
 /* =========================
-   MODAL / RECUADRO ESTILO VIDEOJUEGO
+   MODAL
 ========================= */
 .modal-overlay {
   display: none;
@@ -315,7 +313,7 @@ body {
 }
 
 /* =========================
-   SECCIÓN DE ACCIONES INFERIORES
+   BOTONES INFERIORES
 ========================= */
 .buttons {
   margin-top: 25px;
@@ -343,7 +341,6 @@ body {
   100% { transform: translateX(8px); }
 }
 
-/* ESTILO DEL CAPARAZÓN CON ANIMACIÓN DE LANZAMIENTO */
 .icon-btn {
   display: block;
   width: 85px;
@@ -415,7 +412,7 @@ body {
 }
 
 /* =========================
-   REPRODUCTOR DE MÚSICA FLOTANTE
+   MÚSICA FLOTANTE
 ========================= */
 .music-player {
   position: fixed;
@@ -444,16 +441,16 @@ body {
 
 <body>
 
-  <!-- REPRODUCTORES DE AUDIO -->
-  <audio id="background-music" loop>
+  <!-- REPRODUCTORES DE AUDIO APUNTANDO A LAS EXTENSIONES .mpeg ORIGINALES -->
+  <audio id="background-music" loop preload="auto">
     <source src="cancion.mpeg" type="audio/mpeg">
   </audio>
   
-  <audio id="coin-sound">
+  <audio id="coin-sound" preload="auto">
     <source src="coin.mpeg" type="audio/mpeg">
   </audio>
 
-  <audio id="oneup-sound">
+  <audio id="oneup-sound" preload="auto">
     <source src="1up.mpeg" type="audio/mpeg">
   </audio>
 
@@ -462,7 +459,7 @@ body {
     <span id="music-icon">🎵</span> <span id="music-text">Música: OFF</span>
   </div>
 
-  <!-- VENTANA MODAL / RECUADRO DE TEXTO RETRO -->
+  <!-- VENTANA MODAL -->
   <div class="modal-overlay" id="gameModal" onclick="cerrarModalFuera(event)">
     <div class="modal-box">
       <div class="modal-text" id="modalMessage">Mensaje aquí</div>
@@ -472,20 +469,16 @@ body {
 
   <div class="container">
 
-    <!-- ENCABEZADO CON LOGO COMPLETO Y EFECTO DE REBOTE -->
     <header class="playful-header">
       <span class="playful-invitacion">¡ESTÁS INVITADO!</span>
       
-      <!-- LOGO FIJO ESTILO CLÁSICO CON ANIMACIÓN DE BRINCO/REBOTE -->
       <div class="playful-logo-container">
-        <!-- LÍNEA 1: AXEL -->
         <div class="playful-name-line">
           <span class="letter l1">A</span>
           <span class="letter l2">X</span>
           <span class="letter l3">E</span>
           <span class="letter l4">L</span>
         </div>
-        <!-- LÍNEA 2: ITZAE -->
         <div class="playful-name-line">
           <span class="letter l5">I</span>
           <span class="letter l6">T</span>
@@ -498,17 +491,15 @@ body {
       <span class="playful-nivel">¡MI CUMPLEAÑOS NO. 3!</span>
     </header>
 
-    <!-- TUS 3 BLOQUES SUPERIORES CON EVENTO DE CLIC -->
+    <!-- 3 BLOQUES SUPERIORES -->
     <div class="decorations-container">
       <img src="bloque2.png" alt="Bloque 1" class="mario-icon-decor" onclick="tocarBloqueDecorativo()">
       <img src="bloque2.png" alt="Bloque 2" class="mario-icon-decor" onclick="tocarBloqueDecorativo()">
       <img src="bloque2.png" alt="Bloque 3" class="mario-icon-decor" onclick="tocarBloqueDecorativo()">
     </div>
 
-    <!-- TARJETAS INFORMATIVAS INTERACTIVAS -->
+    <!-- TARJETAS -->
     <div class="slots-wrapper">
-      
-      <!-- SLOT 1: FECHA -->
       <div class="file-slot" id="slot-1" onclick="seleccionarSlot(1)">
         <div class="slot-left">
           <span class="file-number">1</span>
@@ -517,12 +508,9 @@ body {
             <span class="file-subtitle">DETALLES DE MISION</span>
           </div>
         </div>
-        <div class="slot-right">
-          ⏰ 16:30
-        </div>
+        <div class="slot-right">⏰ 16:30</div>
       </div>
 
-      <!-- SLOT 2: UBICACIÓN -->
       <div class="file-slot" id="slot-2" onclick="seleccionarSlot(2)">
         <div class="slot-left">
           <span class="file-number">2</span>
@@ -531,12 +519,9 @@ body {
             <span class="file-subtitle">CONSEJOS / AYUDA</span>
           </div>
         </div>
-        <div class="slot-right">
-          🍄 x10
-        </div>
+        <div class="slot-right">🍄 x10</div>
       </div>
 
-      <!-- SLOT 3: NOTA EXTRA -->
       <div class="file-slot" id="slot-3" onclick="seleccionarSlot(3)">
         <div class="slot-left">
           <span class="file-number">3</span>
@@ -545,38 +530,26 @@ body {
             <span class="file-subtitle">¡AVERIGUA LAS SORPRESAS DEL AFTER!</span>
           </div>
         </div>
-        <div class="slot-right">
-          👑 x03
-        </div>
+        <div class="slot-right">👑 x03</div>
       </div>
-
     </div>
 
     <!-- BOTONES INFERIORES -->
     <div class="buttons">
-      
-      <!-- ACCIÓN 1: WHATSAPP CON EFECTO DE CAPARAZÓN GIRATORIO -->
       <div class="action-group">
         <a class="icon-btn" id="shellBtn" href="javascript:void(0);" onclick="lanzarCaparazon(event)" title="Confirmar Asistencia"></a>
         <span class="action-label">✅ CONFIRMAR ASISTENCIA</span>
       </div>
 
-      <!-- ACCIÓN 2: UBICACIÓN -->
       <div class="action-group">
-        <a class="icon-btn icon-btn-location" href="https://maps.app.goo.gl/NQrBgCjc7k5AW7UY6" target="_blank">
-          🗺️
-        </a>
+        <a class="icon-btn icon-btn-location" href="https://maps.app.goo.gl/NQrBgCjc7k5AW7UY6" target="_blank">🗺️</a>
         <span class="action-label">MAPA / CAMINO SECRETO</span>
       </div>
 
-      <!-- ACCIÓN 3: CALENDARIO -->
       <div class="action-group">
-        <a class="icon-btn icon-btn-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%8E%89+Cumplea%C3%B1os+de+Axel+Itzae+%F0%9F%8E%82&dates=20261107T223000Z/20261108T013000Z&details=%C2%A1Est%C3%A1s+invitado+al+cumplea%C3%B1os+de+Axel+Itzae!+La+misi%C3%B3n+comienza+a+las+16:30+hrs.&location=Castillo+de+Axel" target="_blank">
-          📅
-        </a>
+        <a class="icon-btn icon-btn-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%8E%89+Cumplea%C3%B1os+de+Axel+Itzae+%F0%9F%8E%82&dates=20261107T223000Z/20261108T013000Z&details=%C2%A1Est%C3%A1s+invitado+al+cumplea%C3%B1os+de+Axel+Itzae!+La+misi%C3%B3n+comienza+a+las+16:30+hrs.&location=Castillo+de+Axel" target="_blank">📅</a>
         <span class="action-label">AGREGAR AL CALENDARIO</span>
       </div>
-
     </div>
 
     <div class="footer">
@@ -587,9 +560,7 @@ body {
 
   <!-- SCRIPTS -->
   <script>
-    /* CONTROL DE MÚSICA DE FONDO */
     const music = document.getElementById('background-music');
-    const musicToggle = document.getElementById('music-toggle');
     const musicIcon = document.getElementById('music-icon');
     const musicText = document.getElementById('music-text');
     let isPlaying = false;
@@ -605,40 +576,25 @@ body {
           musicIcon.textContent = '🎶';
           musicText.textContent = 'Música: ON';
           isPlaying = true;
-        }).catch(e => console.log("Reproducción bloqueada por navegador"));
+        }).catch(e => console.log("Reproducción bloqueada:", e));
       }
     }
 
-    document.body.addEventListener('click', function autoPlay() {
-      if (!isPlaying) {
-        music.play().then(() => {
-          musicIcon.textContent = '🎶';
-          musicText.textContent = 'Música: ON';
-          isPlaying = true;
-          document.body.removeEventListener('click', autoPlay);
-        }).catch(e => {});
-      }
-    }, { once: true });
-
-
-    /* CONTROL DE CLICS DE LOS BLOQUES Y LOGRO ÚNICO */
     let clicksBloques = 0;
-    let logroDesbloqueado = false; // Controla si ya salió la pantallita única vez
+    let logroDesbloqueado = false;
 
     function tocarBloqueDecorativo() {
       const coinAudio = document.getElementById('coin-sound');
       const oneUpAudio = document.getElementById('oneup-sound');
 
       if (!logroDesbloqueado) {
-        // Aún no llega a los 5 toques: suena moneda y cuenta
         coinAudio.currentTime = 0;
         coinAudio.play().catch(e => {});
         clicksBloques++;
 
         if (clicksBloques === 5) {
-          logroDesbloqueado = true; // Marca que ya salió
+          logroDesbloqueado = true;
           
-          // Suena 1up exactamente cuando aparece la pantalla del logro
           oneUpAudio.currentTime = 0;
           oneUpAudio.play().catch(e => {});
 
@@ -650,13 +606,11 @@ body {
           modal.style.display = 'flex';
         }
       } else {
-        // Después de la única aparición, los bloques sonarán permanentemente con 1up.mpeg
         oneUpAudio.currentTime = 0;
         oneUpAudio.play().catch(e => {});
       }
     }
 
-    /* LLUVIA DE CONFETI Y ESTRELLAS */
     function lanzarLluviaDeEstrellas() {
       confetti({
         particleCount: 100,
@@ -666,8 +620,6 @@ body {
       });
     }
 
-
-    /* CONTROL DE SELECCIÓN DE SLOTS Y MODALES */
     function seleccionarSlot(slotNum) {
       const allSlots = document.querySelectorAll('.file-slot');
       allSlots.forEach(slot => slot.classList.remove('active'));
@@ -700,7 +652,6 @@ body {
       }
     }
 
-    /* ANIMACIÓN DEL CAPARAZÓN Y APERTURA DE WHATSAPP */
     function lanzarCaparazon(event) {
       event.preventDefault();
       const shell = document.getElementById('shellBtn');
@@ -713,4 +664,9 @@ body {
         shell.classList.remove('shell-throwing');
         const urlWhatsApp = "https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20Itzae%20%F0%9F%8E%89%F0%9F%8E%82";
         window.open(urlWhatsApp, '_blank');
-      }, 1200
+      }, 1200);
+    }
+  </script>
+
+</body>
+</html>
