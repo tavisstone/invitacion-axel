@@ -453,6 +453,10 @@ body {
     <source src="coin.mpeg" type="audio/mpeg">
   </audio>
 
+  <audio id="oneup-sound">
+    <source src="1up.mpeg" type="audio/mpeg">
+  </audio>
+
   <!-- BOTÓN FLOTANTE DE MÚSICA -->
   <div class="music-player" id="music-toggle" onclick="toggleMusic()">
     <span id="music-icon">🎵</span> <span id="music-text">Música: OFF</span>
@@ -494,7 +498,7 @@ body {
       <span class="playful-nivel">¡MI CUMPLEAÑOS NO. 3!</span>
     </header>
 
-    <!-- TUS 3 BLOQUES SUPERIORES CON EVENTO DE CLIC (COIN SOUND + RACHA) -->
+    <!-- TUS 3 BLOQUES SUPERIORES CON EVENTO DE CLIC -->
     <div class="decorations-container">
       <img src="bloque2.png" alt="Bloque 1" class="mario-icon-decor" onclick="tocarBloqueDecorativo()">
       <img src="bloque2.png" alt="Bloque 2" class="mario-icon-decor" onclick="tocarBloqueDecorativo()">
@@ -617,29 +621,38 @@ body {
     }, { once: true });
 
 
-    /* CONTADOR DE CLICS PARA LOS 3 BLOQUES Y EFECTO DE SONIDO */
+    /* CONTROL DE CLICS DE LOS BLOQUES Y LOGRO ÚNICO */
     let clicksBloques = 0;
+    let logroDesbloqueado = false; // Controla si ya salió la pantallita única vez
 
     function tocarBloqueDecorativo() {
-      // Reproducir sonido de moneda
       const coinAudio = document.getElementById('coin-sound');
-      coinAudio.currentTime = 0; // Reinicia el audio por si se presiona rápido
-      coinAudio.play().catch(e => console.log("Audio de moneda bloqueado o faltante"));
+      const oneUpAudio = document.getElementById('oneup-sound');
 
-      // Incrementar contador de toques
-      clicksBloques++;
+      if (!logroDesbloqueado) {
+        // Aún no llega a los 5 toques: suena moneda y cuenta
+        coinAudio.currentTime = 0;
+        coinAudio.play().catch(e => {});
+        clicksBloques++;
 
-      // Al llegar a 5 toques (intercalados o seguidos), lanzar confeti y alerta
-      if (clicksBloques === 5) {
-        lanzarLluviaDeEstrellas();
-        
-        const modal = document.getElementById('gameModal');
-        const msgBox = document.getElementById('modalMessage');
-        msgBox.textContent = "⭐ ¡LOGRO DESBLOQUEADO! ⭐\n\n¡Has descubierto una bonificación secreta para el cumple de Axel Itzae, te espera un shot! sorpresa.";
-        modal.style.display = 'flex';
-        
-        // Reiniciar contador para poder volver a desbloquearlo si se desea
-        clicksBloques = 0;
+        if (clicksBloques === 5) {
+          logroDesbloqueado = true; // Marca que ya salió
+          
+          // Suena 1up exactamente cuando aparece la pantalla del logro
+          oneUpAudio.currentTime = 0;
+          oneUpAudio.play().catch(e => {});
+
+          lanzarLluviaDeEstrellas();
+
+          const modal = document.getElementById('gameModal');
+          const msgBox = document.getElementById('modalMessage');
+          msgBox.textContent = "⭐ ¡LOGRO DESBLOQUEADO! ⭐\n\n¡Has golpeado los bloques 5 veces! Has descubierto una bonificación secreta para el cumple de Axel Itzae.";
+          modal.style.display = 'flex';
+        }
+      } else {
+        // Después de la única aparición, los bloques sonarán permanentemente con 1up.mpeg
+        oneUpAudio.currentTime = 0;
+        oneUpAudio.play().catch(e => {});
       }
     }
 
@@ -700,9 +713,4 @@ body {
         shell.classList.remove('shell-throwing');
         const urlWhatsApp = "https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20Itzae%20%F0%9F%8E%89%F0%9F%8E%82";
         window.open(urlWhatsApp, '_blank');
-      }, 1200);
-    }
-  </script>
-
-</body>
-</html>
+      }, 1200
