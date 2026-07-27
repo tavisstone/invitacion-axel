@@ -441,7 +441,7 @@ body {
 
 <body>
 
-  <!-- REPRODUCTORES DE AUDIO APUNTANDO A LAS EXTENSIONES .mpeg ORIGINALES -->
+  <!-- REPRODUCTORES DE AUDIO -->
   <audio id="background-music" loop preload="auto">
     <source src="cancion.mpeg" type="audio/mpeg">
   </audio>
@@ -580,6 +580,17 @@ body {
       }
     }
 
+    // DISPARADOR GLOBAL CLÁSICO Y DIRECTO AL TOQUE DE LA PANTALLA
+    document.addEventListener('click', function iniciarAudioGlobal() {
+      if (!isPlaying) {
+        music.play().then(() => {
+          musicIcon.textContent = '🎶';
+          musicText.textContent = 'Música: ON';
+          isPlaying = true;
+        }).catch(e => {});
+      }
+    });
+
     let clicksBloques = 0;
     let logroDesbloqueado = false;
 
@@ -602,7 +613,7 @@ body {
 
           const modal = document.getElementById('gameModal');
           const msgBox = document.getElementById('modalMessage');
-          msgBox.textContent = "⭐ ¡LOGRO DESBLOQUEADO! ⭐\n\n¡Has descubierto una bonificación secreta para el cumple de Axel, obtubiste un shot sorpresa!.";
+          msgBox.textContent = "⭐ ¡LOGRO DESBLOQUEADO! ⭐\n\n¡Has golpeado los bloques 5 veces! Has descubierto una bonificación secreta para el cumple de Axel Itzae.";
           modal.style.display = 'flex';
         }
       } else {
@@ -631,7 +642,7 @@ body {
       const msgBox = document.getElementById('modalMessage');
       
       if (slotNum === 1) {
-        msgBox.textContent = "¡Una nueva aventura comienza! La misión inicia el 7 de noviembre del 2026. La hora de encuentro para la celebración es a las 16:30 hrs.";
+        msgBox.textContent = "¡Una nueva aventura comienza! La misión principal inicia el 7 de noviembre. El punto de encuentro para la celebración es a las 16:30 hrs.";
       } else if (slotNum === 2) {
         msgBox.textContent = "El portal al castillo de Axel esta custodiado por BOWSER, asi que deberas ir directo al mapa para tomar el camino secreto";
       } else if (slotNum === 3) {
