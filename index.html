@@ -553,7 +553,7 @@ body {
       </div>
 
       <div class="action-group">
-        <a class="icon-btn icon-btn-calendar" href="javascript:void(0);" onclick="abrirCalendarioMovil()">
+        <a class="icon-btn icon-btn-calendar" href="javascript:void(0);" onclick="abrirCalendarioDirecto()">
           <svg viewBox="0 0 24 24">
             <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
           </svg>
@@ -688,29 +688,22 @@ body {
       }, 1200);
     }
 
-    // FUNCIONALIDAD PARA ABRIR EN APP DE CALENDARIO DEL MÓVIL
-    function abrirCalendarioMovil() {
-      const icsData = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//Invitacion Axel Itzae//ES",
-        "BEGIN:VEVENT",
-        "SUMMARY:🎉 Cumpleaños de Axel Itzae 🎂",
-        "DESCRIPTION:¡Estás invitado al cumpleaños de Axel Itzae! La misión comienza a las 16:30 hrs.",
-        "LOCATION:Castillo de Axel",
-        "DTSTART:20261107T223000Z",
-        "DTEND:20261108T013000Z",
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ].join("\n");
+    // ABRIR DIRECTAMENTE EN LA APP SIN DESCARGA DE ARCHIVO
+    function abrirCalendarioDirecto() {
+      const title = encodeURIComponent("🎉 Cumpleaños de Axel Itzae 🎂");
+      const details = encodeURIComponent("¡Estás invitado al cumpleaños de Axel Itzae! La misión comienza a las 16:30 hrs.");
+      const location = encodeURIComponent("Castillo de Axel");
+      const dates = "20261107T223000Z/20261108T013000Z";
 
-      const blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
-      const link = document.createElement("a");
-      link.href = window.URL.createObjectURL(blob);
-      link.setAttribute("download", "cumpleanos-axel.ics");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const isAndroid = /Android/i.test(navigator.userAgent);
+
+      if (isAndroid) {
+        // Dispara el intent nativo de Android para abrir la app de calendario
+        window.location.href = `intent://calendar/event?title=${title}&description=${details}&eventLocation=${location}&beginTime=1794090600000&endTime=1794101400000#Intent;scheme=content;package=com.google.android.calendar;end`;
+      } else {
+        // En iOS / Safari o WebView abre directamente la pantalla de guardar evento
+        window.location.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
+      }
     }
   </script>
 
