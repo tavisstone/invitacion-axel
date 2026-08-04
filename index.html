@@ -553,7 +553,7 @@ body {
       </div>
 
       <div class="action-group">
-        <a class="icon-btn icon-btn-calendar" href="javascript:void(0);" onclick="abrirCalendarioDirecto()">
+        <a class="icon-btn icon-btn-calendar" id="calendarLink" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%8E%89+Cumplea%C3%B1os+de+Axel+Itzae+%F0%9F%8E%82&dates=20261107T223000Z/20261108T013000Z&details=%C2%A1Est%C3%A1s+invitado+al+cumplea%C3%B1os+de+Axel+Itzae!+La+misi%C3%B3n+comienza+a+las+16:30+hrs.&location=Castillo+de+Axel" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24">
             <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
           </svg>
@@ -686,24 +686,6 @@ body {
         const urlWhatsApp = "https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20Itzae%20%F0%9F%8E%89%F0%9F%8E%82";
         window.open(urlWhatsApp, '_blank');
       }, 1200);
-    }
-
-    // ABRIR DIRECTAMENTE EN LA APP SIN DESCARGA DE ARCHIVO
-    function abrirCalendarioDirecto() {
-      const title = encodeURIComponent("🎉 Cumpleaños de Axel Itzae 🎂");
-      const details = encodeURIComponent("¡Estás invitado al cumpleaños de Axel Itzae! La misión comienza a las 16:30 hrs.");
-      const location = encodeURIComponent("Castillo de Axel");
-      const dates = "20261107T223000Z/20261108T013000Z";
-
-      const isAndroid = /Android/i.test(navigator.userAgent);
-
-      if (isAndroid) {
-        // Dispara el intent nativo de Android para abrir la app de calendario
-        window.location.href = `intent://calendar/event?title=${title}&description=${details}&eventLocation=${location}&beginTime=1794090600000&endTime=1794101400000#Intent;scheme=content;package=com.google.android.calendar;end`;
-      } else {
-        // En iOS / Safari o WebView abre directamente la pantalla de guardar evento
-        window.location.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
-      }
     }
   </script>
 
