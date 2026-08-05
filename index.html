@@ -454,6 +454,11 @@ body {
     <source src="1up.mpeg" type="audio/mpeg">
   </audio>
 
+  <!-- NUEVO REPRODUCTOR DE SELECCIÓN -->
+  <audio id="selection-sound" preload="auto">
+    <source src="selection.mpeg" type="audio/mpeg">
+  </audio>
+
   <!-- BOTÓN FLOTANTE DE MÚSICA -->
   <div class="music-player" id="music-toggle" onclick="toggleMusic()">
     <span id="music-icon">🎵</span> <span id="music-text">Música: OFF</span>
@@ -632,6 +637,11 @@ body {
     }
 
     function seleccionarSlot(slotNum) {
+      // Reproducir sonido de selección
+      const selectionAudio = document.getElementById('selection-sound');
+      selectionAudio.currentTime = 0;
+      selectionAudio.play().catch(e => {});
+
       const allSlots = document.querySelectorAll('.file-slot');
       allSlots.forEach(slot => slot.classList.remove('active'));
 
@@ -653,12 +663,22 @@ body {
     }
 
     function cerrarModal() {
+      // Reproducir sonido de selección al presionar OK
+      const selectionAudio = document.getElementById('selection-sound');
+      selectionAudio.currentTime = 0;
+      selectionAudio.play().catch(e => {});
+
       document.getElementById('gameModal').style.display = 'none';
     }
 
     function cerrarModalFuera(event) {
       const modal = document.getElementById('gameModal');
       if (event.target === modal) {
+        // Reproducir sonido de selección también si se cierra haciendo clic fuera
+        const selectionAudio = document.getElementById('selection-sound');
+        selectionAudio.currentTime = 0;
+        selectionAudio.play().catch(e => {});
+
         modal.style.display = 'none';
       }
     }
