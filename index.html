@@ -547,7 +547,7 @@ body {
       </div>
 
       <div class="action-group">
-        <a class="icon-btn icon-btn-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%8E%89+Cumplea%C3%B1os+de+Axel+Itzae+%F0%9F%8E%82&dates=20261107T223000Z/20261108T013000Z&details=%C2%A1Est%C3%A1s+invitado+al+cumplea%C3%B1os+de+Axel+Itzae!+La+misi%C3%B3n+comienza+a+las+16:30+hrs.&location=Castillo+de+Axel" target="_blank">📅</a>
+        <a class="icon-btn icon-btn-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%F0%9F%8E%89+Cumplea%C3%B1os+de+Axel+Itzae+%F0%9F%8E%82&dates=20261107T223000Z/20261108T013000Z&details=%C2%A1Est%C3%A1s+invitado+al+cumplea%C3%B1os+de+Axel+Itzae!+La+misi%C3%B3n+comienza+a+las+16:30+hrs.&location=Castillo+de+Axel" target="_blank">🗓️</a>
         <span class="action-label">AGREGAR AL CALENDARIO</span>
       </div>
     </div>
@@ -580,8 +580,8 @@ body {
       }
     }
 
-    // DISPARADOR GLOBAL CLÁSICO Y DIRECTO AL TOQUE DE LA PANTALLA
-    document.addEventListener('click', function iniciarAudioGlobal() {
+    // DISPARADOR GLOBAL RESTAURADO: Captura cualquier toque en la página para iniciar el audio
+    window.addEventListener('click', function iniciarAudioGlobal() {
       if (!isPlaying) {
         music.play().then(() => {
           musicIcon.textContent = '🎶';
@@ -589,7 +589,7 @@ body {
           isPlaying = true;
         }).catch(e => {});
       }
-    });
+    }, { once: false });
 
     let clicksBloques = 0;
     let logroDesbloqueado = false;
