@@ -454,9 +454,12 @@ body {
     <source src="1up.mpeg" type="audio/mpeg">
   </audio>
 
-  <!-- NUEVO REPRODUCTOR DE SELECCIÓN -->
   <audio id="selection-sound" preload="auto">
     <source src="selection.mpeg" type="audio/mpeg">
+  </audio>
+
+  <audio id="mario-sound" preload="auto">
+    <source src="mario.mpeg" type="audio/mpeg">
   </audio>
 
   <!-- BOTÓN FLOTANTE DE MÚSICA -->
@@ -585,7 +588,6 @@ body {
       }
     }
 
-    // DISPARADOR GLOBAL RESTAURADO: Captura cualquier toque en la página para iniciar el audio
     window.addEventListener('click', function iniciarAudioGlobal() {
       if (!isPlaying) {
         music.play().then(() => {
@@ -637,7 +639,6 @@ body {
     }
 
     function seleccionarSlot(slotNum) {
-      // Reproducir sonido de selección
       const selectionAudio = document.getElementById('selection-sound');
       selectionAudio.currentTime = 0;
       selectionAudio.play().catch(e => {});
@@ -663,7 +664,6 @@ body {
     }
 
     function cerrarModal() {
-      // Reproducir sonido de selección al presionar OK
       const selectionAudio = document.getElementById('selection-sound');
       selectionAudio.currentTime = 0;
       selectionAudio.play().catch(e => {});
@@ -674,7 +674,6 @@ body {
     function cerrarModalFuera(event) {
       const modal = document.getElementById('gameModal');
       if (event.target === modal) {
-        // Reproducir sonido de selección también si se cierra haciendo clic fuera
         const selectionAudio = document.getElementById('selection-sound');
         selectionAudio.currentTime = 0;
         selectionAudio.play().catch(e => {});
@@ -685,17 +684,23 @@ body {
 
     function lanzarCaparazon(event) {
       event.preventDefault();
+      
+      const marioAudio = document.getElementById('mario-sound');
+      marioAudio.currentTime = 0;
+      marioAudio.play().catch(e => {});
+
       const shell = document.getElementById('shellBtn');
       
       if (shell.classList.contains('shell-throwing')) return;
       
       shell.classList.add('shell-throwing');
       
+      // Se añade un retraso de 700ms para permitir que el sonido de Mario termine de reproducirse antes de abrir WhatsApp
       setTimeout(() => {
         shell.classList.remove('shell-throwing');
         const urlWhatsApp = "https://wa.me/525583638487?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Axel%20Itzae%20%F0%9F%8E%89%F0%9F%8E%82";
         window.open(urlWhatsApp, '_blank');
-      }, 1200);
+      }, 700);
     }
   </script>
 
